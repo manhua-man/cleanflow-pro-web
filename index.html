@@ -713,8 +713,8 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
       </a>
     </div>
     <p class="cta-note reveal d3">
-      <span class="zh">Windows 10 / 11（64 位）· 单文件 ~10.6 MB · 120/120 单元测试全绿</span>
-      <span class="en">Windows 10 / 11 (64-bit) · Single binary ~10.6 MB · 120/120 Unit Tests Passing</span>
+      <span class="zh">Windows 10 / 11（64 位）· 单文件 ~11.2 MB · 124/124 单元测试全绿</span>
+      <span class="en">Windows 10 / 11 (64-bit) · Single binary ~11.2 MB · 124/124 Unit Tests Passing</span>
     </p>
 
     <!-- Hero Interactive Desk / Spotlight Playground -->
@@ -754,6 +754,7 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
               <!-- Quick Chips -->
               <div class="query-chips" id="query-chips">
                 <span class="q-chip active" data-q="wechat">微信/企微专清 (WeChat)</span>
+                <span class="q-chip" data-q="hardlink">硬链接去重 &amp; 云盘脱水</span>
                 <span class="q-chip" data-q="hiberfil">C 盘巨无霸瘦身</span>
                 <span class="q-chip" data-q="node_modules">node_modules 软搬家</span>
                 <span class="q-chip" data-q="docker">Ollama / Docker 跨盘</span>
@@ -1067,20 +1068,24 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
       </div>
     </div>
 
-    <!-- Real v0.5.0 Desktop Screenshots Gallery -->
+    <!-- Real v0.5.0 Desktop Screenshots Gallery (Interactive Lightbox) -->
     <div class="reveal d3" style="margin-top: 36px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <span style="font-size:13px; font-weight:600; color:var(--text-2);"><span class="zh">v0.5.0 Obsidian 亚克力桌面端实机画廊（点击任意截图可全屏高清放大检视）</span><span class="en">v0.5.0 Obsidian Acrylic Desktop Gallery (Click any screenshot to zoom)</span></span>
+        <span style="font-size:11px; font-family:var(--mono); color:#0078d4; background:rgba(0,120,212,0.1); padding:2px 8px; border-radius:99px;">CLICK TO ZOOM</span>
+      </div>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
-        <div style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow-card);">
+        <div onclick="openShotLightbox('assets/screenshot_studio_dashboard.png', 'CleanFlow Studio · 黑曜石亚克力主仪表盘与 10GB+ 深度扩容直通栏', '首屏直达微信/企微专清、3-Tier 硬链接去重、C 盘巨无霸向导与回收站核验')" style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow-card); cursor: zoom-in; transition: transform .22s cubic-bezier(.16,1,.3,1), border-color .22s; position: relative;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(0,120,212,0.45)';" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)';">
           <img src="assets/screenshot_studio_dashboard.png" alt="CleanFlow Studio 一键清理与 10GB+ 扩容直通栏" style="width: 100%; border-radius: 8px; border: 1px solid var(--line);" loading="lazy" />
-          <div style="margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--text);"><span class="zh">CleanFlow Studio · 一键清理与扩容直通栏</span><span class="en">CleanFlow Studio · One-Click Clean &amp; Expansion</span></div>
-          <div style="font-size: 12px; color: var(--text-3);"><span class="zh">首屏直达微信/企微专清、C 盘巨无霸向导与回收站核验</span><span class="en">Direct access to WeChat cleaner, OS slimming &amp; Recycle Bin verify</span></div>
+          <div style="margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--text);"><span class="zh">CleanFlow Studio · 黑曜石亚克力主仪表盘</span><span class="en">CleanFlow Studio · Obsidian Acrylic Dashboard</span></div>
+          <div style="font-size: 12px; color: var(--text-3);"><span class="zh">首屏直达微信/企微专清、3-Tier 硬链接去重、C 盘巨无霸向导与回收站核验</span><span class="en">Direct access to WeChat cleaner, 3-Tier Hardlink Dedup &amp; OS slimming</span></div>
         </div>
-        <div style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow-card);">
+        <div onclick="openShotLightbox('assets/screenshot_flow_search_everyday.png', 'CleanFlow Flow · 0.18ms 全盘秒搜与 Space 零解压极速预览', '双击 Ctrl 随叫随到，支持拼音简拼、1-Edit 容错纠偏与 ZIP/JAR 中央目录零解压透视')" style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow-card); cursor: zoom-in; transition: transform .22s cubic-bezier(.16,1,.3,1), border-color .22s; position: relative;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(0,120,212,0.45)';" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)';">
           <img src="assets/screenshot_flow_search_everyday.png" alt="CleanFlow Flow 全盘毫秒秒搜与 Space 预览" style="width: 100%; border-radius: 8px; border: 1px solid var(--line);" loading="lazy" />
           <div style="margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--text);"><span class="zh">CleanFlow Flow · 全盘秒搜与 Space 极速预览</span><span class="en">CleanFlow Flow · Instant Search &amp; Space QuickLook</span></div>
           <div style="font-size: 12px; color: var(--text-3);"><span class="zh">双击 Ctrl 呼出，支持拼音简拼、1-Edit 纠错与压缩包零解压透视</span><span class="en">Double-tap Ctrl with Pinyin initials &amp; zero-extract ZIP preview</span></div>
         </div>
-        <div style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow-card);">
+        <div onclick="openShotLightbox('assets/screenshot_workspace_auditor.png', '智能空间体检 · 微信/下载/工程目录穿透与云盘脱水治理', '启发式识别重复编号副本 (1)/(2)、下载碎片、编译构建缓存与云同步盘常驻缓存')" style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow-card); cursor: zoom-in; transition: transform .22s cubic-bezier(.16,1,.3,1), border-color .22s; position: relative;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(0,120,212,0.45)';" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)';">
           <img src="assets/screenshot_workspace_auditor.png" alt="智能空间体检与目录深度净化" style="width: 100%; border-radius: 8px; border: 1px solid var(--line);" loading="lazy" />
           <div style="margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--text);"><span class="zh">智能空间体检 · 微信/下载/工程目录穿透</span><span class="en">Workspace Auditor · Deep Folder Inspection</span></div>
           <div style="font-size: 12px; color: var(--text-3);"><span class="zh">启发式识别重复编号副本 (1)/(2)、下载碎片与编译构建缓存</span><span class="en">Heuristically detects numbered copies, partial downloads &amp; build caches</span></div>
@@ -1248,7 +1253,7 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
           <div class="txt">
             <span class="zh">Windows 绿色便携包 (.zip)</span>
             <span class="en">Portable Package (.zip)</span>
-            <small>v0.5.0 · 2.85 MB · 免安装</small>
+            <small>v0.5.0 · 4.32 MB · 免安装</small>
           </div>
         </a>
         <a class="btn btn-ghost" href="https://github.com/manhua-man/cleanflow-pro-web/releases/latest" target="_blank" rel="noopener">
@@ -1256,7 +1261,7 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
           <div class="txt">
             <span class="zh">独立 Release 二进制 (.exe)</span>
             <span class="en">Standalone Binary (.exe)</span>
-            <small>10.6 MB · 单文件</small>
+            <small>11.2 MB · 单文件</small>
           </div>
         </a>
       </div>
@@ -1333,6 +1338,20 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
   </div>
 </footer>
 
+<!-- Interactive Screenshot Lightbox Modal -->
+<div id="shot-lightbox" onclick="closeShotLightbox()" style="position:fixed; inset:0; z-index:9999; background:rgba(4,7,14,0.85); backdrop-filter:blur(22px) saturate(160%); -webkit-backdrop-filter:blur(22px) saturate(160%); display:none; align-items:center; justify-content:center; padding:24px; cursor:zoom-out;">
+  <div onclick="event.stopPropagation()" style="max-width:1100px; width:100%; background:var(--surface); border:1px solid var(--line-strong); border-radius:18px; padding:18px; box-shadow:0 32px 80px rgba(0,0,0,0.75); cursor:default;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; gap:12px;">
+      <div>
+        <div id="shot-lightbox-title" style="font-size:16px; font-weight:700; color:var(--text);"></div>
+        <div id="shot-lightbox-desc" style="font-size:13px; color:var(--text-2); margin-top:2px;"></div>
+      </div>
+      <button type="button" class="btn btn-sm btn-ghost" onclick="closeShotLightbox()">关闭 (Esc)</button>
+    </div>
+    <img id="shot-lightbox-img" src="" alt="" style="width:100%; height:auto; border-radius:10px; border:1px solid var(--line);" />
+  </div>
+</div>
+
 <script>
 (function () {
   "use strict";
@@ -1404,6 +1423,27 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
     });
   });
 
+  /* Lightbox Modal */
+  window.openShotLightbox = function (src, title, desc) {
+    var lb = document.getElementById("shot-lightbox");
+    var img = document.getElementById("shot-lightbox-img");
+    var t = document.getElementById("shot-lightbox-title");
+    var d = document.getElementById("shot-lightbox-desc");
+    if (lb && img) {
+      img.src = src;
+      if (t) t.textContent = title || "";
+      if (d) d.textContent = desc || "";
+      lb.style.display = "flex";
+    }
+  };
+  window.closeShotLightbox = function () {
+    var lb = document.getElementById("shot-lightbox");
+    if (lb) lb.style.display = "none";
+  };
+  window.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") window.closeShotLightbox();
+  });
+
   /* ------------------------------------------------------------------ */
   /* Spotlight Interactive Playground & Autoplay Tour                   */
   /* ------------------------------------------------------------------ */
@@ -1422,6 +1462,11 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
       { title: "xwechat_files\\msg\\video (微信过期视频缓存)", sub: "D:\\WeChat Files\\wxid_user\\msg\\video", size: "6.45 GB", icon: "WX", color: "#10b981", act: "social_clean", actText: "安全专清" },
       { title: "FileStorage\\File (重复接收附件 (1)/(2) 副本)", sub: "D:\\WeChat Files\\wxid_user\\FileStorage\\File", size: "3.18 GB", icon: "DUP", color: "#0ea5e9", act: "dedup", actText: "BLAKE3 去重" },
       { title: "db_storage\\message.db (核心聊天记录库)", sub: "D:\\WeChat Files\\wxid_user\\db_storage\\message.db", size: "1.82 GB", icon: "DB", color: "#8b5cf6", act: "protected", actText: "红线保护中" }
+    ],
+    "hardlink": [
+      { title: "model-q4_k_m.gguf (跨目录重复模型权重 · 3 份副本)", sub: "D:\\AI_Models\\llama3\\model-q4_k_m.gguf", size: "9.40 GB", icon: "LNK", color: "#8b5cf6", act: "hardlink_dedup", actText: "硬链接零拷贝去重" },
+      { title: "OneDrive\\Design_Assets_2025.zip (长期未用云端本地缓存)", sub: "D:\\OneDrive\\Archive\\Design_Assets_2025.zip", size: "4.15 GB", icon: "CLD", color: "#0ea5e9", act: "cloud_evict", actText: "Cloud Filter 脱水" },
+      { title: "Windows 保留存储 (ReserveManager 系统预留区)", sub: "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ReserveManager", size: "7.12 GB", icon: "DISM", color: "#10b981", act: "slim_os", actText: "释放预留空间" }
     ],
     "hiberfil": [
       { title: "hiberfil.sys (Windows 休眠映像巨无霸)", sub: "C:\\hiberfil.sys", size: "12.80 GB", icon: "SYS", color: "#f59e0b", act: "slim_os", actText: "安全释放" },
@@ -1502,13 +1547,23 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
       btn.style.background = "#0ea5e9";
       btn.style.color = "#fff";
       showToast("BLAKE3 去重完成", "自动保留最早原件，安全移除重复接收的 (1)/(2) 副本 3.18 GB");
+    } else if (action === "hardlink_dedup") {
+      btn.textContent = "已硬链接 (释放 9.4GB)";
+      btn.style.background = "#8b5cf6";
+      btn.style.color = "#fff";
+      showToast("NTFS 硬链接零拷贝去重成功", "CreateHardLinkW 共享同一物理 Inode，释放 9.40 GB 且原路径全部照常读写");
+    } else if (action === "cloud_evict") {
+      btn.textContent = "已转为纯云端占位";
+      btn.style.background = "#0ea5e9";
+      btn.style.color = "#fff";
+      showToast("Cloud Filter (cldapi) 脱水成功", "已安全腾退本地扇区 4.15 GB，云端数据与资源管理器占位符 100% 完好");
     } else if (action === "protected") {
       showToast("物理熔断红线保护中", "db_storage 与 Msg\\*.db 核心聊天记录受硬编码保护，绝不触碰");
     } else if (action === "slim_os") {
-      btn.textContent = "已释放 12.8 GB";
+      btn.textContent = "已释放空间";
       btn.style.background = "#f59e0b";
       btn.style.color = "#fff";
-      showToast("C 盘巨无霸瘦身完成", "已安全关闭冗余休眠映像，瞬间归还 C 盘 12.80 GB 连续空间");
+      showToast("C 盘巨无霸瘦身完成", "已安全释放系统休眠映像/保留存储，瞬间归还 C 盘连续物理空间");
     } else if (action === "preview") {
       btn.textContent = "零解压透视中";
       btn.style.background = "#10b981";
@@ -1584,7 +1639,7 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
   /* Autoplay Cinema Engine (Interactive Desktop Tour)                  */
   /* ------------------------------------------------------------------ */
   var tourIndex = 0;
-  var tourKeys = ["wechat", "hiberfil", "node_modules", "docker", "workspace"];
+  var tourKeys = ["wechat", "hardlink", "hiberfil", "node_modules", "docker", "workspace"];
   var isInteracting = false;
   var tourTimer = null;
   var userInactivityTimer = null;
