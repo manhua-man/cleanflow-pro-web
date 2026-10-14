@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
-<link rel="canonical" href="https://manhua-man.github.io/cleanflow-pro-web/">
+<link rel="canonical" href="https://manhua-man.github.io/cleanflow-pro/">
 
 <script>
 (function () {
@@ -569,6 +569,126 @@ html[data-os="win"] .os-toggle [data-os-btn="win"], html[data-os="mac"] .os-togg
 .kcard h3 + .krow { border-top: 0; }
 .krow .k { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; font-size: 13px; flex: none; max-width: 60%; }
 
+/* Pricing Grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+  align-items: stretch;
+}
+@media (max-width: 960px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.price-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 28px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: transform .24s cubic-bezier(.16,1,.3,1), border-color .24s;
+}
+.price-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+}
+.price-card.featured {
+  background: linear-gradient(180deg, rgba(0, 120, 212, 0.08) 0%, var(--surface) 28%);
+  border-color: rgba(0, 120, 212, 0.45);
+  box-shadow: var(--shadow-shot);
+}
+.price-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--chip);
+  color: var(--text-2);
+  margin-bottom: 16px;
+  width: fit-content;
+}
+.price-card.featured .price-badge {
+  background: linear-gradient(92deg, #0078d4, #10b981);
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 120, 212, 0.35);
+}
+.price-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 6px;
+}
+.price-desc {
+  font-size: 13px;
+  color: var(--text-3);
+  margin: 0 0 20px;
+  min-height: 36px;
+  line-height: 1.45;
+}
+.price-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.price-amount .currency {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-2);
+}
+.price-amount .period {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-3);
+  margin-left: 4px;
+}
+.price-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  flex: 1;
+}
+.price-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.4;
+}
+.price-features li svg {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  color: #10b981;
+  margin-top: 2px;
+}
+.price-features li.pro-highlight {
+  color: var(--text);
+  font-weight: 600;
+}
+.price-features li.pro-highlight svg {
+  color: #0078d4;
+}
+
 /* Download & Steps */
 .dl {
   position: relative; text-align: center; padding: clamp(48px, 7vw, 80px) clamp(20px, 5vw, 64px);
@@ -650,6 +770,7 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
       <a href="#features"><span class="zh">功能矩阵</span><span class="en">Features</span></a>
       <a href="#privacy"><span class="zh">隐私</span><span class="en">Privacy</span></a>
       <a href="#shortcuts"><span class="zh">快捷键</span><span class="en">Shortcuts</span></a>
+      <a href="#pricing"><span class="zh">版本定价</span><span class="en">Pricing</span></a>
       <a href="#faq"><span class="zh">常见问题</span><span class="en">FAQ</span></a>
     </nav>
     <div class="nav-actions">
@@ -713,8 +834,8 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
       </a>
     </div>
     <p class="cta-note reveal d3">
-      <span class="zh">Windows 10 / 11（64 位）· 单文件 ~11.2 MB · 124/124 单元测试全绿</span>
-      <span class="en">Windows 10 / 11 (64-bit) · Single binary ~11.2 MB · 124/124 Unit Tests Passing</span>
+      <span class="zh">Windows 10 / 11（64 位）· 单文件 ~11.2 MB · 126/126 单元测试全绿</span>
+      <span class="en">Windows 10 / 11 (64-bit) · Single binary ~11.2 MB · 126/126 Unit Tests Passing</span>
     </p>
 
     <!-- Hero Interactive Desk / Spotlight Playground -->
@@ -1261,6 +1382,139 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
   </div>
 </section>
 
+<!-- Section 6.5: Pricing -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow"><span class="zh">商业授权与定价</span><span class="en">Pricing &amp; Editions</span></span>
+      <h2><span class="zh">透明定价，<br>为真正的极客生产力买单。</span><span class="en">Transparent Pricing.<br>Built for Ultimate Productivity.</span></h2>
+      <p class="lead">
+        <span class="zh">100% 本地离线运行，零遥测、零广告。社区版功能永久免费开放；升级 Pro 专业版，畅享底层磁盘黑科技与全盘资产治理中枢。</span>
+        <span class="en">100% Local offline with zero telemetry and zero ads. Community tier is free forever; upgrade to Pro to unlock bare-metal disk power and full asset governance.</span>
+      </p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Tier 1: Community Free -->
+      <div class="price-card reveal">
+        <div class="price-badge"><span class="zh">永久免费</span><span class="en">Free Forever</span></div>
+        <h3 class="price-title"><span class="zh">社区免费版</span><span class="en">Community Edition</span></h3>
+        <p class="price-desc"><span class="zh">专为日常基础文件定位与轻量磁盘清理设计，绿色纯净零打扰。</span><span class="en">Designed for daily instant file search and lightweight storage hygiene.</span></p>
+        <div class="price-amount">
+          <span class="currency">￥</span>0
+          <span class="period"><span class="zh">/ 终身免费</span><span class="en">/ Forever</span></span>
+        </div>
+        <ul class="price-features">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">NTFS 裸卷 MFT 毫秒级直读秒搜</span><span class="en">Bare-metal NTFS MFT instant search</span></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">拼音简拼、全拼与 1-Edit 智能容错纠错</span><span class="en">Pinyin acronyms &amp; 1-Edit typo tolerance</span></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">基础全盘空间分布透视与常规缓存扫描</span><span class="en">Basic storage distribution &amp; cache scan</span></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">100% 本地离线 · 零云端遥测 · 零弹窗推广</span><span class="en">100% Local offline, zero telemetry, zero ads</span></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">单文件绿色便携 · 常驻内存 &lt; 25 MB</span><span class="en">Single portable binary, memory &lt; 25 MB</span></span>
+          </li>
+        </ul>
+        <a class="btn btn-ghost" href="#download" style="width:100%; justify-content:center;">
+          <span class="zh">免费下载体验</span><span class="en">Download Free</span>
+        </a>
+      </div>
+
+      <!-- Tier 2: Pro Lifetime (Featured) -->
+      <div class="price-card featured reveal d1">
+        <div class="price-badge"><span class="zh">最受推崇 · 一次买断</span><span class="en">Most Popular · Lifetime</span></div>
+        <h3 class="price-title"><span class="zh">专业极客版 (Pro)</span><span class="en">Professional Pro</span></h3>
+        <p class="price-desc"><span class="zh">解锁全部底层系统黑科技，专为程序员、极客与重度数字资产管理者打造。</span><span class="en">Unlocks all bare-metal engineering capabilities for developers and power users.</span></p>
+        <div class="price-amount">
+          <span class="currency">￥</span>69
+          <span style="font-size:16px; font-weight:normal; color:var(--text-3); text-decoration:line-through; margin-left:6px;">￥129</span>
+          <span class="period"><span class="zh">/ 一次买断 · 终身有效</span><span class="en">/ One-time purchase · Lifetime</span></span>
+        </div>
+        <ul class="price-features">
+          <li class="pro-highlight">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">包含社区版全部核心检索与基础功能</span><span class="en">Includes all Community search &amp; baseline features</span></span>
+          </li>
+          <li class="pro-highlight">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">双击 Ctrl 呼出全局 Spotlight 毫秒悬浮中枢</span><span class="en">Double-tap Ctrl global Spotlight launcher hub</span></span>
+          </li>
+          <li class="pro-highlight">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">独创 NTFS 零拷贝硬链接去重 (无损净省数十 GB)</span><span class="en">Zero-copy NTFS hardlink deduplication</span></span>
+          </li>
+          <li class="pro-highlight">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">微信/企微/QQ 深度专清与数据库物理熔断保护</span><span class="en">Social cleaner with zero-loss chat DB shield</span></span>
+          </li>
+          <li class="pro-highlight">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">开发者工作区治理与 WSL2 / Docker 镜像物理紧缩</span><span class="en">Workspace auditor &amp; WSL2 / Docker compaction</span></span>
+          </li>
+          <li class="pro-highlight">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">C 盘隐藏巨无霸 4 维调优 (驱动池/休眠/更新缓存)</span><span class="en">OS slimming (DriverStore, Hibernation, Windows Update)</span></span>
+          </li>
+          <li class="pro-highlight">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">支持授权绑定 2 台 PC · Ed25519 离线硬件验签</span><span class="en">2 PCs Activation · Ed25519 offline verification</span></span>
+          </li>
+        </ul>
+        <a class="btn btn-primary" href="#download" style="width:100%; justify-content:center;">
+          <span class="zh">免费试用 / 立即获取 Pro</span><span class="en">Free Trial / Get Pro</span>
+        </a>
+      </div>
+
+      <!-- Tier 3: Team / Enterprise -->
+      <div class="price-card reveal d2">
+        <div class="price-badge"><span class="zh">团队与企业</span><span class="en">Team &amp; Enterprise</span></div>
+        <h3 class="price-title"><span class="zh">企业批量授权</span><span class="en">Enterprise Volume</span></h3>
+        <p class="price-desc"><span class="zh">为工作室、研发团队与中大型企业提供统一席位管理与集中交付。</span><span class="en">Centralized seat allocation and unified licensing for studios and companies.</span></p>
+        <div class="price-amount" style="font-size:30px;">
+          <span class="zh">按需定制</span><span class="en">Custom</span>
+          <span class="period"><span class="zh">/ 阶梯批量折扣</span><span class="en">/ Volume Discount</span></span>
+        </div>
+        <ul class="price-features">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">包含专业版 (Pro) 全部高阶技术特权</span><span class="en">Includes all Pro edition advanced capabilities</span></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">多机批量静默部署与 Windows 域控组策略支持</span><span class="en">Silent deployment &amp; Windows domain GPO support</span></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">统一离线序列号分发与内部席位管理看板</span><span class="en">Centralized license key management console</span></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">增值税专用发票支持与企业对公结算</span><span class="en">Corporate payment &amp; formal VAT invoicing</span></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><span class="zh">专属 VIP 开发者直通响应通道与定制规则</span><span class="en">Direct developer escalation &amp; custom rules</span></span>
+          </li>
+        </ul>
+        <a class="btn btn-ghost" href="https://github.com/manhua-man/cleanflow-pro-web/issues" target="_blank" rel="noopener" style="width:100%; justify-content:center;">
+          <span class="zh">联系企业采购咨询</span><span class="en">Contact for Enterprise</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Section 7: Download -->
 <section class="section" id="download">
   <div class="wrap">
@@ -1269,25 +1523,25 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
       <h2><span class="zh">现在就开始<br>从容治理磁盘。</span><span class="en">Start governing<br>brilliantly.</span></h2>
       <p class="lead" style="margin:0 auto"><span class="zh">免费下载，绿色便携。核心功能完全免费，专业版畅享深度资产治理。</span><span class="en">Free to download, zero install. Free tier for daily cleaning, Pro for advanced governance.</span></p>
       <div class="dl-buttons">
-        <a class="btn btn-primary" href="https://github.com/manhua-man/cleanflow-pro-web/releases/latest" target="_blank" rel="noopener">
+        <a class="btn btn-primary" href="https://github.com/manhua-man/cleanflow-pro-web/releases/download/v0.5.0/CleanFlow-Pro-v0.5.0-win64.zip" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           <div class="txt">
             <span class="zh">Windows 绿色便携包 (.zip)</span>
             <span class="en">Portable Package (.zip)</span>
-            <small>v0.5.0 · 4.32 MB · 免安装</small>
+            <small>v0.5.0 · 4.32 MB · 免安装直链下载</small>
           </div>
         </a>
-        <a class="btn btn-ghost" href="https://github.com/manhua-man/cleanflow-pro-web/releases/latest" target="_blank" rel="noopener">
+        <a class="btn btn-ghost" href="https://github.com/manhua-man/cleanflow-pro-web/releases/download/v0.5.0/cleanflow.exe" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
           <div class="txt">
             <span class="zh">独立 Release 二进制 (.exe)</span>
             <span class="en">Standalone Binary (.exe)</span>
-            <small>11.2 MB · 单文件</small>
+            <small>11.2 MB · 单文件直链下载</small>
           </div>
         </a>
       </div>
       <p class="dl-meta">
-        <span class="zh">版本 0.5.0 · Windows 10 / 11（64 位）· 原生本地离线 · 免费版 + 专业版 · <a href="https://github.com/manhua-man/cleanflow-pro-web/releases">全部版本</a></span>
+        <span class="zh">版本 0.5.0 · Windows 10 / 11（64 位）· 原生本地离线 · 免费版 + 专业版 · <a href="https://github.com/manhua-man/cleanflow-pro-web/releases">全部历史版本</a></span>
         <span class="en">Version 0.5.0 · Windows 10 / 11 (64-bit) · 100% Local Offline · Free &amp; Pro Edition · <a href="https://github.com/manhua-man/cleanflow-pro-web/releases">All releases</a></span>
       </p>
     </div>
