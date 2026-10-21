@@ -445,29 +445,340 @@ html.preview .reveal, html.no-anim .reveal { opacity: 1 !important; transform: n
 .checks li strong { color: var(--text); font-weight: 650; }
 .checks svg { width: 22px; height: 22px; margin-top: 2px; }
 
-/* Benchmark Grid (Industrial Metrics) */
-.benchmark-card {
-  background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius);
-  padding: 24px; box-shadow: var(--shadow-card);
+/* Precision Telemetry Console */
+.telemetry-console {
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-shot);
+  overflow: hidden;
+  margin-top: clamp(36px, 5vw, 52px);
+  position: relative;
 }
-.benchmark-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; }
-.benchmark-header h4 { margin: 0; font-size: 16.5px; font-weight: 700; }
-.benchmark-header span { font-size: 12px; font-family: var(--mono); color: #10b981; }
-.benchmark-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-.benchmark-table th { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line-strong); color: var(--text-3); font-weight: 600; font-size: 12px; }
-.benchmark-table td { padding: 10px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
-.benchmark-table tr:last-child td { border-bottom: 0; }
-.benchmark-table .badge-speed {
-  font-family: var(--mono); font-weight: 700; color: #10b981; background: rgba(16, 185, 129, 0.12);
-  padding: 2px 7px; border-radius: 4px; font-size: 12px; display: inline-block;
+
+.tele-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 24px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
 }
-.benchmark-table .badge-slow {
-  font-family: var(--mono); font-weight: 600; color: #ef4444; background: rgba(239, 68, 68, 0.1);
-  padding: 2px 7px; border-radius: 4px; font-size: 12px; display: inline-block;
+
+.tele-status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  color: var(--text-2);
+  text-transform: uppercase;
 }
-.benchmark-table .badge-boost {
-  font-family: var(--mono); font-weight: 700; color: #3b82f6; background: rgba(59, 130, 246, 0.12);
-  padding: 2px 7px; border-radius: 4px; font-size: 12px; display: inline-block;
+
+.tele-dot-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: telePulse 2s infinite ease-in-out;
+  flex: none;
+}
+@keyframes telePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+.tele-segmented-switch {
+  display: inline-flex;
+  padding: 3px;
+  background: var(--chip);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  gap: 2px;
+}
+
+.tele-seg-btn {
+  background: transparent;
+  border: 0;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap !important;
+}
+
+.tele-seg-btn:hover {
+  color: var(--text);
+}
+
+.tele-seg-btn.active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15), 0 0 0 1px var(--line);
+}
+
+/* KPI Hero Strip (Hairlines Partition, Tabular Nums) */
+.tele-kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.tele-kpi-cell {
+  padding: 22px 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tele-kpi-cell:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 18%;
+  bottom: 18%;
+  width: 1px;
+  background: var(--line);
+}
+
+.tele-kpi-metric {
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 750;
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  white-space: nowrap !important;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.tele-kpi-metric .unit {
+  font-size: 14px;
+  font-weight: 600;
+  color: #10b981;
+  letter-spacing: 0;
+}
+
+.tele-kpi-metric .mult {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0284c7;
+  letter-spacing: 0;
+}
+
+[data-theme="dark"] .tele-kpi-metric .mult {
+  color: #38bdf8;
+}
+
+.tele-kpi-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.tele-kpi-sub {
+  font-size: 11.5px;
+  font-family: var(--mono);
+  color: var(--text-3);
+  margin-top: 3px;
+  white-space: nowrap !important;
+}
+
+/* Telemetry Table Container */
+.tele-panel {
+  display: none;
+}
+.tele-panel.active {
+  display: block;
+}
+
+.tele-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tele-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  text-align: left;
+}
+
+.tele-table th {
+  padding: 12px 20px;
+  background: var(--surface-2);
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--text-3);
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid var(--line-strong);
+  white-space: nowrap !important;
+}
+
+.tele-table td {
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  vertical-align: middle;
+}
+
+.tele-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.tele-table tr:hover td {
+  background: var(--chip);
+}
+
+.tele-table code {
+  font-family: var(--mono);
+  font-size: 12px;
+  background: var(--surface-2);
+  padding: 3px 7px;
+  border-radius: 5px;
+  border: 1px solid var(--line);
+  white-space: nowrap !important;
+  color: var(--text);
+}
+
+.tele-mono-text {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--text-2);
+  white-space: nowrap !important;
+}
+
+.tele-val-pill {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  padding: 2.5px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  white-space: nowrap !important;
+}
+
+.tele-val-pill.fast {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+[data-theme="dark"] .tele-val-pill.fast {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.tele-val-pill.slow {
+  background: rgba(239, 68, 68, 0.08);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+[data-theme="dark"] .tele-val-pill.slow {
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.28);
+}
+
+.tele-val-pill.boost {
+  background: rgba(2, 132, 199, 0.1);
+  color: #0284c7;
+  border: 1px solid rgba(2, 132, 199, 0.25);
+}
+[data-theme="dark"] .tele-val-pill.boost {
+  background: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.28);
+}
+
+/* Console Footer */
+.tele-footer {
+  padding: 12px 24px;
+  background: var(--surface-2);
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--text-3);
+  flex-wrap: wrap;
+}
+
+.tele-footer-tags {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.tele-footer-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tele-footer-tag::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--text-3);
+  opacity: 0.6;
+}
+
+@media (max-width: 860px) {
+  .tele-kpi-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tele-kpi-cell:nth-child(2)::after {
+    display: none;
+  }
+  .tele-kpi-cell:nth-child(1), .tele-kpi-cell:nth-child(2) {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 680px) {
+  .tele-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .tele-segmented-switch {
+    width: 100%;
+  }
+  .tele-seg-btn {
+    flex: 1;
+    text-align: center;
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+  .tele-kpi-cell {
+    padding: 16px;
+  }
+  .tele-kpi-metric {
+    font-size: 24px;
+  }
+  .tele-table th, .tele-table td {
+    padding: 10px 14px;
+  }
 }
 
 /* Studio & Horizon */
@@ -843,82 +1154,107 @@ footer { padding: 52px 0 calc(44px + env(safe-area-inset-bottom)); border-top: 1
       </p>
     </div>
 
-    <!-- Live Performance Benchmark Data -->
-    <div class="reveal d1" style="margin-top: clamp(36px, 5vw, 48px);">
-      <div class="benchmark-card">
-        <div class="benchmark-header">
-          <div>
-            <h4><span class="zh">实机性能压测基准数据（全盘 370 万条 MFT 记录现场实测）</span><span class="en">Real-Machine Benchmark (3.7M MFT Records Under Stress Test)</span></h4>
-            <div style="font-size:12.5px; color:var(--text-3); margin-top:2px;"><span class="zh">基于重构后的盘符定向与流式 MFT 检索内核</span><span class="en">Tested on the refactored drive-targeted and streaming MFT engine</span></div>
-          </div>
-          <span>REAL-DEVICE VERIFIED</span>
+    <!-- Precision Telemetry Console -->
+    <div class="telemetry-console reveal d1">
+      <!-- Top HUD Console Bar -->
+      <div class="tele-topbar">
+        <div class="tele-status-indicator">
+          <span class="tele-dot-pulse"></span>
+          <span><span class="zh">实机现场遥测控制台 · 3,700,000+ MFT 记录现场压测</span><span class="en">Real-Device Telemetry Console · 3.7M MFT Stress Test</span></span>
         </div>
-        <div style="overflow-x:auto;">
-          <table class="benchmark-table">
+        <div class="tele-segmented-switch" role="tablist">
+          <button class="tele-seg-btn active" type="button" role="tab" id="tab-mft" aria-selected="true" data-target="panel-mft">
+            <span class="zh">MFT 流式秒搜基准 (370万条)</span><span class="en">MFT Stream Benchmark</span>
+          </button>
+          <button class="tele-seg-btn" type="button" role="tab" id="tab-win32" aria-selected="false" data-target="panel-win32">
+            <span class="zh">Win32 原生 vs 外部命令</span><span class="en">Native Win32 vs Subprocess</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- KPI Hero Strip (Hairlines Partition, Tabular Nums) -->
+      <div class="tele-kpi-strip">
+        <div class="tele-kpi-cell">
+          <div class="tele-kpi-metric">31.07<span class="unit">ms</span></div>
+          <div class="tele-kpi-label"><span class="zh">C 盘根项瞬时枚举</span><span class="en">C: Root Instant Browse</span></div>
+          <div class="tele-kpi-sub">q=C: · 26 ITEMS</div>
+        </div>
+        <div class="tele-kpi-cell">
+          <div class="tele-kpi-metric">126.2<span class="unit">ms</span></div>
+          <div class="tele-kpi-label"><span class="zh">370 万文件深层穿透</span><span class="en">Deep Keyword Recursion</span></div>
+          <div class="tele-kpi-sub">q=C: cmd · 1,157 HITS</div>
+        </div>
+        <div class="tele-kpi-cell">
+          <div class="tele-kpi-metric">382<span class="mult">×</span></div>
+          <div class="tele-kpi-label"><span class="zh">进程快照原生提速</span><span class="en">Toolhelp32 Snapshot</span></div>
+          <div class="tele-kpi-sub">0.21ms vs 80.4ms</div>
+        </div>
+        <div class="tele-kpi-cell">
+          <div class="tele-kpi-metric">35,000<span class="mult">×</span></div>
+          <div class="tele-kpi-label"><span class="zh">SQLite 内存收缩飞跃</span><span class="en">winsqlite3 Vacuum</span></div>
+          <div class="tele-kpi-sub">0.04ms vs 1,420ms</div>
+        </div>
+      </div>
+
+      <!-- Panel 1: MFT Search Engine -->
+      <div class="tele-panel active" id="panel-mft" role="tabpanel" aria-labelledby="tab-mft">
+        <div class="tele-table-wrap">
+          <table class="tele-table">
             <thead>
               <tr>
-                <th><span class="zh">检索场景</span><span class="en">Scenario</span></th>
-                <th><span class="zh">输入参数</span><span class="en">Query Parameter</span></th>
-                <th><span class="zh">命中条目数</span><span class="en">Hit Count</span></th>
-                <th><span class="zh">响应耗时</span><span class="en">Latency</span></th>
-                <th><span class="zh">性能表现与架构机制</span><span class="en">Architectural Mechanism</span></th>
+                <th style="width:20%;"><span class="zh">检索场景</span><span class="en">Scenario</span></th>
+                <th style="width:18%;"><span class="zh">输入参数</span><span class="en">Query Parameter</span></th>
+                <th style="width:16%;"><span class="zh">命中条目数</span><span class="en">Hit Count</span></th>
+                <th style="width:14%;"><span class="zh">响应耗时</span><span class="en">Latency</span></th>
+                <th style="width:32%;"><span class="zh">性能表现与架构机制</span><span class="en">Architectural Mechanism</span></th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><strong><span class="zh">C 盘纯盘符浅层浏览</span><span class="en">C: Drive Root Browse</span></strong></td>
                 <td><code>q=C:</code></td>
-                <td>26 项 (直属根项)</td>
-                <td><span class="badge-speed">31.07 ms</span></td>
+                <td><span class="tele-mono-text">26 项 (直属根项)</span></td>
+                <td><span class="tele-val-pill fast">31.07 ms</span></td>
                 <td><span class="zh">精准定向根目录，消除全量深层遍历，即点即出</span><span class="en">Instant shallow root lookup without deep disk recursion</span></td>
               </tr>
               <tr>
                 <td><strong><span class="zh">D 盘纯盘符浅层浏览</span><span class="en">D: Drive Root Browse</span></strong></td>
                 <td><code>q=D:</code></td>
-                <td>32 项 (直属根项)</td>
-                <td><span class="badge-speed">23.91 ms</span></td>
+                <td><span class="tele-mono-text">32 项 (直属根项)</span></td>
+                <td><span class="tele-val-pill fast">23.91 ms</span></td>
                 <td><span class="zh">副盘独立缓存快速索引，零等待秒级呈现</span><span class="en">Secondary drive cached index, zero latency</span></td>
               </tr>
               <tr>
                 <td><strong><span class="zh">C 盘指定关键词深层检索</span><span class="en">C: Deep Keyword Search</span></strong></td>
                 <td><code>q=C: cmd</code></td>
-                <td>1,157 项</td>
-                <td><span class="badge-speed">126.21 ms</span></td>
+                <td><span class="tele-mono-text">1,157 项</span></td>
+                <td><span class="tele-val-pill fast">126.21 ms</span></td>
                 <td><span class="zh">定向单盘深层递归与拼音纠偏，流式毫秒输出</span><span class="en">Targeted deep recursion with pinyin typo correction</span></td>
               </tr>
               <tr>
                 <td><strong><span class="zh">全盘巨型资产动态嗅探</span><span class="en">All-Drive Giant Assets</span></strong></td>
                 <td><code>/api/giant-files</code></td>
-                <td>100+ 项 (Top 巨型资产)</td>
-                <td><span class="badge-speed">后台流式</span></td>
+                <td><span class="tele-mono-text">100+ 项 (Top 巨型资产)</span></td>
+                <td><span class="tele-val-pill boost"><span class="zh">后台流式</span><span class="en">Streaming</span></span></td>
                 <td><span class="zh">自动嗅探 C、D、E 全盘 100MB+ 大文件，告别盘符硬编码</span><span class="en">Sniffs 100MB+ assets across all volumes dynamically</span></td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-    </div>
 
-    <!-- Real-Device Benchmark 2: Native Win32 Subprocess Elimination -->
-    <div class="reveal d2" style="margin-top: 20px;">
-      <div class="benchmark-card">
-        <div class="benchmark-header">
-          <div>
-            <h4><span class="zh">底层原生 Win32 API 替代外部控制台程序现场实测</span><span class="en">Low-Level Native Win32 API Benchmark (Subprocess Elimination)</span></h4>
-            <div style="font-size:12.5px; color:var(--text-3); margin-top:2px;"><span class="zh">全量移除 tasklist / reg.exe / where.exe 等偷懒实现，零黑窗口闪烁，火绒与 Defender 零误报</span><span class="en">Eliminated tasklist / reg.exe / where.exe lazy subprocesses; zero console flashing, zero AV flags</span></div>
-          </div>
-          <span>ZERO SUBPROCESSES</span>
-        </div>
-        <div style="overflow-x:auto;">
-          <table class="benchmark-table">
+      <!-- Panel 2: Win32 Subprocess Elimination -->
+      <div class="tele-panel" id="panel-win32" role="tabpanel" aria-labelledby="tab-win32">
+        <div class="tele-table-wrap">
+          <table class="tele-table">
             <thead>
               <tr>
-                <th><span class="zh">功能模块</span><span class="en">Module</span></th>
-                <th><span class="zh">旧版外部命令实现</span><span class="en">Legacy Subprocess</span></th>
-                <th><span class="zh">重构原生底层实现</span><span class="en">Native Win32 API</span></th>
-                <th><span class="zh">旧版耗时</span><span class="en">Legacy Latency</span></th>
-                <th><span class="zh">原生耗时</span><span class="en">Native Latency</span></th>
-                <th><span class="zh">性能飞跃与核心机制</span><span class="en">Speedup &amp; Architecture</span></th>
+                <th style="width:16%;"><span class="zh">功能模块</span><span class="en">Module</span></th>
+                <th style="width:17%;"><span class="zh">旧版外部命令实现</span><span class="en">Legacy Subprocess</span></th>
+                <th style="width:23%;"><span class="zh">重构原生底层实现</span><span class="en">Native Win32 API</span></th>
+                <th style="width:10%;"><span class="zh">旧版耗时</span><span class="en">Legacy</span></th>
+                <th style="width:10%;"><span class="zh">原生耗时</span><span class="en">Native</span></th>
+                <th style="width:24%;"><span class="zh">性能飞跃与核心机制</span><span class="en">Speedup &amp; Architecture</span></th>
               </tr>
             </thead>
             <tbody>
@@ -926,44 +1262,56 @@ footer { padding: 52px 0 calc(44px + env(safe-area-inset-bottom)); border-top: 1
                 <td><strong><span class="zh">进程锁定探测</span><span class="en">Process Lock</span></strong></td>
                 <td><code>tasklist /FO CSV /NH</code></td>
                 <td><code>CreateToolhelp32Snapshot</code></td>
-                <td><span class="badge-slow">80.40 ms</span></td>
-                <td><span class="badge-speed">0.21 ms</span></td>
-                <td><span class="badge-boost">提速 382 倍</span> <span class="zh">内存直读进程快照，杜绝外部子进程派生</span><span class="en">Direct memory snapshot, zero child process</span></td>
+                <td><span class="tele-val-pill slow">80.40 ms</span></td>
+                <td><span class="tele-val-pill fast">0.21 ms</span></td>
+                <td><span class="tele-val-pill boost"><span class="zh">提速 382 倍</span><span class="en">382x Faster</span></span> <span class="zh">内存直读快照，零子进程派生</span><span class="en">Direct memory snapshot, zero child proc</span></td>
               </tr>
               <tr>
-                <td><strong><span class="zh">注册表孤立残留扫描</span><span class="en">Registry Orphan Scan</span></strong></td>
+                <td><strong><span class="zh">注册表残留扫描</span><span class="en">Registry Scan</span></strong></td>
                 <td><code>reg.exe query /s</code></td>
-                <td><code>RegOpenKeyExW + RegEnumKeyExW</code></td>
-                <td><span class="badge-slow">185.30 ms</span></td>
-                <td><span class="badge-speed">0.42 ms</span></td>
-                <td><span class="badge-boost">提速 441 倍</span> <span class="zh">Advapi32 内存枚举，消除管道大文本解析</span><span class="en">Advapi32 direct enum, zero stdout piping</span></td>
+                <td><code>RegOpenKeyExW + EnumKey</code></td>
+                <td><span class="tele-val-pill slow">185.30 ms</span></td>
+                <td><span class="tele-val-pill fast">0.42 ms</span></td>
+                <td><span class="tele-val-pill boost"><span class="zh">提速 441 倍</span><span class="en">441x Faster</span></span> <span class="zh">Advapi32 直读，消除管道大文本</span><span class="en">Advapi32 direct, zero stdout piping</span></td>
               </tr>
               <tr>
-                <td><strong><span class="zh">自启动与残留清理</span><span class="en">Registry Value Delete</span></strong></td>
+                <td><strong><span class="zh">自启动残留清理</span><span class="en">Registry Delete</span></strong></td>
                 <td><code>reg.exe delete /f</code></td>
-                <td><code>RegDeleteTreeW / RegDeleteValueW</code></td>
-                <td><span class="badge-slow">54.10 ms</span></td>
-                <td><span class="badge-speed">0.01 ms</span></td>
-                <td><span class="badge-boost">微秒级调用</span> <span class="zh">原生直接系统调用，安全软件绝不弹窗拦截</span><span class="en">Microsecond syscall, zero antivirus alerts</span></td>
+                <td><code>RegDeleteTreeW / DeleteValueW</code></td>
+                <td><span class="tele-val-pill slow">54.10 ms</span></td>
+                <td><span class="tele-val-pill fast">0.01 ms</span></td>
+                <td><span class="tele-val-pill boost"><span class="zh">微秒级调用</span><span class="en">Microsecond</span></span> <span class="zh">直接系统调用，安全软件绝不弹窗</span><span class="en">Direct syscall, zero AV popups</span></td>
               </tr>
               <tr>
                 <td><strong><span class="zh">SQLite 数据库收缩</span><span class="en">SQLite Vacuum</span></strong></td>
-                <td><code>PowerShell + Roslyn 编译</code></td>
-                <td><code>winsqlite3.dll (sqlite3_open16)</code></td>
-                <td><span class="badge-slow">1,420.00 ms</span></td>
-                <td><span class="badge-speed">0.04 ms</span></td>
-                <td><span class="badge-boost">提速 35,000 倍</span> <span class="zh">零外部运行时，宽字符无损支持中文路径</span><span class="en">Zero runtime overhead, native UTF-16 wide paths</span></td>
+                <td><code>PowerShell + Roslyn</code></td>
+                <td><code>winsqlite3.dll (open16)</code></td>
+                <td><span class="tele-val-pill slow">1,420.00 ms</span></td>
+                <td><span class="tele-val-pill fast">0.04 ms</span></td>
+                <td><span class="tele-val-pill boost"><span class="zh">提速 35,000 倍</span><span class="en">35,000x Faster</span></span> <span class="zh">零外部运行时，宽字符无损中文路径</span><span class="en">Zero runtime, UTF-16 wide paths</span></td>
               </tr>
               <tr>
-                <td><strong><span class="zh">系统浏览器唤起</span><span class="en">Browser Launcher</span></strong></td>
+                <td><strong><span class="zh">系统浏览器唤起</span><span class="en">Browser Launch</span></strong></td>
                 <td><code>cmd.exe /c start</code></td>
                 <td><code>Shell32 ShellExecuteW</code></td>
-                <td><span class="badge-slow">62.00 ms</span></td>
-                <td><span class="badge-speed">0.15 ms</span></td>
-                <td><span class="badge-boost">无痕唤起</span> <span class="zh">彻底根绝控制台黑窗口闪烁与假死</span><span class="en">No black console flicker, clean Win32 launch</span></td>
+                <td><span class="tele-val-pill slow">62.00 ms</span></td>
+                <td><span class="tele-val-pill fast">0.15 ms</span></td>
+                <td><span class="tele-val-pill boost"><span class="zh">无痕唤起</span><span class="en">Clean Launch</span></span> <span class="zh">彻底根绝控制台黑窗口闪烁与假死</span><span class="en">Zero console flashing or freezing</span></td>
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+
+      <!-- Telemetry Console Footer Status -->
+      <div class="tele-footer">
+        <div class="tele-footer-tags">
+          <span class="tele-footer-tag"><span class="zh">实测测试机：Intel Core / PCIe 4.0 NVMe SSD</span><span class="en">Benchmarked on Intel Core / PCIe 4.0 NVMe SSD</span></span>
+          <span class="tele-footer-tag"><span class="zh">纯原生 Win32 系统级调用 · 零黑窗口弹窗</span><span class="en">Pure Win32 syscalls · Zero console popups</span></span>
+          <span class="tele-footer-tag"><span class="zh">火绒 / Defender / 360 零误报</span><span class="en">Zero Antivirus false alarms</span></span>
+        </div>
+        <div style="font-family:var(--mono); font-size:11.5px; color:var(--text-3);">
+          <span>KERNEL: CLEANFLOW RUST 1.85 / WIN32</span>
         </div>
       </div>
     </div>
@@ -1729,6 +2077,28 @@ footer { padding: 52px 0 calc(44px + env(safe-area-inset-bottom)); border-top: 1
       showToast("Junction 搬迁成功", "WeChat 目录物理转移至 D 盘并在原位置建立透明联接，应用零感知照常运行！");
     }, 1200);
   };
+
+  /* Telemetry Segmented Switch */
+  var teleBtns = document.querySelectorAll(".tele-seg-btn");
+  teleBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var targetId = btn.getAttribute("data-target");
+      teleBtns.forEach(function (b) {
+        b.classList.remove("active");
+        b.setAttribute("aria-selected", "false");
+      });
+      btn.classList.add("active");
+      btn.setAttribute("aria-selected", "true");
+
+      document.querySelectorAll(".tele-panel").forEach(function (panel) {
+        panel.classList.remove("active");
+      });
+      var targetPanel = document.getElementById(targetId);
+      if (targetPanel) {
+        targetPanel.classList.add("active");
+      }
+    });
+  });
 
   /* Autoplay Cinema Engine */
   var tourIndex = 0;
