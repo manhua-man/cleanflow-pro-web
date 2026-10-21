@@ -10,6 +10,9 @@
 <meta name="theme-color" content="#07080b" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://manhua-man.github.io/cleanflow-pro-web/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 
 <script>
 (function () {
@@ -69,8 +72,8 @@
   --radius-lg: 18px;
   --radius: 12px;
   --radius-sm: 8px;
-  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", sans-serif;
-  --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI Variable Text", "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", sans-serif;
+  --mono: "JetBrains Mono", "Cascadia Code", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   color-scheme: light;
 }
 
@@ -107,9 +110,15 @@ body {
   font-family: var(--font);
   font-size: 16.5px;
   line-height: 1.6;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+html[data-os="win"] body {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
 }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
@@ -554,12 +563,13 @@ html.preview .reveal, html.no-anim .reveal { opacity: 1 !important; transform: n
 }
 
 .tele-kpi-metric {
-  font-size: clamp(26px, 3.2vw, 36px);
-  font-weight: 750;
+  font-size: clamp(28px, 3.4vw, 38px);
+  font-weight: 700;
   font-family: var(--mono);
   font-variant-numeric: tabular-nums;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  font-feature-settings: "tnum" 1, "zero" 1;
+  line-height: 1;
+  letter-spacing: -0.035em;
   color: var(--text);
   white-space: nowrap !important;
   display: flex;
@@ -568,6 +578,7 @@ html.preview .reveal, html.no-anim .reveal { opacity: 1 !important; transform: n
 }
 
 .tele-kpi-metric .unit {
+  font-family: var(--font);
   font-size: 14px;
   font-weight: 600;
   color: #10b981;
@@ -575,6 +586,7 @@ html.preview .reveal, html.no-anim .reveal { opacity: 1 !important; transform: n
 }
 
 .tele-kpi-metric .mult {
+  font-family: var(--font);
   font-size: 16px;
   font-weight: 700;
   color: #0284c7;
@@ -589,15 +601,18 @@ html.preview .reveal, html.no-anim .reveal { opacity: 1 !important; transform: n
   font-size: 13px;
   font-weight: 600;
   color: var(--text);
-  margin-top: 6px;
+  margin-top: 8px;
   line-height: 1.4;
+  letter-spacing: -0.01em;
 }
 
 .tele-kpi-sub {
-  font-size: 11.5px;
+  font-size: 11px;
   font-family: var(--mono);
+  font-weight: 500;
   color: var(--text-3);
-  margin-top: 3px;
+  margin-top: 4px;
+  letter-spacing: 0.02em;
   white-space: nowrap !important;
 }
 
@@ -617,32 +632,36 @@ html.preview .reveal, html.no-anim .reveal { opacity: 1 !important; transform: n
 .tele-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13.5px;
+  font-size: 13px;
   text-align: left;
 }
 
 .tele-table th {
   padding: 12px 20px;
   background: var(--surface-2);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 650;
   color: var(--text-3);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   border-bottom: 1px solid var(--line-strong);
   white-space: nowrap !important;
 }
 
 .tele-table td {
-  padding: 13px 20px;
+  padding: 14px 20px;
   border-bottom: 1px solid var(--line);
   color: var(--text);
   vertical-align: middle;
+  line-height: 1.5;
 }
 
-.tele-table td strong {
-  font-weight: 600;
+.tele-item-title {
+  font-weight: 550;
+  font-size: 13.5px;
   color: var(--text);
   letter-spacing: -0.01em;
+  display: inline-block;
 }
 
 .tele-table tr:last-child td {
@@ -655,18 +674,20 @@ html.preview .reveal, html.no-anim .reveal { opacity: 1 !important; transform: n
 
 .tele-table code {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 11.5px;
+  font-weight: 500;
   background: var(--surface-2);
-  padding: 3px 7px;
+  padding: 3px 8px;
   border-radius: 5px;
   border: 1px solid var(--line);
   white-space: nowrap !important;
   color: var(--text);
+  letter-spacing: -0.01em;
 }
 
 .tele-mono-text {
   font-family: var(--mono);
-  font-size: 12.5px;
+  font-size: 12px;
   color: var(--text-2);
   white-space: nowrap !important;
 }
@@ -675,10 +696,12 @@ html.preview .reveal, html.no-anim .reveal { opacity: 1 !important; transform: n
   font-family: var(--mono);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
   font-size: 12px;
-  padding: 2.5px 8px;
+  padding: 2.5px 8.5px;
   border-radius: 6px;
   display: inline-flex;
+  letter-spacing: -0.01em;
   align-items: baseline;
   gap: 2px;
   white-space: nowrap !important;
@@ -1219,28 +1242,28 @@ footer { padding: 52px 0 calc(44px + env(safe-area-inset-bottom)); border-top: 1
             </thead>
             <tbody>
               <tr>
-                <td><strong><span class="zh">C 盘纯盘符浅层浏览</span><span class="en">C: Drive Root Browse</span></strong></td>
+                <td><span class="tele-item-title"><span class="zh">C 盘纯盘符浅层浏览</span><span class="en">C: Drive Root Browse</span></span></td>
                 <td><code>q=C:</code></td>
                 <td><span class="tele-mono-text">26 项 (直属根项)</span></td>
                 <td><span class="tele-val-pill fast">31.07 ms</span></td>
                 <td><span class="zh">精准定向根目录，消除全量深层遍历，即点即出</span><span class="en">Instant shallow root lookup without deep disk recursion</span></td>
               </tr>
               <tr>
-                <td><strong><span class="zh">D 盘纯盘符浅层浏览</span><span class="en">D: Drive Root Browse</span></strong></td>
+                <td><span class="tele-item-title"><span class="zh">D 盘纯盘符浅层浏览</span><span class="en">D: Drive Root Browse</span></span></td>
                 <td><code>q=D:</code></td>
                 <td><span class="tele-mono-text">32 项 (直属根项)</span></td>
                 <td><span class="tele-val-pill fast">23.91 ms</span></td>
                 <td><span class="zh">副盘独立缓存快速索引，零等待秒级呈现</span><span class="en">Secondary drive cached index, zero latency</span></td>
               </tr>
               <tr>
-                <td><strong><span class="zh">C 盘指定关键词深层检索</span><span class="en">C: Deep Keyword Search</span></strong></td>
+                <td><span class="tele-item-title"><span class="zh">C 盘指定关键词深层检索</span><span class="en">C: Deep Keyword Search</span></span></td>
                 <td><code>q=C: cmd</code></td>
                 <td><span class="tele-mono-text">1,157 项</span></td>
                 <td><span class="tele-val-pill fast">126.21 ms</span></td>
                 <td><span class="zh">定向单盘深层递归与拼音纠偏，流式毫秒输出</span><span class="en">Targeted deep recursion with pinyin typo correction</span></td>
               </tr>
               <tr>
-                <td><strong><span class="zh">全盘巨型资产动态嗅探</span><span class="en">All-Drive Giant Assets</span></strong></td>
+                <td><span class="tele-item-title"><span class="zh">全盘巨型资产动态嗅探</span><span class="en">All-Drive Giant Assets</span></span></td>
                 <td><code>/api/giant-files</code></td>
                 <td><span class="tele-mono-text">100+ 项 (Top 巨型资产)</span></td>
                 <td><span class="tele-val-pill boost"><span class="zh">后台流式</span><span class="en">Streaming</span></span></td>
@@ -1267,7 +1290,7 @@ footer { padding: 52px 0 calc(44px + env(safe-area-inset-bottom)); border-top: 1
             </thead>
             <tbody>
               <tr>
-                <td><strong><span class="zh">进程锁定探测</span><span class="en">Process Lock</span></strong></td>
+                <td><span class="tele-item-title"><span class="zh">进程锁定探测</span><span class="en">Process Lock</span></span></td>
                 <td><code>tasklist /FO CSV /NH</code></td>
                 <td><code>CreateToolhelp32Snapshot</code></td>
                 <td><span class="tele-val-pill slow">80.40 ms</span></td>
@@ -1275,7 +1298,7 @@ footer { padding: 52px 0 calc(44px + env(safe-area-inset-bottom)); border-top: 1
                 <td><span class="tele-val-pill boost"><span class="zh">提速 382 倍</span><span class="en">382x Faster</span></span> <span class="zh">内存直读快照，零子进程派生</span><span class="en">Direct memory snapshot, zero child proc</span></td>
               </tr>
               <tr>
-                <td><strong><span class="zh">注册表残留扫描</span><span class="en">Registry Scan</span></strong></td>
+                <td><span class="tele-item-title"><span class="zh">注册表残留扫描</span><span class="en">Registry Scan</span></span></td>
                 <td><code>reg.exe query /s</code></td>
                 <td><code>RegOpenKeyExW + EnumKey</code></td>
                 <td><span class="tele-val-pill slow">185.30 ms</span></td>
@@ -1283,7 +1306,7 @@ footer { padding: 52px 0 calc(44px + env(safe-area-inset-bottom)); border-top: 1
                 <td><span class="tele-val-pill boost"><span class="zh">提速 441 倍</span><span class="en">441x Faster</span></span> <span class="zh">Advapi32 直读，消除管道大文本</span><span class="en">Advapi32 direct, zero stdout piping</span></td>
               </tr>
               <tr>
-                <td><strong><span class="zh">自启动残留清理</span><span class="en">Registry Delete</span></strong></td>
+                <td><span class="tele-item-title"><span class="zh">自启动残留清理</span><span class="en">Registry Delete</span></span></td>
                 <td><code>reg.exe delete /f</code></td>
                 <td><code>RegDeleteTreeW / DeleteValueW</code></td>
                 <td><span class="tele-val-pill slow">54.10 ms</span></td>
@@ -1291,7 +1314,7 @@ footer { padding: 52px 0 calc(44px + env(safe-area-inset-bottom)); border-top: 1
                 <td><span class="tele-val-pill boost"><span class="zh">微秒级调用</span><span class="en">Microsecond</span></span> <span class="zh">直接系统调用，安全软件绝不弹窗</span><span class="en">Direct syscall, zero AV popups</span></td>
               </tr>
               <tr>
-                <td><strong><span class="zh">SQLite 数据库收缩</span><span class="en">SQLite Vacuum</span></strong></td>
+                <td><span class="tele-item-title"><span class="zh">SQLite 数据库收缩</span><span class="en">SQLite Vacuum</span></span></td>
                 <td><code>PowerShell + Roslyn</code></td>
                 <td><code>winsqlite3.dll (open16)</code></td>
                 <td><span class="tele-val-pill slow">1,420.00 ms</span></td>
@@ -1299,7 +1322,7 @@ footer { padding: 52px 0 calc(44px + env(safe-area-inset-bottom)); border-top: 1
                 <td><span class="tele-val-pill boost"><span class="zh">提速 35,000 倍</span><span class="en">35,000x Faster</span></span> <span class="zh">零外部运行时，宽字符无损中文路径</span><span class="en">Zero runtime, UTF-16 wide paths</span></td>
               </tr>
               <tr>
-                <td><strong><span class="zh">系统浏览器唤起</span><span class="en">Browser Launch</span></strong></td>
+                <td><span class="tele-item-title"><span class="zh">系统浏览器唤起</span><span class="en">Browser Launch</span></span></td>
                 <td><code>cmd.exe /c start</code></td>
                 <td><code>Shell32 ShellExecuteW</code></td>
                 <td><span class="tele-val-pill slow">62.00 ms</span></td>
