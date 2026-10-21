@@ -26,7 +26,9 @@
   root.lang = lang === "zh" ? "zh-CN" : "en";
 
   var theme;
-  try { theme = localStorage.getItem("cleanflow.site.theme"); } catch (e) {}
+  var themeMatch = /[?&]theme=(light|dark)\b/.exec(location.search);
+  if (themeMatch) theme = themeMatch[1];
+  else try { theme = localStorage.getItem("cleanflow.site.theme"); } catch (e) {}
   if (theme !== "light" && theme !== "dark") {
     theme = "dark";
   }
@@ -635,6 +637,12 @@ html.preview .reveal, html.no-anim .reveal { opacity: 1 !important; transform: n
   border-bottom: 1px solid var(--line);
   color: var(--text);
   vertical-align: middle;
+}
+
+.tele-table td strong {
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
 }
 
 .tele-table tr:last-child td {
@@ -2080,25 +2088,31 @@ footer { padding: 52px 0 calc(44px + env(safe-area-inset-bottom)); border-top: 1
 
   /* Telemetry Segmented Switch */
   var teleBtns = document.querySelectorAll(".tele-seg-btn");
+  function switchTelePanel(targetId) {
+    teleBtns.forEach(function (b) {
+      var isTarget = b.getAttribute("data-target") === targetId;
+      b.classList.toggle("active", isTarget);
+      b.setAttribute("aria-selected", isTarget ? "true" : "false");
+    });
+    document.querySelectorAll(".tele-panel").forEach(function (panel) {
+      panel.classList.remove("active");
+    });
+    var targetPanel = document.getElementById(targetId);
+    if (targetPanel) {
+      targetPanel.classList.add("active");
+    }
+  }
+
   teleBtns.forEach(function (btn) {
     btn.addEventListener("click", function () {
-      var targetId = btn.getAttribute("data-target");
-      teleBtns.forEach(function (b) {
-        b.classList.remove("active");
-        b.setAttribute("aria-selected", "false");
-      });
-      btn.classList.add("active");
-      btn.setAttribute("aria-selected", "true");
-
-      document.querySelectorAll(".tele-panel").forEach(function (panel) {
-        panel.classList.remove("active");
-      });
-      var targetPanel = document.getElementById(targetId);
-      if (targetPanel) {
-        targetPanel.classList.add("active");
-      }
+      switchTelePanel(btn.getAttribute("data-target"));
     });
   });
+
+  var panelMatch = /[?&]panel=(mft|win32)\b/.exec(location.search);
+  if (panelMatch && panelMatch[1] === "win32") {
+    switchTelePanel("panel-win32");
+  }
 
   /* Autoplay Cinema Engine */
   var tourIndex = 0;
