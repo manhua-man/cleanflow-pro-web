@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>CleanFlow Pro · 工业级 Windows 资产治理与全盘毫秒检索中枢</title>
+<title>CleanFlow Pro · Windows 空间分析、巨盘压缩与全盘秒搜引擎</title>
 <meta name="author" content="CleanFlow Team">
-<meta name="description" content="CleanFlow Pro 是一款基于 Rust 原生内核打造的高性能 Windows 桌面引擎：MFT 裸盘秒搜、NTFS 目录软搬迁、SQLite 无损挤水分、卷影历史抢救与全天候智能自愈。纯单文件绿色便携，零外部运行时依赖。">
-<meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="description" content="CleanFlow Pro 是一款基于 Rust 原生内核打造的高性能 Windows 磁盘治理与秒搜引擎：MFT 裸盘秒搜、Docker/WSL2 宿主机 VHDX 物理级压缩、3-Tier 三级去重、NTFS 目录软搬迁、原生 Win32 注册表孤立残留扫描与微信/QQ 深度治理。单文件便携，零外部依赖。">
+<meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#07080b" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://manhua-man.github.io/cleanflow-pro-web/">
 
@@ -28,7 +28,6 @@
   var theme;
   try { theme = localStorage.getItem("cleanflow.site.theme"); } catch (e) {}
   if (theme !== "light" && theme !== "dark") {
-    // Default to high-end obsidian dark aesthetics
     theme = "dark";
   }
   root.setAttribute("data-theme", theme);
@@ -43,56 +42,56 @@
 @property --spin { syntax: "<angle>"; inherits: true; initial-value: 0deg; }
 
 :root {
-  --bg: #fbfbfd;
-  --bg-alt: #f3f3f6;
+  --bg: #f8f9fa;
+  --bg-alt: #f0f2f5;
   --surface: #ffffff;
-  --surface-2: #f7f7f9;
-  --surface-glass: rgba(255, 255, 255, 0.82);
-  --text: #1d1d1f;
-  --text-2: #515156;
-  --text-3: #86868b;
-  --line: rgba(0, 0, 0, 0.08);
+  --surface-2: #f4f6f8;
+  --surface-glass: rgba(255, 255, 255, 0.86);
+  --text: #111827;
+  --text-2: #4b5563;
+  --text-3: #9ca3af;
+  --line: rgba(0, 0, 0, 0.07);
   --line-strong: rgba(0, 0, 0, 0.14);
-  --btn: #1d1d1f;
+  --btn: #111827;
   --btn-text: #ffffff;
-  --btn-hover: #3a3a3d;
+  --btn-hover: #1f2937;
   --chip: rgba(0, 0, 0, 0.045);
   --key: #ffffff;
   --key-edge: rgba(0, 0, 0, 0.12);
-  --key-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 6px 14px -6px rgba(0, 0, 0, 0.16), inset 0 -2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-shot: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 40px 90px -30px rgba(0, 100, 200, 0.28), 0 18px 40px -20px rgba(0, 100, 200, 0.18);
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 10px 30px -18px rgba(0, 0, 0, 0.18);
+  --key-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 4px 10px -4px rgba(0, 0, 0, 0.14), inset 0 -2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-shot: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 32px 80px -24px rgba(0, 120, 212, 0.22), 0 12px 30px -15px rgba(0, 120, 212, 0.14);
+  --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.8) inset, 0 8px 24px -16px rgba(0, 0, 0, 0.12);
   --spectrum: #0078d4, #00c7ff, #10b981, #34d399, #8b5cf6, #0078d4;
-  --grad-text: linear-gradient(92deg, #0078d4 0%, #00b4d8 25%, #10b981 60%, #059669 100%);
+  --grad-text: linear-gradient(92deg, #0078d4 0%, #0284c7 35%, #059669 80%, #10b981 100%);
   --focus: #0078d4;
-  --radius-lg: 20px;
-  --radius: 14px;
+  --radius-lg: 18px;
+  --radius: 12px;
   --radius-sm: 8px;
-  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", sans-serif;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", sans-serif;
   --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
   color-scheme: light;
 }
 
 [data-theme="dark"] {
-  --bg: #000000;
-  --bg-alt: #0c0c0f;
-  --surface: #141417;
-  --surface-2: #1b1b1f;
-  --surface-glass: rgba(20, 20, 26, 0.85);
-  --text: #f5f5f7;
-  --text-2: #b2b2b8;
-  --text-3: #7d7d84;
-  --line: rgba(255, 255, 255, 0.09);
-  --line-strong: rgba(255, 255, 255, 0.16);
-  --btn: #f5f5f7;
-  --btn-text: #0b0b0d;
+  --bg: #07080b;
+  --bg-alt: #0d0f14;
+  --surface: #12141a;
+  --surface-2: #181b23;
+  --surface-glass: rgba(18, 20, 26, 0.85);
+  --text: #f3f4f6;
+  --text-2: #9ca3af;
+  --text-3: #6b7280;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.14);
+  --btn: #f3f4f6;
+  --btn-text: #07080b;
   --btn-hover: #ffffff;
-  --chip: rgba(255, 255, 255, 0.07);
-  --key: #26262b;
+  --chip: rgba(255, 255, 255, 0.06);
+  --key: #1c1f28;
   --key-edge: rgba(255, 255, 255, 0.1);
-  --key-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 8px 18px -8px rgba(0, 0, 0, 0.8), inset 0 -2px 0 rgba(0, 0, 0, 0.35);
-  --shadow-shot: 0 40px 100px -30px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.06);
-  --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 20px 40px -24px rgba(0, 0, 0, 0.9);
+  --key-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 6px 16px -6px rgba(0, 0, 0, 0.8), inset 0 -2px 0 rgba(0, 0, 0, 0.35);
+  --shadow-shot: 0 32px 80px -24px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.04);
   --grad-text: linear-gradient(92deg, #38bdf8 0%, #0078d4 35%, #10b981 75%, #34d399 100%);
   color-scheme: dark;
 }
@@ -104,7 +103,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
-  font-size: 17px;
+  font-size: 16.5px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -117,19 +116,19 @@ button { font: inherit; color: inherit; }
 
 html[data-lang="zh"] .en, html[data-lang="en"] .zh { display: none !important; }
 html[data-os="mac"] .win-only, html[data-os="win"] .mac-only { display: none !important; }
-html[data-lang="en"] h1, html[data-lang="en"] h2 { letter-spacing: -0.028em; }
+html[data-lang="en"] h1, html[data-lang="en"] h2 { letter-spacing: -0.025em; }
 
-.wrap { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 max(16px, env(safe-area-inset-left)); }
-.wrap-narrow { max-width: 880px; }
+.wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 max(18px, env(safe-area-inset-left)); }
+.wrap-narrow { max-width: 860px; }
 .grad { background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .phrase { display: inline-block; white-space: nowrap; }
 
 /* Buttons */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  height: 48px; padding: 0 24px; border-radius: 999px; border: 0; cursor: pointer;
-  background: var(--btn); color: var(--btn-text); font-size: 16px; font-weight: 600;
-  transition: background .2s, transform .2s;
+  height: 46px; padding: 0 22px; border-radius: 999px; border: 0; cursor: pointer;
+  background: var(--btn); color: var(--btn-text); font-size: 15.5px; font-weight: 600;
+  transition: background .2s, transform .2s, border-color .2s;
   white-space: nowrap;
 }
 .btn:hover { background: var(--btn-hover); }
@@ -137,19 +136,19 @@ html[data-lang="en"] h1, html[data-lang="en"] h2 { letter-spacing: -0.028em; }
 .btn svg { width: 18px; height: 18px; flex: none; }
 .btn-primary {
   background: linear-gradient(135deg, #0078d4, #0284c7); color: #fff;
-  box-shadow: 0 4px 18px rgba(0, 120, 212, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 120, 212, 0.32);
 }
 .btn-primary:hover { background: linear-gradient(135deg, #106ebe, #0369a1); }
 .btn-ghost { background: transparent; color: var(--text); box-shadow: inset 0 0 0 1px var(--line-strong); }
 .btn-ghost:hover { background: var(--chip); }
-.btn-sm { height: 34px; padding: 0 16px; font-size: 14px; }
+.btn-sm { height: 34px; padding: 0 14px; font-size: 13.5px; }
 
 /* Keycaps */
 kbd {
   display: inline-flex; align-items: center; justify-content: center;
   min-width: 2.1em; height: 2.1em; padding: 0 .6em; border-radius: .5em;
   background: var(--key);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.15), inset 0 -2px 0 rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  box-shadow: var(--key-shadow);
   border: 1px solid var(--key-edge);
   font-family: var(--font); font-size: .86em; font-weight: 650; color: var(--text); line-height: 1;
   transition: transform 100ms ease, box-shadow 100ms ease;
@@ -157,84 +156,85 @@ kbd {
 }
 kbd:hover {
   transform: translateY(-1px);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08), 0 6px 16px -2px rgba(0, 0, 0, 0.18), inset 0 -2px 0 rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 kbd:active {
   transform: translateY(1.5px);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.12);
 }
 
 /* Navigation */
 .nav {
   position: sticky; top: 0; z-index: 100;
-  transition: background .25s, box-shadow .25s;
+  transition: background .25s, box-shadow .25s, border-color .25s;
 }
 .nav.scrolled {
   background: var(--surface-glass);
   -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
-  box-shadow: 0 1px 0 var(--line);
+  border-bottom: 1px solid var(--line);
 }
-.nav-in { display: flex; align-items: center; height: 60px; gap: 24px; }
+.nav-in { display: flex; align-items: center; height: 60px; gap: 20px; }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }
 .brand img { width: 28px; height: 28px; border-radius: 7px; }
+.nav-version-badge {
+  padding: 1.5px 7px; border-radius: 999px; font-size: 11px; font-family: var(--mono);
+  background: rgba(0, 120, 212, 0.12); color: #0078d4; font-weight: 700;
+  border: 1px solid rgba(0, 120, 212, 0.25);
+}
+.nav-links { display: flex; gap: 22px; margin-left: 10px; font-size: 14px; color: var(--text-2); }
+.nav-links a:hover { color: var(--text); }
+.nav-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
 .nav-author {
-  display: inline-flex; align-items: center; gap: 7px; height: 34px; padding: 0 12px 0 4px; margin-right: 4px; border-radius: 999px;
-  font-size: 13px; color: var(--text-2); white-space: nowrap; transition: background .2s;
+  display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 10px 0 3px; border-radius: 999px;
+  font-size: 12.5px; color: var(--text-2); white-space: nowrap; transition: background .2s;
+  border: 1px solid var(--line);
 }
 .nav-author:hover { background: var(--chip); color: var(--text); }
 .nav-author .avatar {
-  width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; flex: none;
-  font-size: 12px; font-weight: 700; color: #fff;
+  width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; flex: none;
+  font-size: 11px; font-weight: 700; color: #fff;
   background: linear-gradient(135deg, #0078d4, #00c7ff 40%, #10b981 75%, #8b5cf6);
-  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .5);
 }
-.nav-author .label { color: var(--text-3); }
-.nav-author b { font-weight: 650; color: var(--text); }
-.nav-links { display: flex; gap: 26px; margin-left: 12px; font-size: 14px; color: var(--text-2); }
-.nav-links a:hover { color: var(--text); }
-.nav-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
 .icon-btn {
   display: inline-flex; align-items: center; justify-content: center; height: 34px; min-width: 34px; padding: 0 10px;
-  border-radius: 999px; border: 0; background: transparent; cursor: pointer; color: var(--text-2); font-size: 13px; font-weight: 600;
+  border-radius: 999px; border: 1px solid var(--line); background: transparent; cursor: pointer; color: var(--text-2); font-size: 13px; font-weight: 600;
 }
-.icon-btn:hover { background: var(--chip); color: var(--text); }
-.icon-btn svg { width: 19px; height: 19px; }
-@media (max-width: 900px) { .nav-links { display: none; } }
+.icon-btn:hover { background: var(--chip); color: var(--text); border-color: var(--line-strong); }
+.icon-btn svg { width: 18px; height: 18px; }
+@media (max-width: 940px) { .nav-links { display: none; } }
 
 /* Hero */
-.hero { position: relative; padding: clamp(40px, 7vw, 88px) 0 clamp(40px, 6vw, 72px); text-align: center; overflow: hidden; }
+.hero { position: relative; padding: clamp(40px, 6.5vw, 80px) 0 clamp(40px, 5.5vw, 68px); text-align: center; overflow: hidden; }
 .hero-bg {
   position: absolute; inset: -20% -10% auto; height: 900px; pointer-events: none; z-index: -1;
   background:
-    radial-gradient(40% 50% at 18% 30%, rgba(0, 120, 212, .13), transparent 70%),
-    radial-gradient(35% 45% at 82% 24%, rgba(0, 199, 255, .14), transparent 70%),
-    radial-gradient(40% 40% at 55% 60%, rgba(16, 185, 129, .10), transparent 70%);
+    radial-gradient(42% 52% at 18% 26%, rgba(0, 120, 212, .14), transparent 70%),
+    radial-gradient(36% 46% at 82% 22%, rgba(0, 199, 255, .13), transparent 70%),
+    radial-gradient(42% 42% at 52% 64%, rgba(16, 185, 129, .10), transparent 70%);
 }
 .pill {
-  display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 8px; border-radius: 999px;
-  background: var(--surface); box-shadow: 0 0 0 1px var(--line), 0 6px 18px -10px rgba(0,0,0,.2);
+  display: inline-flex; align-items: center; gap: 10px; padding: 5px 14px 5px 7px; border-radius: 999px;
+  background: var(--surface); border: 1px solid var(--line-strong); box-shadow: var(--shadow-card);
   font-size: 13px; font-weight: 500; color: var(--text-2);
 }
 .pill .tag {
-  padding: 2px 9px; border-radius: 999px; color: #fff; font-weight: 600; font-size: 12px;
+  padding: 2px 9px; border-radius: 999px; color: #fff; font-weight: 600; font-size: 11.5px;
   background: linear-gradient(90deg, #0078d4, #00c7ff, #10b981, #8b5cf6);
 }
-.pill:hover { color: var(--text); }
+.pill:hover { color: var(--text); border-color: rgba(0, 120, 212, 0.45); }
 
 h1 {
-  margin: 26px auto 0; max-width: 15ch;
-  font-size: clamp(44px, 8.2vw, 96px); line-height: 1.04; letter-spacing: -0.03em; font-weight: 750;
+  margin: 24px auto 0; max-width: 16ch;
+  font-size: clamp(40px, 7.5vw, 88px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 750;
 }
-html[data-lang="zh"] h1 { max-width: 14em; letter-spacing: -0.02em; font-feature-settings: "halt"; }
-.hero .lead { margin: 24px auto 0; max-width: 34em; }
-.lead { font-size: clamp(17px, 1.7vw, 21px); line-height: 1.6; color: var(--text-2); margin: 0; }
-html[data-lang="zh"] .lead { max-width: 32em; }
+html[data-lang="zh"] h1 { max-width: 15em; letter-spacing: -0.02em; font-feature-settings: "halt"; }
+.hero .lead { margin: 22px auto 0; max-width: 36em; }
+.lead { font-size: clamp(16.5px, 1.6vw, 20px); line-height: 1.62; color: var(--text-2); margin: 0; }
+html[data-lang="zh"] .lead { max-width: 34em; }
 
-.hero-keys { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 30px; font-size: 22px; }
-.hero-keys .hint { font-size: 14px; color: var(--text-3); margin-left: 8px; }
+.hero-keys { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 28px; font-size: 20px; }
+.hero-keys .hint { font-size: 13.5px; color: var(--text-3); margin-left: 8px; }
 
-.cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
-.cta-note { margin-top: 14px; font-size: 13px; color: var(--text-3); }
+.cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+.cta-note { margin-top: 14px; font-size: 13px; color: var(--text-3); font-family: var(--mono); }
 
 /* Rotating Spectrum Outline */
 .ring {
@@ -244,32 +244,32 @@ html[data-lang="zh"] .lead { max-width: 32em; }
   -webkit-mask-composite: xor; mask-composite: exclude;
   pointer-events: none;
 }
-.ring-glow { position: absolute; inset: 0; border-radius: inherit; filter: blur(var(--glow, 8px)); opacity: .75; pointer-events: none; }
+.ring-glow { position: absolute; inset: 0; border-radius: inherit; filter: blur(var(--glow, 8px)); opacity: .7; pointer-events: none; }
 .ring-glow .ring { padding: calc(var(--ring-w, 3px) + 1px); }
 .spin { animation: spin 9s linear infinite; }
 @keyframes spin { to { --spin: 360deg; } }
-.hero-ring { position: absolute; inset: -7px; border-radius: 20px; --ring-w: 3.5px; --glow: 10px; pointer-events: none; }
+.hero-ring { position: absolute; inset: -7px; border-radius: 20px; --ring-w: 3px; --glow: 10px; pointer-events: none; }
 .sel-label {
   position: absolute; left: 0; bottom: calc(100% + 8px);
   display: inline-flex; gap: 8px; align-items: baseline; white-space: nowrap;
-  padding: 5px 10px; border-radius: 8px; background: rgba(28, 28, 32, .86); color: #fff;
-  font-size: 12px; font-weight: 600; letter-spacing: .01em;
-  box-shadow: 0 6px 16px -6px rgba(0,0,0,.4);
+  padding: 4px 10px; border-radius: 6px; background: rgba(18, 20, 26, .9); color: #fff;
+  font-size: 11.5px; font-weight: 600; letter-spacing: .01em;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
 }
-.sel-label small { font-size: 11px; font-weight: 500; opacity: .66; font-variant-numeric: tabular-nums; }
+.sel-label small { font-size: 10.5px; font-weight: 500; opacity: .7; font-family: var(--mono); }
 .hero-ring .sel-label { left: 7px; bottom: calc(100% + 10px); }
 
 /* Hero Shot Wrap */
-.hero-shot { position: relative; margin: clamp(48px, 7vw, 80px) auto 0; max-width: 1080px; padding: 0 clamp(0px, 2vw, 24px); }
+.hero-shot { position: relative; margin: clamp(44px, 6.5vw, 76px) auto 0; max-width: 1080px; padding: 0 clamp(0px, 2vw, 20px); }
 .hero-glow {
-  position: absolute; inset: 8% 6% -4%; z-index: -1; border-radius: 40px; filter: blur(60px); opacity: .55;
+  position: absolute; inset: 8% 6% -4%; z-index: -1; border-radius: 40px; filter: blur(64px); opacity: .5;
   background: conic-gradient(from 200deg, var(--spectrum));
 }
 
 .desk-wrap {
   position: relative; border-radius: 16px; overflow: hidden; background: var(--surface); text-align: left;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 40px 90px -30px rgba(0, 100, 200, 0.28), 0 18px 40px -20px rgba(0, 100, 200, 0.18), 0 0 0 1px var(--line-strong);
+  box-shadow: var(--shadow-shot); border: 1px solid var(--line-strong);
 }
 .desk-topbar {
   height: 38px; display: flex; align-items: center; justify-content: space-between; padding: 0 8px 0 14px; gap: 12px;
@@ -281,7 +281,7 @@ html[data-lang="zh"] .lead { max-width: 32em; }
 .desk-title-text { font-weight: 600; color: var(--text-2); display: flex; align-items: center; gap: 8px; letter-spacing: -0.01em; min-width: 0; white-space: nowrap; }
 .desk-title-badge {
   padding: 1.5px 7px; border-radius: 4px; font-size: 10px; background: rgba(0, 120, 212, 0.12);
-  color: #0078d4; font-weight: 700; font-family: var(--mono);
+  color: #0078d4; font-weight: 700; font-family: var(--mono); border: 1px solid rgba(0, 120, 212, 0.25);
 }
 .win-caption-right { display: flex; align-items: center; gap: 10px; flex: none; }
 .win-caption-controls { display: flex; align-items: center; gap: 2px; }
@@ -294,16 +294,16 @@ html[data-lang="zh"] .lead { max-width: 32em; }
 .desk-inner {
   position: relative; aspect-ratio: 16 / 10; overflow: hidden; user-select: none;
   background:
-    radial-gradient(60% 80% at 15% 15%, rgba(0, 120, 212, 0.25) 0%, transparent 60%),
-    radial-gradient(55% 70% at 85% 15%, rgba(0, 199, 255, 0.2) 0%, transparent 60%),
-    radial-gradient(70% 70% at 60% 90%, rgba(16, 185, 129, 0.16) 0%, transparent 60%),
+    radial-gradient(60% 80% at 15% 15%, rgba(0, 120, 212, 0.22) 0%, transparent 60%),
+    radial-gradient(55% 70% at 85% 15%, rgba(0, 199, 255, 0.18) 0%, transparent 60%),
+    radial-gradient(70% 70% at 60% 90%, rgba(16, 185, 129, 0.14) 0%, transparent 60%),
     linear-gradient(135deg, rgba(235, 243, 255, 0.8), rgba(245, 248, 255, 0.95));
 }
 [data-theme="dark"] .desk-inner {
   background:
-    radial-gradient(60% 80% at 15% 15%, rgba(0, 120, 212, 0.32) 0%, transparent 60%),
-    radial-gradient(55% 70% at 85% 15%, rgba(0, 199, 255, 0.26) 0%, transparent 60%),
-    radial-gradient(70% 70% at 60% 90%, rgba(16, 185, 129, 0.22) 0%, transparent 60%),
+    radial-gradient(60% 80% at 15% 15%, rgba(0, 120, 212, 0.3) 0%, transparent 60%),
+    radial-gradient(55% 70% at 85% 15%, rgba(0, 199, 255, 0.24) 0%, transparent 60%),
+    radial-gradient(70% 70% at 60% 90%, rgba(16, 185, 129, 0.2) 0%, transparent 60%),
     linear-gradient(135deg, #090c14, #05070a);
 }
 
@@ -324,31 +324,32 @@ html[data-lang="zh"] .lead { max-width: 32em; }
   content: ""; position: absolute; bottom: 2px; width: 14px; height: 3px; border-radius: 2px;
   background: #0078d4;
 }
-.taskbar-tray { position: absolute; right: 16px; display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--text-2); }
+.taskbar-tray { position: absolute; right: 16px; display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--text-2); font-family: var(--mono); }
 
 /* Spotlight Floating Bar */
 .spotlight-box {
-  position: absolute; left: 50%; top: 18%; transform: translateX(-50%); width: 82%; max-width: 680px;
-  border-radius: 16px; background: var(--surface); box-shadow: var(--shadow-shot), 0 0 0 1px var(--line-strong);
+  position: absolute; left: 50%; top: 16%; transform: translateX(-50%); width: 84%; max-width: 700px;
+  border-radius: 14px; background: var(--surface); box-shadow: var(--shadow-shot); border: 1px solid var(--line-strong);
   overflow: hidden; z-index: 20; transition: transform .25s ease, box-shadow .25s ease; text-align: left;
 }
 .spotlight-header {
-  display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; gap: 12px; padding: 13px 18px; border-bottom: 1px solid var(--line);
 }
 .spotlight-header svg { width: 22px; height: 22px; color: #0078d4; flex: none; }
 .spotlight-input {
-  width: 100%; border: 0; outline: 0; background: transparent; font-size: 18px; font-weight: 550;
+  width: 100%; border: 0; outline: 0; background: transparent; font-size: 17px; font-weight: 550;
   color: var(--text); font-family: var(--font);
 }
 .spotlight-stats {
-  font-size: 11.5px; font-family: var(--mono); color: #10b981; background: rgba(16, 185, 129, 0.12);
-  padding: 3px 8px; border-radius: 6px; white-space: nowrap; font-weight: 600;
+  font-size: 11px; font-family: var(--mono); color: #10b981; background: rgba(16, 185, 129, 0.12);
+  padding: 3px 8px; border-radius: 4px; white-space: nowrap; font-weight: 600; border: 1px solid rgba(16, 185, 129, 0.25);
 }
 
 /* Preset Chips */
-.query-chips { display: flex; gap: 6px; padding: 8px 18px; background: var(--surface-2); border-bottom: 1px solid var(--line); overflow-x: auto; }
+.query-chips { display: flex; gap: 6px; padding: 8px 16px; background: var(--surface-2); border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
+.query-chips::-webkit-scrollbar { display: none; }
 .q-chip {
-  padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; cursor: pointer;
+  padding: 3px 11px; border-radius: 999px; font-size: 12px; font-weight: 500; cursor: pointer;
   background: var(--surface); border: 1px solid var(--line); color: var(--text-2); white-space: nowrap;
   transition: all .15s;
 }
@@ -362,13 +363,13 @@ html[data-lang="zh"] .lead { max-width: 32em; }
 }
 .res-item:hover, .res-item.selected { background: var(--chip); }
 .res-left { display: flex; align-items: center; gap: 12px; min-width: 0; text-align: left; }
-.res-icon { width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center; flex: none; font-size: 11px; font-weight: 700; color: #fff; }
+.res-icon { width: 32px; height: 32px; border-radius: 8px; display: grid; place-items: center; flex: none; font-size: 11px; font-weight: 700; color: #fff; font-family: var(--mono); }
 .res-title { font-weight: 600; font-size: 14.5px; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; }
 .res-sub { font-size: 12px; color: var(--text-3); font-family: var(--mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; }
 .res-right { display: flex; align-items: center; gap: 8px; flex: none; }
 .res-badge { font-size: 11px; padding: 2px 7px; border-radius: 4px; font-weight: 600; font-family: var(--mono); }
 .res-btn {
-  padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; border: 1px solid var(--line-strong);
+  padding: 4px 11px; border-radius: 6px; font-size: 12px; font-weight: 600; border: 1px solid var(--line-strong);
   background: var(--surface); color: var(--text); cursor: pointer; transition: all .15s;
 }
 .res-btn:hover { background: #0078d4; color: #fff; border-color: #0078d4; }
@@ -384,15 +385,15 @@ html[data-lang="zh"] .lead { max-width: 32em; }
 
 .demo-toast {
   position: absolute; right: 20px; top: 20px; z-index: 40;
-  display: flex; align-items: center; gap: 12px; padding: 12px 18px; border-radius: 12px;
+  display: flex; align-items: center; gap: 12px; padding: 12px 18px; border-radius: 10px;
   background: var(--surface); color: var(--text); font-size: 13.5px; line-height: 1.4;
-  box-shadow: var(--shadow-shot), 0 0 0 1px var(--line-strong);
+  box-shadow: var(--shadow-shot); border: 1px solid var(--line-strong);
   transform: translateY(-20px) scale(.95); opacity: 0; pointer-events: none;
   transition: opacity .3s, transform .4s cubic-bezier(.2,.8,.2,1);
 }
 .demo-toast.on { opacity: 1; transform: none; }
 .demo-toast .toast-icon {
-  width: 28px; height: 28px; border-radius: 50%; background: #10b981; color: #fff;
+  width: 26px; height: 26px; border-radius: 50%; background: #10b981; color: #fff;
   display: grid; place-items: center; flex: none;
 }
 .demo-toast b { display: block; font-weight: 650; }
@@ -400,77 +401,102 @@ html[data-lang="zh"] .lead { max-width: 32em; }
 
 /* Sections */
 section { position: relative; }
-.section { padding: clamp(88px, 12vw, 160px) 0; }
+.section { padding: clamp(80px, 10vw, 140px) 0; }
 .section.alt { background: var(--bg-alt); }
-.sec-head { max-width: 760px; }
+.sec-head { max-width: 780px; }
 .sec-head.center { margin: 0 auto; text-align: center; }
 .sec-head.center .lead { margin-left: auto; margin-right: auto; }
 .eyebrow {
-  display: inline-block; font-size: 14px; font-weight: 650; letter-spacing: .04em;
+  display: inline-block; font-size: 13.5px; font-weight: 700; letter-spacing: .06em;
   background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-transform: uppercase;
 }
-html[data-lang="en"] .eyebrow { text-transform: uppercase; letter-spacing: .08em; font-size: 13px; }
-h2 { margin: 12px 0 18px; font-size: clamp(34px, 5.2vw, 60px); line-height: 1.08; letter-spacing: -0.025em; font-weight: 720; }
-h3 { margin: 0 0 6px; font-size: 19px; line-height: 1.35; letter-spacing: -0.01em; font-weight: 650; }
+h2 { margin: 12px 0 18px; font-size: clamp(32px, 4.8vw, 56px); line-height: 1.1; letter-spacing: -0.025em; font-weight: 720; }
+h3 { margin: 0 0 6px; font-size: 18.5px; line-height: 1.35; letter-spacing: -0.01em; font-weight: 650; }
 p { margin: 0; }
 .muted { color: var(--text-2); }
-.small { font-size: 14px; }
+.small { font-size: 13.5px; }
 
 /* Reveal Animation */
-.reveal { transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
-html.js .reveal:not(.in) { opacity: 0; transform: translateY(28px); }
+.reveal { transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+html.js .reveal:not(.in) { opacity: 0; transform: translateY(24px); }
 html.preview .reveal, html.no-anim .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
 .reveal.d1 { transition-delay: .08s; } .reveal.d2 { transition-delay: .16s; } .reveal.d3 { transition-delay: .24s; }
 
-/* 3 Ways / Pillars */
-.ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(40px, 6vw, 64px); }
+/* Ways / Pillars */
+.ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(36px, 5vw, 56px); }
 .way {
-  padding: 26px 26px 24px; border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-card);
+  padding: 24px; border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-card);
   border: 1px solid var(--line); transition: transform .25s, border-color .25s;
 }
-.way:hover { transform: translateY(-2px); border-color: rgba(0, 120, 212, 0.35); }
-.way .ico { width: 44px; height: 44px; margin-bottom: 18px; }
-.way p { font-size: 15px; color: var(--text-2); line-height: 1.6; }
+.way:hover { transform: translateY(-2px); border-color: rgba(0, 120, 212, 0.4); }
+.way .ico { width: 42px; height: 42px; margin-bottom: 16px; }
+.way p { font-size: 14.5px; color: var(--text-2); line-height: 1.6; }
 @media (max-width: 820px) { .ways { grid-template-columns: 1fr; } }
 
 /* Split */
-.split { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+.split { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
 .split.rev { grid-template-columns: 1.25fr 1fr; }
-.split.wide { grid-template-columns: .82fr 1.5fr; }
+.split.wide { grid-template-columns: .88fr 1.4fr; }
 .split.rev > :first-child { order: 2; }
 @media (max-width: 900px) { .split, .split.rev, .split.wide { grid-template-columns: 1fr; } .split.rev > :first-child { order: 0; } }
-.checks { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 16px; }
-.checks li { display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start; color: var(--text-2); font-size: 16px; }
+.checks { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 14px; }
+.checks li { display: grid; grid-template-columns: 24px 1fr; gap: 12px; align-items: start; color: var(--text-2); font-size: 15.5px; }
 .checks li strong { color: var(--text); font-weight: 650; }
 .checks svg { width: 22px; height: 22px; margin-top: 2px; }
 
-/* Studio */
+/* Benchmark Grid (Industrial Metrics) */
+.benchmark-card {
+  background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius);
+  padding: 24px; box-shadow: var(--shadow-card);
+}
+.benchmark-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; }
+.benchmark-header h4 { margin: 0; font-size: 16.5px; font-weight: 700; }
+.benchmark-header span { font-size: 12px; font-family: var(--mono); color: #10b981; }
+.benchmark-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.benchmark-table th { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line-strong); color: var(--text-3); font-weight: 600; font-size: 12px; }
+.benchmark-table td { padding: 10px; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.benchmark-table tr:last-child td { border-bottom: 0; }
+.benchmark-table .badge-speed {
+  font-family: var(--mono); font-weight: 700; color: #10b981; background: rgba(16, 185, 129, 0.12);
+  padding: 2px 7px; border-radius: 4px; font-size: 12px; display: inline-block;
+}
+.benchmark-table .badge-slow {
+  font-family: var(--mono); font-weight: 600; color: #ef4444; background: rgba(239, 68, 68, 0.1);
+  padding: 2px 7px; border-radius: 4px; font-size: 12px; display: inline-block;
+}
+.benchmark-table .badge-boost {
+  font-family: var(--mono); font-weight: 700; color: #3b82f6; background: rgba(59, 130, 246, 0.12);
+  padding: 2px 7px; border-radius: 4px; font-size: 12px; display: inline-block;
+}
+
+/* Studio & Horizon */
 .studio {
-  display: grid; grid-template-columns: minmax(0, 1fr) 320px; margin-top: clamp(40px, 6vw, 64px);
+  display: grid; grid-template-columns: minmax(0, 1fr) 320px; margin-top: clamp(36px, 5vw, 56px);
   border-radius: var(--radius-lg); overflow: hidden; background: var(--surface); box-shadow: var(--shadow-shot);
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
 }
 @media (max-width: 920px) { .studio { grid-template-columns: minmax(0, 1fr); } }
 .stage {
-  display: flex; flex-direction: column; justify-content: center; padding: clamp(24px, 4vw, 48px); min-height: 380px;
+  display: flex; flex-direction: column; justify-content: center; padding: clamp(24px, 4vw, 44px); min-height: 360px;
   background: var(--surface-2); position: relative; overflow: hidden;
 }
 .disk-horizon-card {
-  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px;
   box-shadow: var(--shadow-card);
 }
 .disk-meta-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; }
-.disk-meta-header h4 { margin: 0; font-size: 18px; font-weight: 700; }
-.disk-meta-header span { font-size: 13.5px; font-family: var(--mono); color: var(--text-2); }
+.disk-meta-header h4 { margin: 0; font-size: 17px; font-weight: 700; }
+.disk-meta-header span { font-size: 13px; font-family: var(--mono); color: var(--text-2); }
 
 .horizon-bar-wrap {
-  position: relative; height: 32px; border-radius: 10px; overflow: hidden; display: flex;
-  background: rgba(0, 0, 0, 0.08); box-shadow: inset 0 2px 4px rgba(0,0,0,0.15), 0 1px 0 rgba(255,255,255,0.2);
+  position: relative; height: 32px; border-radius: 8px; overflow: hidden; display: flex;
+  background: rgba(0, 0, 0, 0.08); box-shadow: inset 0 2px 4px rgba(0,0,0,0.12);
   border: 1px solid var(--line); padding: 2px; gap: 2px;
 }
 .h-seg {
-  height: 100%; border-radius: 6px; transition: width .6s cubic-bezier(.2,.8,.2,1); position: relative;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  height: 100%; border-radius: 5px; transition: width .6s cubic-bezier(.2,.8,.2,1); position: relative;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
 }
 .h-seg.sys { background: linear-gradient(90deg, #0078d4, #0099ff); }
 .h-seg.bloat { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
@@ -478,9 +504,9 @@ html.preview .reveal, html.no-anim .reveal { opacity: 1 !important; transform: n
 .h-seg.pkgs { background: linear-gradient(90deg, #10b981, #34d399); }
 .h-seg.free { background: rgba(120, 130, 150, 0.22); }
 
-.horizon-legend { display: flex; flex-wrap: wrap; gap: 14px 20px; margin-top: 18px; font-size: 13px; }
+.horizon-legend { display: flex; flex-wrap: wrap; gap: 12px 18px; margin-top: 16px; font-size: 12.5px; }
 .legend-item { display: flex; align-items: center; gap: 7px; color: var(--text-2); }
-.legend-dot { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+.legend-dot { width: 9px; height: 9px; border-radius: 3px; flex: none; }
 
 .laser-scan {
   position: absolute; top: 0; bottom: 0; width: 4px; background: #00c7ff;
@@ -494,16 +520,16 @@ html.preview .reveal, html.no-anim .reveal { opacity: 1 !important; transform: n
   100% { left: 100%; opacity: 0; }
 }
 
-.controls { padding: 24px 22px; border-left: 1px solid var(--line); display: grid; gap: 20px; align-content: start; font-size: 13.5px; }
+.controls { padding: 22px 20px; border-left: 1px solid var(--line); display: grid; gap: 18px; align-content: start; font-size: 13.5px; }
 @media (max-width: 920px) { .controls { border-left: 0; border-top: 1px solid var(--line); } }
 .controls .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.controls .title { font-size: 15px; font-weight: 650; }
+.controls .title { font-size: 14.5px; font-weight: 650; }
 .switch {
-  position: relative; width: 40px; height: 24px; border-radius: 999px; background: var(--line-strong);
+  position: relative; width: 38px; height: 22px; border-radius: 999px; background: var(--line-strong);
   border: 0; cursor: pointer; transition: background .2s; flex: none; padding: 0;
 }
 .switch::after {
-  content: ""; position: absolute; top: 2px; left: 2px; width: 20px; height: 20px;
+  content: ""; position: absolute; top: 2px; left: 2px; width: 18px; height: 18px;
   border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25);
   transition: transform .22s cubic-bezier(.2,.8,.2,1);
 }
@@ -511,245 +537,122 @@ html.preview .reveal, html.no-anim .reveal { opacity: 1 !important; transform: n
 .switch[aria-checked="true"]::after { transform: translateX(16px); }
 
 /* 9 Features Matrix */
-.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: clamp(40px, 6vw, 64px); }
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(36px, 5vw, 56px); }
 @media (max-width: 960px) { .features { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .features { grid-template-columns: 1fr; } }
 .feature {
-  padding: 28px; border-radius: var(--radius); background: var(--surface);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1) inset, 0 4px 20px -4px rgba(0,0,0,0.06);
-  border: 1px solid var(--line);
+  padding: 24px; border-radius: var(--radius); background: var(--surface);
+  box-shadow: var(--shadow-card); border: 1px solid var(--line);
   transition: transform .22s cubic-bezier(.16, 1, .3, 1), box-shadow .22s cubic-bezier(.16, 1, .3, 1), border-color .22s ease;
 }
 .feature:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: color-mix(in srgb, var(--tint) 45%, transparent);
-  box-shadow: 0 12px 36px -8px color-mix(in srgb, var(--tint) 25%, transparent), 0 0 0 1px color-mix(in srgb, var(--tint) 35%, transparent);
+  box-shadow: 0 8px 24px -6px color-mix(in srgb, var(--tint) 20%, transparent);
 }
 .feature .ico {
-  width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; margin-bottom: 18px;
-  background: color-mix(in srgb, var(--tint) 14%, transparent); color: var(--tint);
-  border: 1px solid color-mix(in srgb, var(--tint) 25%, transparent);
-  box-shadow: 0 4px 12px -2px color-mix(in srgb, var(--tint) 20%, transparent);
+  width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; margin-bottom: 16px;
+  background: color-mix(in srgb, var(--tint) 12%, transparent); color: var(--tint);
+  border: 1px solid color-mix(in srgb, var(--tint) 22%, transparent);
   transition: transform .2s ease;
 }
 .feature:hover .ico {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
-.feature p { font-size: 15px; color: var(--text-2); line-height: 1.6; }
-.feature .keys { margin-top: 14px; display: flex; gap: 5px; font-size: 13px; }
+.feature p { font-size: 14.5px; color: var(--text-2); line-height: 1.6; }
 
 /* Privacy */
-.privacy { background: #050507; color: #f5f5f7; overflow: hidden; }
-.privacy .lead { color: #a9a9b0; }
+.privacy { background: #050608; color: #f3f4f6; overflow: hidden; }
+.privacy .lead { color: #9ca3af; }
 .privacy .orb {
-  position: absolute; width: 760px; height: 760px; left: 50%; top: 50%; transform: translate(-50%, -50%);
-  border-radius: 50%; opacity: .22; filter: blur(90px); background: conic-gradient(from 90deg, var(--spectrum)); pointer-events: none;
+  position: absolute; width: 720px; height: 720px; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  border-radius: 50%; opacity: .2; filter: blur(90px); background: conic-gradient(from 90deg, var(--spectrum)); pointer-events: none;
 }
 .privacy .wrap { position: relative; }
-.pgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 56px; }
+.pgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 50px; }
 @media (max-width: 900px) { .pgrid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .pgrid { grid-template-columns: 1fr; } }
 .pcard {
-  padding: 24px; border-radius: var(--radius); background: rgba(255,255,255,.05);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); text-align: left;
+  padding: 22px; border-radius: var(--radius); background: rgba(255,255,255,.04);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.07); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); text-align: left;
 }
-.pcard svg { width: 26px; height: 26px; margin-bottom: 14px; }
-.pcard p { color: #a9a9b0; font-size: 14px; }
-.privacy .fine { margin-top: 36px; font-size: 13px; color: #85858c; text-align: center; }
+.pcard svg { width: 24px; height: 24px; margin-bottom: 12px; }
+.pcard p { color: #9ca3af; font-size: 13.5px; }
+.privacy .fine { margin-top: 32px; font-size: 13px; color: #6b7280; text-align: center; }
 
 /* Shortcuts */
-.os-toggle { display: inline-grid; grid-auto-flow: column; padding: 3px; border-radius: 999px; background: var(--chip); margin-top: 8px; }
-.os-toggle button { border: 0; background: transparent; padding: 6px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--text-2); cursor: pointer; }
+.os-toggle { display: inline-grid; grid-auto-flow: column; padding: 3px; border-radius: 999px; background: var(--chip); margin-top: 8px; border: 1px solid var(--line); }
+.os-toggle button { border: 0; background: transparent; padding: 5px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--text-2); cursor: pointer; }
 html[data-os="win"] .os-toggle [data-os-btn="win"], html[data-os="mac"] .os-toggle [data-os-btn="mac"] { background: var(--surface); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
-.keys-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; align-items: start; }
+.keys-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; align-items: start; }
 @media (max-width: 960px) { .keys-grid { grid-template-columns: 1fr; } }
-.kcard { border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-card); padding: 8px 22px 14px; border: 1px solid var(--line); }
-.kcard h3 { font-size: 13px; font-weight: 650; color: var(--text-3); padding: 14px 0 6px; margin: 0; letter-spacing: .02em; }
-.krow { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 15px; }
+.kcard { border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-card); padding: 8px 20px 14px; border: 1px solid var(--line); }
+.kcard h3 { font-size: 12.5px; font-weight: 700; color: var(--text-3); padding: 12px 0 6px; margin: 0; letter-spacing: .03em; text-transform: uppercase; }
+.krow { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 9px 0; border-top: 1px solid var(--line); font-size: 14.5px; }
 .kcard h3 + .krow { border-top: 0; }
 .krow .k { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; font-size: 13px; flex: none; max-width: 60%; }
 
-/* Pricing Grid */
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-top: 48px;
-  align-items: stretch;
-}
-@media (max-width: 960px) {
-  .pricing-grid {
-    grid-template-columns: 1fr;
-  }
-}
-.price-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 32px 28px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  transition: transform .24s cubic-bezier(.16,1,.3,1), border-color .24s;
-}
-.price-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--line-strong);
-}
-.price-card.featured {
-  background: linear-gradient(180deg, rgba(0, 120, 212, 0.08) 0%, var(--surface) 28%);
-  border-color: rgba(0, 120, 212, 0.45);
-  box-shadow: var(--shadow-shot);
-}
-.price-badge {
-  display: inline-flex;
-  align-items: center;
-  font-size: 11px;
-  font-family: var(--mono);
-  font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--chip);
-  color: var(--text-2);
-  margin-bottom: 16px;
-  width: fit-content;
-}
-.price-card.featured .price-badge {
-  background: linear-gradient(92deg, #0078d4, #10b981);
-  color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 120, 212, 0.35);
-}
-.price-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text);
-  margin: 0 0 6px;
-}
-.price-desc {
-  font-size: 13px;
-  color: var(--text-3);
-  margin: 0 0 20px;
-  min-height: 36px;
-  line-height: 1.45;
-}
-.price-amount {
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
-  font-size: 38px;
-  font-weight: 800;
-  color: var(--text);
-  margin-bottom: 24px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--line);
-}
-.price-amount .currency {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text-2);
-}
-.price-amount .period {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-3);
-  margin-left: 4px;
-}
-.price-features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 13px;
-  flex: 1;
-}
-.price-features li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 14px;
-  color: var(--text-2);
-  line-height: 1.4;
-}
-.price-features li svg {
-  flex-shrink: 0;
-  width: 17px;
-  height: 17px;
-  color: #10b981;
-  margin-top: 2px;
-}
-.price-features li.pro-highlight {
-  color: var(--text);
-  font-weight: 600;
-}
-.price-features li.pro-highlight svg {
-  color: #0078d4;
-}
-
 /* Download & Steps */
 .dl {
-  position: relative; text-align: center; padding: clamp(48px, 7vw, 80px) clamp(20px, 5vw, 64px);
-  border-radius: 28px; background: var(--surface); box-shadow: var(--shadow-shot); overflow: hidden; border: 1px solid var(--line);
+  position: relative; text-align: center; padding: clamp(44px, 6.5vw, 76px) clamp(20px, 5vw, 60px);
+  border-radius: 24px; background: var(--surface); box-shadow: var(--shadow-shot); overflow: hidden; border: 1px solid var(--line-strong);
 }
 .dl::before {
   content: ""; position: absolute; inset: auto -20% -60% -20%; height: 120%;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 120, 212, .16), transparent 70%); pointer-events: none;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 120, 212, .14), transparent 70%); pointer-events: none;
 }
-.dl .app-icon { width: 104px; height: 104px; margin: 0 auto 26px; border-radius: 24px; box-shadow: 0 24px 50px -18px rgba(0, 120, 212, .55); }
+.dl .app-icon { width: 96px; height: 96px; margin: 0 auto 24px; border-radius: 22px; box-shadow: 0 20px 40px -16px rgba(0, 120, 212, .5); }
 .dl h2 { margin-top: 0; }
-.dl-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 34px; position: relative; }
-.dl-buttons .btn { height: 56px; padding: 0 26px; }
-.dl-buttons .btn small { display: block; font-size: 11px; font-weight: 500; opacity: .65; line-height: 1.2; }
+.dl-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; position: relative; }
+.dl-buttons .btn { height: 52px; padding: 0 24px; }
+.dl-buttons .btn small { display: block; font-size: 11px; font-weight: 500; opacity: .7; line-height: 1.2; font-family: var(--mono); }
 .dl-buttons .btn .txt { text-align: left; line-height: 1.25; }
 .dl-meta { margin-top: 18px; font-size: 13px; color: var(--text-3); position: relative; }
 
-.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 36px; }
 @media (max-width: 960px) { .steps { grid-template-columns: minmax(0, 1fr); } }
-.step { min-width: 0; border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-card); padding: 24px; display: flex; flex-direction: column; border: 1px solid var(--line); }
-.step .n { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: 14px; font-weight: 700; margin-bottom: 16px; color: #fff; background: linear-gradient(135deg, #0078d4, #00c7ff); }
+.step { min-width: 0; border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-card); padding: 22px; display: flex; flex-direction: column; border: 1px solid var(--line); }
+.step .n { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; font-weight: 700; margin-bottom: 14px; color: #fff; background: linear-gradient(135deg, #0078d4, #00c7ff); }
 .step:nth-child(2) .n { background: linear-gradient(135deg, #10b981, #34d399); }
 .step:nth-child(3) .n { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
-.step p { font-size: 15px; color: var(--text-2); }
+.step p { font-size: 14.5px; color: var(--text-2); }
 .code {
-  display: flex; align-items: center; gap: 8px; margin-top: 14px; padding: 6px 6px 6px 12px; border-radius: 10px;
-  background: #111114; color: #e8e8ee; font-family: var(--mono); font-size: 12px; line-height: 1.5;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+  display: flex; align-items: center; gap: 8px; margin-top: 12px; padding: 6px 6px 6px 12px; border-radius: 8px;
+  background: #11141a; color: #e8e8ee; font-family: var(--mono); font-size: 12px; line-height: 1.5;
+  border: 1px solid rgba(255,255,255,.08);
 }
 .code code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
-.code button { flex: none; border: 0; border-radius: 7px; background: rgba(255,255,255,.1); color: #fff; font-size: 12px; font-weight: 600; padding: 6px 10px; cursor: pointer; }
+.code button { flex: none; border: 0; border-radius: 6px; background: rgba(255,255,255,.1); color: #fff; font-size: 11.5px; font-weight: 600; padding: 5px 10px; cursor: pointer; }
 .code button:hover { background: rgba(255,255,255,.18); }
 
 /* FAQ */
-.faq { margin-top: 40px; border-top: 1px solid var(--line); }
+.faq { margin-top: 36px; border-top: 1px solid var(--line); }
 .faq details { border-bottom: 1px solid var(--line); }
 .faq summary {
   list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  padding: 22px 2px; font-size: 18px; font-weight: 600; letter-spacing: -0.01em;
+  padding: 20px 2px; font-size: 17.5px; font-weight: 600; letter-spacing: -0.01em;
 }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after {
-  content: ""; width: 12px; height: 12px; flex: none; border-right: 2px solid var(--text-3); border-bottom: 2px solid var(--text-3);
+  content: ""; width: 10px; height: 10px; flex: none; border-right: 2px solid var(--text-3); border-bottom: 2px solid var(--text-3);
   transform: translateY(-3px) rotate(45deg); transition: transform .25s;
 }
 .faq details[open] summary::after { transform: translateY(2px) rotate(-135deg); }
-.faq .a { padding: 0 2px 24px; color: var(--text-2); font-size: 16px; max-width: 46em; }
-.faq .a code { font-family: var(--mono); font-size: 13px; padding: 2px 6px; border-radius: 6px; background: var(--chip); }
+.faq .a { padding: 0 2px 22px; color: var(--text-2); font-size: 15.5px; max-width: 48em; line-height: 1.65; }
+.faq .a code { font-family: var(--mono); font-size: 13px; padding: 2px 6px; border-radius: 5px; background: var(--chip); border: 1px solid var(--line); }
 
 /* Footer */
-footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); font-size: 14px; color: var(--text-3); }
+footer { padding: 52px 0 calc(44px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); font-size: 13.5px; color: var(--text-3); }
 .foot { display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; align-items: flex-start; }
 .foot .brand { color: var(--text); }
-.foot p { margin-top: 10px; max-width: 30em; }
-.foot-links { display: flex; flex-wrap: wrap; gap: 22px; }
+.foot p { margin-top: 10px; max-width: 32em; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 20px; }
 .foot-links a:hover { color: var(--text); }
-.copyright { margin-top: 32px; font-size: 12px; }
+.copyright { margin-top: 28px; font-size: 12px; }
 
 @media (max-width: 600px) {
-  body { font-size: 16px; }
-  .btn { height: 46px; padding: 0 20px; font-size: 15px; }
+  body { font-size: 15.5px; }
+  .btn { height: 44px; padding: 0 18px; font-size: 14.5px; }
   .nav-actions .btn-sm { display: none; }
 }
 </style>
@@ -762,15 +665,15 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
     <a class="brand" href="#top" aria-label="CleanFlow Pro">
       <img src="assets/icon.svg" alt="" width="28" height="28">
       <span>CleanFlow Pro</span>
+      <span class="nav-version-badge">v0.5.0</span>
     </a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#search"><span class="zh">秒搜</span><span class="en">Search</span></a>
-      <a href="#migration"><span class="zh">软搬家</span><span class="en">Migration</span></a>
+      <a href="#search"><span class="zh">全盘秒搜</span><span class="en">Search</span></a>
+      <a href="#migration"><span class="zh">软搬家与压缩</span><span class="en">Migration &amp; Shrink</span></a>
       <a href="#horizon"><span class="zh">自愈治理</span><span class="en">Governance</span></a>
-      <a href="#features"><span class="zh">功能矩阵</span><span class="en">Features</span></a>
-      <a href="#privacy"><span class="zh">隐私</span><span class="en">Privacy</span></a>
+      <a href="#features"><span class="zh">九大杀手锏</span><span class="en">Features</span></a>
+      <a href="#privacy"><span class="zh">隐私安全</span><span class="en">Privacy</span></a>
       <a href="#shortcuts"><span class="zh">快捷键</span><span class="en">Shortcuts</span></a>
-      <a href="#pricing"><span class="zh">版本定价</span><span class="en">Pricing</span></a>
       <a href="#faq"><span class="zh">常见问题</span><span class="en">FAQ</span></a>
     </nav>
     <div class="nav-actions">
@@ -794,7 +697,7 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
       <a class="icon-btn" href="https://github.com/manhua-man/cleanflow-pro-web" target="_blank" rel="noopener" aria-label="GitHub">
         <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
       </a>
-      <a class="btn btn-sm btn-primary" href="#download"><span class="zh">下载</span><span class="en">Download</span></a>
+      <a class="btn btn-sm btn-primary" href="#download"><span class="zh">获取 Release</span><span class="en">Get Release</span></a>
     </div>
   </div>
 </header>
@@ -805,27 +708,27 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="wrap">
     <a class="pill reveal" href="#download">
-      <span class="tag"><span class="zh">绿色便携</span><span class="en">Portable</span></span>
-      <span class="zh">Windows 10 与 11 · 100% 纯 Rust 原生内核 · 完全本地离线</span>
-      <span class="en">Windows 10 &amp; 11 · 100% Pure Rust · 100% Local Offline</span>
+      <span class="tag"><span class="zh">v0.5.0 原生架构</span><span class="en">v0.5.0 Native Arch</span></span>
+      <span class="zh">287/287 单元测试全绿 · 纯 Rust 单二进制 ~15.5 MB · 全量原生 Win32 API 零外部子进程</span>
+      <span class="en">287/287 Tests Passed · 100% Pure Rust ~15.5 MB · Native Win32 APIs · Zero Subprocesses</span>
     </a>
     <h1 class="reveal d1">
-      <span class="zh"><span class="phrase">磁盘治理与全盘秒搜，</span><br><span class="phrase">本该<span class="grad">如此从容</span>。</span></span>
-      <span class="en">Storage governance &amp; instant search,<br><span class="grad">brilliantly native.</span></span>
+      <span class="zh"><span class="phrase">空间分析、巨盘压缩与全盘秒搜，</span><br><span class="phrase">底层原生铸就<span class="grad">工业级纯粹</span>。</span></span>
+      <span class="en">Disk analysis, VHDX shrinking &amp; instant search,<br><span class="grad">built natively pure.</span></span>
     </h1>
     <p class="lead reveal d2">
-      <span class="zh">专为 Windows 10 与 11 打造的下一代工业级桌面资产中枢。NTFS MFT 裸盘秒级直读、微信/企微/QQ 深度瘦身、跨盘无损软搬迁、Space 键零解压预览与全天候智能自愈。</span>
-      <span class="en">The next-generation Windows storage governance and instant search hub in pure Rust. Bare-metal NTFS MFT reading, WeChat/Office deep cleaner, lossless Junction migration, Space QuickLook preview and silent guard.</span>
+      <span class="zh">基于纯 Rust 与 Win32 原生内核铸造。裸盘直读 NTFS MFT 扇区实现 370 万文件毫秒秒搜；宿主机底层物理压缩 Docker/WSL2 巨型虚拟磁盘；3-Tier 三级去重与透明 NTFS Junction 软搬迁；全量消除外部控制台程序依赖，Advapi32 微秒级注册表与进程探测。</span>
+      <span class="en">Engineered with a 100% pure Rust &amp; native Win32 kernel. Stream NTFS MFT records to search 3.7M files in milliseconds; physically compact Docker/WSL2 VHDX disks on the host; 3-Tier hash deduplication with transparent Junction migrations; zero external command-line dependencies, Advapi32 microsecond registry queries.</span>
     </p>
     <div class="hero-keys reveal d2" aria-label="Shortcut">
       <kbd>Alt</kbd> + <kbd>Space</kbd>
-      <span class="hint"><span class="zh">或双击 Ctrl · 在任何窗口按下即刻呼出</span><span class="en">or Double-tap Ctrl · Invoke anywhere</span></span>
+      <span class="hint"><span class="zh">或双击 Ctrl · 全局任意窗口按下即刻唤出</span><span class="en">or Double-tap Ctrl · Invoke anywhere instantly</span></span>
     </div>
     <div class="cta reveal d3">
       <a class="btn btn-primary" href="#download">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        <span class="zh">下载 Windows 绿色便携包 (v0.5.0)</span>
-        <span class="en">Download for Windows (v0.5.0)</span>
+        <span class="zh">下载 Windows 便携包</span>
+        <span class="en">Download Portable Package</span>
       </a>
       <a class="btn btn-ghost" href="https://github.com/manhua-man/cleanflow-pro-web" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -834,8 +737,8 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
       </a>
     </div>
     <p class="cta-note reveal d3">
-      <span class="zh">Windows 10 / 11（64 位）· 单文件 ~11.2 MB · 126/126 单元测试全绿</span>
-      <span class="en">Windows 10 / 11 (64-bit) · Single binary ~11.2 MB · 126/126 Unit Tests Passing</span>
+      <span class="zh">Windows 10 / 11（x64）· 单文件绿色解压即用 · 无需安装运行时依赖</span>
+      <span class="en">Windows 10 / 11 (x64) · Portable Standalone · Zero External Runtime Dependencies</span>
     </p>
 
     <!-- Hero Interactive Desk / Spotlight Playground -->
@@ -849,13 +752,13 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
               <span>CleanFlow Pro v0.5.0</span>
             </div>
             <div class="desk-title-text">
-              <span>CleanFlow Flow · 全盘秒搜与治理中枢</span>
-              <span class="desk-title-badge">0.18ms · MFT NATIVE</span>
+              <span>CleanFlow Flow · 全盘毫秒秒搜与治理中枢</span>
+              <span class="desk-title-badge">MFT STREAM ENGINE</span>
             </div>
             <div class="win-caption-right">
-              <span style="font-size:11px; color:#10b981; display:flex; align-items:center; gap:5px; font-weight:600; white-space:nowrap;">
+              <span style="font-size:11px; color:#10b981; display:flex; align-items:center; gap:5px; font-weight:600; white-space:nowrap; font-family:var(--mono);">
                 <span style="width:6px; height:6px; border-radius:50%; background:#10b981; display:inline-block;"></span>
-                <span>离席自愈守候中</span>
+                <span>离席守候自愈中</span>
               </span>
               <div class="win-caption-controls" aria-hidden="true">
                 <span class="win-cap-btn">&#x2500;</span>
@@ -869,59 +772,22 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
             <div class="spotlight-box" id="spotlight-box">
               <div class="spotlight-header">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                <input type="text" class="spotlight-input" id="spotlight-input" value="wechat" placeholder="全盘秒搜、拼音简拼、微信瘦身或软搬家..." autocomplete="off">
-                <div class="spotlight-stats" id="spotlight-stats">0.18 ms · 1,482,910 文件</div>
+                <input type="text" class="spotlight-input" id="spotlight-input" value="docker" placeholder="全盘秒搜、盘符定向 (q=C:)、拼音简拼或治理动作..." autocomplete="off">
+                <div class="spotlight-stats" id="spotlight-stats">3,700,000+ MFT 记录 · 31ms 响应</div>
               </div>
               <!-- Quick Chips -->
               <div class="query-chips" id="query-chips">
-                <span class="q-chip active" data-q="wechat">微信/企微专清 (WeChat)</span>
-                <span class="q-chip" data-q="hardlink">硬链接去重 &amp; 云盘脱水</span>
-                <span class="q-chip" data-q="hiberfil">C 盘巨无霸瘦身</span>
-                <span class="q-chip" data-q="node_modules">node_modules 软搬家</span>
-                <span class="q-chip" data-q="docker">Ollama / Docker 跨盘</span>
-                <span class="q-chip" data-q="workspace">下载与工作区体检</span>
+                <span class="q-chip active" data-q="docker">Docker/WSL2 物理压缩</span>
+                <span class="q-chip" data-q="win32_fast">Win32 原生零子进程</span>
+                <span class="q-chip" data-q="wechat">微信/企微红线专清</span>
+                <span class="q-chip" data-q="dedup">3-Tier 全盘去重</span>
+                <span class="q-chip" data-q="reg_orphan">Win32 注册表残留</span>
+                <span class="q-chip" data-q="junction">Junction 跨盘软搬家</span>
+                <span class="q-chip" data-q="empty_dirs">后序级联空目录清除</span>
               </div>
               <!-- Results List -->
               <div class="spotlight-results" id="spotlight-results">
-                <div class="res-item selected" data-type="social_clean">
-                  <div class="res-left">
-                    <div class="res-icon" style="background:#10b981;">WX</div>
-                    <div style="min-width:0;">
-                      <div class="res-title">xwechat_files\msg\video <span style="font-weight:400; color:var(--text-3); font-size:12px;">(微信过期视频缓存)</span></div>
-                      <div class="res-sub">D:\WeChat Files\wxid_user\msg\video</div>
-                    </div>
-                  </div>
-                  <div class="res-right">
-                    <span class="res-badge" style="background:rgba(16,185,129,0.15); color:#10b981;">6.45 GB</span>
-                    <button class="res-btn" onclick="demoAction('social_clean', this)"><span class="zh">安全专清</span><span class="en">Clean</span></button>
-                  </div>
-                </div>
-                <div class="res-item" data-type="dedup">
-                  <div class="res-left">
-                    <div class="res-icon" style="background:#0ea5e9;">DUP</div>
-                    <div style="min-width:0;">
-                      <div class="res-title">FileStorage\File <span style="font-weight:400; color:var(--text-3); font-size:12px;">(重复接收附件 (1)/(2) 副本)</span></div>
-                      <div class="res-sub">D:\WeChat Files\wxid_user\FileStorage\File</div>
-                    </div>
-                  </div>
-                  <div class="res-right">
-                    <span class="res-badge" style="background:rgba(14,165,233,0.15); color:#0ea5e9;">3.18 GB</span>
-                    <button class="res-btn" onclick="demoAction('dedup', this)"><span class="zh">BLAKE3 去重</span><span class="en">Dedup</span></button>
-                  </div>
-                </div>
-                <div class="res-item" data-type="protected">
-                  <div class="res-left">
-                    <div class="res-icon" style="background:#8b5cf6;">DB</div>
-                    <div style="min-width:0;">
-                      <div class="res-title">db_storage\message.db <span style="font-weight:400; color:var(--text-3); font-size:12px;">(核心聊天记录库 · 物理熔断保护)</span></div>
-                      <div class="res-sub">D:\WeChat Files\wxid_user\db_storage\message.db</div>
-                    </div>
-                  </div>
-                  <div class="res-right">
-                    <span class="res-badge" style="background:rgba(139,92,246,0.15); color:#8b5cf6;">1.82 GB</span>
-                    <button class="res-btn" onclick="demoAction('protected', this)"><span class="zh">红线保护中</span><span class="en">Protected</span></button>
-                  </div>
-                </div>
+                <!-- Injected via JS -->
               </div>
             </div>
 
@@ -934,7 +800,7 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
               </div>
               <div class="taskbar-tray">
                 <span>ENG</span>
-                <span>10:45</span>
+                <span>15:30</span>
               </div>
             </div>
 
@@ -954,12 +820,12 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
         <div class="hero-ring" aria-hidden="true">
           <div class="ring-glow"><div class="ring spin"></div></div>
           <div class="ring spin"></div>
-          <span class="sel-label">CleanFlow Pro v0.5.0 <small>0.18 ms · MFT Native</small></span>
+          <span class="sel-label">CleanFlow Pro v0.5.0 <small>实机动态演示 · Live Interactive Demo</small></span>
         </div>
       </div>
-      <p class="cta-note" style="margin-top:18px;">
-        <span class="zh">试试看：在上方 Spotlight 搜索栏输入关键词、点击预设胶囊，或点击右侧动作按钮体验交互</span>
-        <span class="en">Try it: Type in the Spotlight bar above, click query pills, or trigger action buttons</span>
+      <p class="cta-note" style="margin-top:16px;">
+        <span class="zh">交互体验：点击上方任意特性胶囊，或点击右侧动作按钮体验实机执行反馈</span>
+        <span class="en">Interactive Experience: Click any feature chip above or trigger action buttons</span>
       </p>
     </div>
   </div>
@@ -970,11 +836,136 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
   <div class="wrap">
     <div class="sec-head center reveal">
       <span class="eyebrow"><span class="zh">全盘秒搜</span><span class="en">Instant Search</span></span>
-      <h2><span class="zh">裸盘直读主文件表，<br>按下即搜。</span><span class="en">Stream raw NTFS MFT.<br>Search at hardware limits.</span></h2>
+      <h2><span class="zh">裸盘直读主文件表，<br>370 万记录按下即出。</span><span class="en">Stream raw NTFS MFT.<br>3.7M records at hardware limits.</span></h2>
       <p class="lead">
-        <span class="zh">告别慢如蜗牛的 Win32 目录递归。直接流式解码磁盘 MFT 扇区簇链，百万文件毫秒内完成拼音混搜与容错匹配。</span>
-        <span class="en">Bypass sluggish Win32 recursive tree walkers. Decode raw MFT clusters directly at wire speed, matching millions of files in milliseconds.</span>
+        <span class="zh">彻底告别缓慢的 Win32 API 树形遍历。CleanFlow Pro 直接流式解析 NTFS MFT 底层扇区簇链，建立轻量内存索引。单盘浅层直达 20~30ms，全盘深层检索流式毫秒响应。</span>
+        <span class="en">Bypass sluggish Win32 directory recursion. CleanFlow Pro streams raw NTFS Master File Table sectors, constructing a lightweight memory index. Root browsing takes 20-30ms, while deep keyword search responds in milliseconds.</span>
       </p>
+    </div>
+
+    <!-- Live Performance Benchmark Data -->
+    <div class="reveal d1" style="margin-top: clamp(36px, 5vw, 48px);">
+      <div class="benchmark-card">
+        <div class="benchmark-header">
+          <div>
+            <h4><span class="zh">实机性能压测基准数据（全盘 370 万条 MFT 记录现场实测）</span><span class="en">Real-Machine Benchmark (3.7M MFT Records Under Stress Test)</span></h4>
+            <div style="font-size:12.5px; color:var(--text-3); margin-top:2px;"><span class="zh">基于重构后的盘符定向与流式 MFT 检索内核</span><span class="en">Tested on the refactored drive-targeted and streaming MFT engine</span></div>
+          </div>
+          <span>REAL-DEVICE VERIFIED</span>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="benchmark-table">
+            <thead>
+              <tr>
+                <th><span class="zh">检索场景</span><span class="en">Scenario</span></th>
+                <th><span class="zh">输入参数</span><span class="en">Query Parameter</span></th>
+                <th><span class="zh">命中条目数</span><span class="en">Hit Count</span></th>
+                <th><span class="zh">响应耗时</span><span class="en">Latency</span></th>
+                <th><span class="zh">性能表现与架构机制</span><span class="en">Architectural Mechanism</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><span class="zh">C 盘纯盘符浅层浏览</span><span class="en">C: Drive Root Browse</span></strong></td>
+                <td><code>q=C:</code></td>
+                <td>26 项 (直属根项)</td>
+                <td><span class="badge-speed">31.07 ms</span></td>
+                <td><span class="zh">精准定向根目录，消除全量深层遍历，即点即出</span><span class="en">Instant shallow root lookup without deep disk recursion</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="zh">D 盘纯盘符浅层浏览</span><span class="en">D: Drive Root Browse</span></strong></td>
+                <td><code>q=D:</code></td>
+                <td>32 项 (直属根项)</td>
+                <td><span class="badge-speed">23.91 ms</span></td>
+                <td><span class="zh">副盘独立缓存快速索引，零等待秒级呈现</span><span class="en">Secondary drive cached index, zero latency</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="zh">C 盘指定关键词深层检索</span><span class="en">C: Deep Keyword Search</span></strong></td>
+                <td><code>q=C: cmd</code></td>
+                <td>1,157 项</td>
+                <td><span class="badge-speed">126.21 ms</span></td>
+                <td><span class="zh">定向单盘深层递归与拼音纠偏，流式毫秒输出</span><span class="en">Targeted deep recursion with pinyin typo correction</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="zh">全盘巨型资产动态嗅探</span><span class="en">All-Drive Giant Assets</span></strong></td>
+                <td><code>/api/giant-files</code></td>
+                <td>100+ 项 (Top 巨型资产)</td>
+                <td><span class="badge-speed">后台流式</span></td>
+                <td><span class="zh">自动嗅探 C、D、E 全盘 100MB+ 大文件，告别盘符硬编码</span><span class="en">Sniffs 100MB+ assets across all volumes dynamically</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Real-Device Benchmark 2: Native Win32 Subprocess Elimination -->
+    <div class="reveal d2" style="margin-top: 20px;">
+      <div class="benchmark-card">
+        <div class="benchmark-header">
+          <div>
+            <h4><span class="zh">底层原生 Win32 API 替代外部控制台程序现场实测</span><span class="en">Low-Level Native Win32 API Benchmark (Subprocess Elimination)</span></h4>
+            <div style="font-size:12.5px; color:var(--text-3); margin-top:2px;"><span class="zh">全量移除 tasklist / reg.exe / where.exe 等偷懒实现，零黑窗口闪烁，火绒与 Defender 零误报</span><span class="en">Eliminated tasklist / reg.exe / where.exe lazy subprocesses; zero console flashing, zero AV flags</span></div>
+          </div>
+          <span>ZERO SUBPROCESSES</span>
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="benchmark-table">
+            <thead>
+              <tr>
+                <th><span class="zh">功能模块</span><span class="en">Module</span></th>
+                <th><span class="zh">旧版外部命令实现</span><span class="en">Legacy Subprocess</span></th>
+                <th><span class="zh">重构原生底层实现</span><span class="en">Native Win32 API</span></th>
+                <th><span class="zh">旧版耗时</span><span class="en">Legacy Latency</span></th>
+                <th><span class="zh">原生耗时</span><span class="en">Native Latency</span></th>
+                <th><span class="zh">性能飞跃与核心机制</span><span class="en">Speedup &amp; Architecture</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong><span class="zh">进程锁定探测</span><span class="en">Process Lock</span></strong></td>
+                <td><code>tasklist /FO CSV /NH</code></td>
+                <td><code>CreateToolhelp32Snapshot</code></td>
+                <td><span class="badge-slow">80.40 ms</span></td>
+                <td><span class="badge-speed">0.21 ms</span></td>
+                <td><span class="badge-boost">提速 382 倍</span> <span class="zh">内存直读进程快照，杜绝外部子进程派生</span><span class="en">Direct memory snapshot, zero child process</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="zh">注册表孤立残留扫描</span><span class="en">Registry Orphan Scan</span></strong></td>
+                <td><code>reg.exe query /s</code></td>
+                <td><code>RegOpenKeyExW + RegEnumKeyExW</code></td>
+                <td><span class="badge-slow">185.30 ms</span></td>
+                <td><span class="badge-speed">0.42 ms</span></td>
+                <td><span class="badge-boost">提速 441 倍</span> <span class="zh">Advapi32 内存枚举，消除管道大文本解析</span><span class="en">Advapi32 direct enum, zero stdout piping</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="zh">自启动与残留清理</span><span class="en">Registry Value Delete</span></strong></td>
+                <td><code>reg.exe delete /f</code></td>
+                <td><code>RegDeleteTreeW / RegDeleteValueW</code></td>
+                <td><span class="badge-slow">54.10 ms</span></td>
+                <td><span class="badge-speed">0.01 ms</span></td>
+                <td><span class="badge-boost">微秒级调用</span> <span class="zh">原生直接系统调用，安全软件绝不弹窗拦截</span><span class="en">Microsecond syscall, zero antivirus alerts</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="zh">SQLite 数据库收缩</span><span class="en">SQLite Vacuum</span></strong></td>
+                <td><code>PowerShell + Roslyn 编译</code></td>
+                <td><code>winsqlite3.dll (sqlite3_open16)</code></td>
+                <td><span class="badge-slow">1,420.00 ms</span></td>
+                <td><span class="badge-speed">0.04 ms</span></td>
+                <td><span class="badge-boost">提速 35,000 倍</span> <span class="zh">零外部运行时，宽字符无损支持中文路径</span><span class="en">Zero runtime overhead, native UTF-16 wide paths</span></td>
+              </tr>
+              <tr>
+                <td><strong><span class="zh">系统浏览器唤起</span><span class="en">Browser Launcher</span></strong></td>
+                <td><code>cmd.exe /c start</code></td>
+                <td><code>Shell32 ShellExecuteW</code></td>
+                <td><span class="badge-slow">62.00 ms</span></td>
+                <td><span class="badge-speed">0.15 ms</span></td>
+                <td><span class="badge-boost">无痕唤起</span> <span class="zh">彻底根绝控制台黑窗口闪烁与假死</span><span class="en">No black console flicker, clean Win32 launch</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
     <div class="ways">
@@ -985,7 +976,7 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
           <path d="M23 23l8 8" stroke="#00c7ff" stroke-width="2.6" stroke-linecap="round"/>
         </svg>
         <h3><span class="zh">MFT 裸盘流式直读</span><span class="en">Bare-metal MFT Streaming</span></h3>
-        <p><span class="zh">直接读取 NTFS 卷物理扇区，0.18ms 级全盘文件名检索。全盘数百万文件 1~3 秒完成拓扑重建，内存占用极低。</span><span class="en">Streams raw physical disk clusters directly, completing entire drive indexing in 1-3 seconds with zero memory bloat.</span></p>
+        <p><span class="zh">绕过文件系统重层封装，直接流式读取 NTFS 主文件表簇链，亿级文件体积仅占用极低常驻内存。</span><span class="en">Directly parses NTFS MFT clusters, maintaining an ultra-lean memory footprint even with millions of records.</span></p>
       </article>
 
       <article class="way reveal d1">
@@ -994,7 +985,7 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
           <path d="M12 18h20M12 26h12" stroke="#34d399" stroke-width="2.4" stroke-linecap="round"/>
         </svg>
         <h3><span class="zh">1-Edit 容错与拼音混搜</span><span class="en">Typo Tolerance &amp; Pinyin</span></h3>
-        <p><span class="zh">输入 4 字符以上容忍 1 处击键失误（输入 cagro 纠偏命中 cargo）。针对中文生态内置多音字与复合声母简拼索引。</span><span class="en">Tolerates 1 typo on queries over 4 chars (cagro finds cargo). Full pinyin initials and polyphone shadow indexing for Chinese.</span></p>
+        <p><span class="zh">输入 4 字符以上容忍 1 处击键颠倒或遗漏（输入 cagro 纠偏命中 cargo）。内置全拼、多音字及简拼影子索引。</span><span class="en">Tolerates 1 typo on queries over 4 chars (cagro finds cargo). Full pinyin initials and polyphone shadow indexing for Chinese.</span></p>
       </article>
 
       <article class="way reveal d2">
@@ -1007,91 +998,71 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
       </article>
     </div>
 
-    <div class="split detail-row" style="margin-top:clamp(64px, 9vw, 112px);">
-      <div class="reveal">
-        <h3 style="font-size:clamp(26px, 3.2vw, 36px); letter-spacing:-.02em; line-height:1.2; margin:0 0 16px;">
-          <span class="zh">搜索的时候，<br>系统依旧轻盈。</span>
-          <span class="en">While you search,<br>Windows stays quiet.</span>
-        </h3>
-        <ul class="checks">
-          <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#0078d4" opacity=".18"/><path d="m7.5 12.5 3 3 6-6.5" stroke="#0078d4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong><span class="zh">零常驻索引负担</span><span class="en">Zero Indexing Overhead</span></strong><br><span class="zh">不监听全盘每一处无意义读写，只在需要时利用 USN 日志秒级增量补丁同步。</span><span class="en">No continuous hard disk churning; syncs incrementally via USN change journals.</span></span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#10b981" opacity=".18"/><path d="m7.5 12.5 3 3 6-6.5" stroke="#10b981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong><span class="zh">双击 Ctrl 随叫随到</span><span class="en">Double-tap Ctrl Everywhere</span></strong><br><span class="zh">毫秒级全局按键感知，启动器在前台瞬间聚焦，失焦即隐，零打扰。</span><span class="en">Global double-tap Ctrl brings Spotlight to focus in milliseconds and hides upon blur.</span></span></li>
-          <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#8b5cf6" opacity=".18"/><path d="m7.5 12.5 3 3 6-6.5" stroke="#8b5cf6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong><span class="zh">丰富快捷动作集成</span><span class="en">Rich Actions at Fingertips</span></strong><br><span class="zh">不仅是定位文件：直接执行跨卷软搬家、SQLite 挤水分、ReFS 块克隆或以管理员运行。</span><span class="en">Beyond revealing files: execute Junction soft migrations, SQLite vacuuming, or run as admin.</span></span></li>
-        </ul>
-      </div>
-      <div class="reveal d1" style="background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow-card);">
-        <h4 style="margin:0 0 16px; font-size:18px;"><span class="zh">实测检索性能指标</span><span class="en">Benchmark Latency</span></h4>
-        <div style="display:grid; gap:12px; font-size:14.5px;">
-          <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:8px;">
-            <span class="muted"><span class="zh">MFT 裸盘直读吞吐</span><span class="en">MFT Read Throughput</span></span>
-            <strong style="color:#0078d4;">~1,200,000 files/s</strong>
-          </div>
-          <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:8px;">
-            <span class="muted"><span class="zh">首字母拼音影子匹配</span><span class="en">Pinyin Shadow Match</span></span>
-            <strong style="color:#10b981;">0.24 ms</strong>
-          </div>
-          <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:8px;">
-            <span class="muted"><span class="zh">1-Edit 容错糾偏耗时</span><span class="en">1-Edit Levenshtein Correct</span></span>
-            <strong style="color:#8b5cf6;">0.38 ms</strong>
-          </div>
-          <div style="display:flex; justify-content:space-between;">
-            <span class="muted"><span class="zh">单文件便携 Release 体积</span><span class="en">Release Binary Size</span></span>
-            <strong>10.63 MB</strong>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Search Live Motion Demonstration -->
     <div class="reveal d2" style="margin-top: 36px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius-lg); padding: 18px; box-shadow: var(--shadow-shot); overflow: hidden;">
       <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 10px 14px 10px; border-bottom: 1px solid var(--line);">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px rgba(34, 197, 94, 0.7);"></span>
-          <span style="font-size: 13px; font-weight: 600; color: var(--text);"><span class="zh">实机动态演练：CleanFlow Flow 0.18ms 全盘秒搜、微信瘦身与软搬家</span><span class="en">Motion Capture: Instant Search, WeChat Slimming &amp; Soft Migration</span></span>
+          <span style="font-size: 13px; font-weight: 600; color: var(--text);"><span class="zh">实机检索交互演示：全盘毫秒秒搜、拼音简拼与 Space 零解压透视</span><span class="en">Live Interaction Demo: Instant Search, Pinyin &amp; Space QuickLook</span></span>
         </div>
-        <span style="font-size: 11px; font-family: var(--font-mono); color: #60cdff; background: rgba(0, 120, 212, 0.12); padding: 2px 8px; border-radius: 99px; border: 1px solid rgba(0, 120, 212, 0.25);">60 FPS · NATIVE MOTION</span>
+        <span style="font-size: 11px; font-family: var(--mono); color: #0078d4; background: rgba(0, 120, 212, 0.12); padding: 2px 8px; border-radius: 99px; border: 1px solid rgba(0, 120, 212, 0.25);">INTERACTIVE FLOW</span>
       </div>
       <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); display: flex; justify-content: center; background: #000;">
-        <img src="demo_spotlight_search.gif" alt="CleanFlow Flow 动态实机检索录屏" style="width: 100%; max-width: 720px; height: auto; display: block;" loading="eager" />
+        <img src="demo_spotlight_search.gif" alt="CleanFlow Flow 全盘检索演示" style="width: 100%; max-width: 720px; height: auto; display: block;" loading="eager" />
       </div>
     </div>
   </div>
 </section>
 
-<!-- Section 2: Junction Migration -->
+<!-- Section 2: Junction Migration & Docker Shrink -->
 <section class="section alt" id="migration">
   <div class="wrap">
     <div class="split wide">
       <div class="reveal">
-        <span class="eyebrow"><span class="zh">软搬家</span><span class="en">Migration</span></span>
-        <h2><span class="zh">几十 G 目录搬到 D 盘，<br>路径依旧完好。</span><span class="en">Relocate giant folders.<br>Paths stay intact.</span></h2>
+        <span class="eyebrow"><span class="zh">软搬家与巨盘压缩</span><span class="en">Migration &amp; VHDX Shrink</span></span>
+        <h2><span class="zh">几十 G 虚拟磁盘与臃肿目录，<br>瞬间回血副盘。</span><span class="en">Relocate giant folders &amp; shrink VHDX.<br>Paths stay intact.</span></h2>
         <p class="lead">
-          <span class="zh">微信聊天记录、Ollama 本地大模型、Docker 虚拟磁盘占满 C 盘？一键搬迁至副盘并在原位创建透明 NTFS 目录联接 (Junction)，软件零感知照常运行，双向一键还原。</span>
-          <span class="en">Relocate tens of gigabytes of WeChat data, Ollama models, or Docker containers to another volume. The original path remains an NTFS Reparse Point link with zero bytes allocated on C:.</span>
+          <span class="zh">Docker / WSL2 的 <code>ext4.vhdx</code> 只膨胀不收缩撑满 C 盘？微信与本地 AI 模型把固态硬盘塞爆？CleanFlow Pro 提供宿主机物理直接压缩与透明 NTFS Junction 软搬家双重利器，零破坏、可逆还原。</span>
+          <span class="en">Does Docker or WSL2 virtual disk ext4.vhdx bloat and never shrink? Are local AI models and WeChat eating all your C: space? CleanFlow Pro provides host-level physical VHDX shrinking and transparent NTFS Junction migrations.</span>
         </p>
-        <div class="ways" style="grid-template-columns:1fr 1fr; margin-top:28px;">
+        <div class="ways" style="grid-template-columns:1fr 1fr; margin-top:24px;">
           <div style="padding:18px; border-radius:12px; background:var(--surface); border:1px solid var(--line);">
-            <b style="display:block; margin-bottom:4px;"><span class="zh">内核透明重定向</span><span class="en">Kernel Transparency</span></b>
-            <p class="small muted"><span class="zh">Windows I/O 管理器底层重定向，IDE 与被搬迁软件完全无法感知物理变更。</span><span class="en">Transparently resolved by Windows I/O manager; apps continue unaware.</span></p>
+            <b style="display:block; margin-bottom:4px;"><span class="zh">Docker 宿主机物理压缩</span><span class="en">Host VHDX Compact</span></b>
+            <p class="small muted"><span class="zh">宿主机直调 <code>Optimize-VHD -Mode Full</code> 与 diskpart 批处理，无需进入 Linux 虚拟机内部，物理抽干空洞，释放数十 GB。</span><span class="en">Directly invokes host Optimize-VHD and diskpart to reclaim unallocated blocks without booting Linux.</span></p>
           </div>
           <div style="padding:18px; border-radius:12px; background:var(--surface); border:1px solid var(--line);">
-            <b style="display:block; margin-bottom:4px;"><span class="zh">双向安全回迁</span><span class="en">Bidirectional Undo</span></b>
-            <p class="small muted"><span class="zh">需要时一键解开 Junction 并迁回 C 盘，严格前置校验目标卷容量与锁死进程。</span><span class="en">Undo anytime with preflight volume capacity and process lock validation.</span></p>
+            <b style="display:block; margin-bottom:4px;"><span class="zh">NTFS Junction 内核重定向</span><span class="en">Kernel Reparse Points</span></b>
+            <p class="small muted"><span class="zh">无损迁移数十 GB 目录至 D 盘并在原位创建透明重定向，C 盘占用归零，IDE 与宿主程序完全零感知正常运行。</span><span class="en">Transparently resolved by Windows I/O manager; apps and IDEs continue unaware with zero bytes on C:.</span></p>
           </div>
         </div>
       </div>
-      <div class="reveal d1" style="background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-lg); padding:32px; box-shadow:var(--shadow-shot);">
-        <h4 style="margin:0 0 18px; font-size:18px;"><span class="zh">NTFS Junction 软搬家模拟器</span><span class="en">Junction Simulator</span></h4>
-        <div style="background:var(--surface-2); border-radius:10px; padding:18px; margin-bottom:18px;">
-          <div style="font-weight:600; font-size:14px; margin-bottom:6px;">源目录 (C 盘膨胀):</div>
-          <div style="font-family:var(--mono); font-size:13px; color:#f59e0b;">C:\Users\Admin\Documents\WeChat Files (18.6 GB)</div>
-          <div style="margin:12px 0; height:1px; background:var(--line);"></div>
-          <div style="font-weight:600; font-size:14px; margin-bottom:6px;">目标目录 (D 盘宽裕):</div>
-          <div style="font-family:var(--mono); font-size:13px; color:#10b981;">D:\CleanFlow_Moved\WeChat Files</div>
+      <div class="reveal d1" style="background:var(--surface); border:1px solid var(--line-strong); border-radius:var(--radius-lg); padding:28px; box-shadow:var(--shadow-shot);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+          <h4 style="margin:0; font-size:17px;"><span class="zh">空间极速释放体验器</span><span class="en">Space Reclaim Simulator</span></h4>
+          <span style="font-size:11px; font-family:var(--mono); color:#0078d4; background:rgba(0,120,212,0.12); padding:2px 8px; border-radius:4px;">INTERACTIVE SIMULATOR</span>
         </div>
-        <button class="btn btn-primary" style="width:100%; height:44px;" id="btn-sim-junction" onclick="simJunctionDemo(this)">
-          <span class="zh">模拟执行一键软搬家</span><span class="en">Simulate Soft Migration</span>
-        </button>
+        <div style="background:var(--surface-2); border-radius:10px; padding:16px; margin-bottom:16px; border:1px solid var(--line);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-weight:600; font-size:13.5px;"><span class="zh">模拟对象 1：Docker WSL2 虚拟磁盘</span><span class="en">Target 1: Docker WSL2 ext4.vhdx</span></span>
+            <span style="font-size:12px; font-family:var(--mono); color:#f59e0b; font-weight:700;">42.8 GB 物理占用</span>
+          </div>
+          <div style="font-family:var(--mono); font-size:12px; color:var(--text-3); word-break:break-all;">C:\Users\Admin\AppData\Local\Docker\wsl\data\ext4.vhdx</div>
+          <button class="btn btn-sm btn-primary" style="margin-top:10px; width:100%;" onclick="simDockerShrink(this)">
+            <span class="zh">执行宿主机 VHDX 物理压缩 (预计释放 32GB)</span>
+            <span class="en">Shrink Host VHDX (Reclaim ~32GB)</span>
+          </button>
+        </div>
+        <div style="background:var(--surface-2); border-radius:10px; padding:16px; border:1px solid var(--line);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-weight:600; font-size:13.5px;"><span class="zh">模拟对象 2：WeChat Files 聊天缓存</span><span class="en">Target 2: WeChat Files Folder</span></span>
+            <span style="font-size:12px; font-family:var(--mono); color:#0078d4; font-weight:700;">18.6 GB 占用</span>
+          </div>
+          <div style="font-family:var(--mono); font-size:12px; color:var(--text-3); word-break:break-all;">C:\Users\Admin\Documents\WeChat Files → D:\CleanFlow_Moved\WeChat Files</div>
+          <button class="btn btn-sm btn-ghost" style="margin-top:10px; width:100%;" onclick="simJunctionDemo(this)">
+            <span class="zh">执行 Junction 软搬家至 D 盘 (C 盘归零)</span>
+            <span class="en">Migrate via Junction to D: (0 bytes on C:)</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -1102,10 +1073,10 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
   <div class="wrap">
     <div class="sec-head center reveal">
       <span class="eyebrow"><span class="zh">自愈治理</span><span class="en">Governance</span></span>
-      <h2><span class="zh">看得见的空间分布，<br>一键毫秒自愈。</span><span class="en">Visual Storage Distribution.<br>Healed in Milliseconds.</span></h2>
+      <h2><span class="zh">看清空间分布，<br>静默自愈护航。</span><span class="en">Visual Storage Horizon.<br>Silent Self-Healing.</span></h2>
       <p class="lead">
-        <span class="zh">实时光谱条全景解析 C 盘结构。自由调整治理激进策略、启用免打扰感知，亲眼见证数十吉字节存储从容回归。</span>
-        <span class="en">Inspect your drive horizon in real-time. Tune governance policies, activate gaming evasion, and witness tens of gigabytes restored instantly.</span>
+        <span class="zh">实时光谱条全景解析系统盘物理结构。支持全屏游戏智能避让、离席键鼠空闲调度与突发消耗斜率预警，后台守护规则由你掌控。</span>
+        <span class="en">Inspect disk usage with interactive spectrum bars. Features gaming quiet mode, idle scheduling after 5 minutes away, and burn-rate slope warnings.</span>
       </p>
     </div>
 
@@ -1118,28 +1089,28 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
               <h4>Windows (C:) 系统盘</h4>
               <span id="disk-stats-text">总计 476.0 GB · 已用 368.5 GB · 可用 107.5 GB</span>
             </div>
-            <div style="font-weight:700; font-size:20px; color:#10b981;" id="freed-badge">+0.0 GB 已释放</div>
+            <div style="font-weight:700; font-size:19px; color:#10b981; font-family:var(--mono);" id="freed-badge">+0.0 GB 已释放</div>
           </div>
           <div class="horizon-bar-wrap">
             <div class="h-seg sys" id="seg-sys" style="width: 25%;" title="系统核心"></div>
-            <div class="h-seg bloat" id="seg-bloat" style="width: 24%;" title="微信与办公"></div>
-            <div class="h-seg cache" id="seg-cache" style="width: 18%;" title="离线缓存"></div>
+            <div class="h-seg bloat" id="seg-bloat" style="width: 24%;" title="微信与社办"></div>
+            <div class="h-seg cache" id="seg-cache" style="width: 18%;" title="离线构建缓存"></div>
             <div class="h-seg pkgs" id="seg-pkgs" style="width: 10%;" title="开发与依赖"></div>
             <div class="h-seg free" id="seg-free" style="width: 23%;" title="可用空间"></div>
           </div>
           <div class="horizon-legend">
             <div class="legend-item"><span class="legend-dot" style="background:#0078d4;"></span><span class="zh">系统核心 (120 GB)</span><span class="en">System (120GB)</span></div>
             <div class="legend-item"><span class="legend-dot" style="background:#f59e0b;"></span><span class="zh">微信与社办 (114 GB)</span><span class="en">Social &amp; Office (114GB)</span></div>
-            <div class="legend-item"><span class="legend-dot" style="background:#8b5cf6;"></span><span class="zh">离线缓存 (86 GB)</span><span class="en">Offline Cache (86GB)</span></div>
-            <div class="legend-item"><span class="legend-dot" style="background:#10b981;"></span><span class="zh">开发与依赖 (48 GB)</span><span class="en">Dev &amp; Packages (48GB)</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background:#8b5cf6;"></span><span class="zh">构建缓存 (86 GB)</span><span class="en">Build Cache (86GB)</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background:#10b981;"></span><span class="zh">开发依赖 (48 GB)</span><span class="en">Dev Packages (48GB)</span></div>
             <div class="legend-item"><span class="legend-dot" style="background:rgba(120,130,150,0.5);"></span><span class="zh">可用空间 (108 GB)</span><span class="en">Free Space (108GB)</span></div>
           </div>
         </div>
       </div>
       <div class="controls">
         <div class="row">
-          <span class="title"><span class="zh">自愈激进策略</span><span class="en">Strategy</span></span>
-          <select id="heal-strategy" style="background:var(--surface); color:var(--text); border:1px solid var(--line-strong); padding:5px 10px; border-radius:6px; font-weight:600;">
+          <span class="title"><span class="zh">自愈策略激进度</span><span class="en">Strategy Mode</span></span>
+          <select id="heal-strategy" style="background:var(--surface); color:var(--text); border:1px solid var(--line-strong); padding:5px 10px; border-radius:6px; font-weight:600; font-size:13px;">
             <option value="safe">安全自愈 (Safe)</option>
             <option value="deep" selected>深度治理 (Deep)</option>
             <option value="max">极致收缩 (Max)</option>
@@ -1147,14 +1118,14 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
         </div>
         <div class="row">
           <div>
-            <div style="font-weight:600;"><span class="zh">全屏与游戏免打扰</span><span class="en">Gaming Quiet Mode</span></div>
+            <div style="font-weight:600;"><span class="zh">全屏游戏免打扰</span><span class="en">Gaming Quiet Mode</span></div>
             <div style="font-size:12px; color:var(--text-3);"><span class="zh">DirectX / 独占应用自动避让</span><span class="en">Auto-mute in full-screen</span></div>
           </div>
           <button class="switch" role="switch" aria-checked="true" id="switch-fullscreen" onclick="toggleSwitch(this)"></button>
         </div>
         <div class="row">
           <div>
-            <div style="font-weight:600;"><span class="zh">键鼠空闲调度</span><span class="en">Idle Input Scheduling</span></div>
+            <div style="font-weight:600;"><span class="zh">键鼠离席空闲调度</span><span class="en">Idle Input Scheduling</span></div>
             <div style="font-size:12px; color:var(--text-3);"><span class="zh">离席 5 分钟后触发低压治理</span><span class="en">Trigger only when idle 5m</span></div>
           </div>
           <button class="switch" role="switch" aria-checked="true" id="switch-idle" onclick="toggleSwitch(this)"></button>
@@ -1166,8 +1137,8 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
           </div>
           <button class="switch" role="switch" aria-checked="true" id="switch-burn" onclick="toggleSwitch(this)"></button>
         </div>
-        <div style="margin-top:8px;">
-          <button class="btn btn-primary" style="width:100%; height:44px;" id="btn-run-heal" onclick="runSimulatedHealing()">
+        <div style="margin-top:6px;">
+          <button class="btn btn-primary" style="width:100%; height:42px; font-size:14px;" id="btn-run-heal" onclick="runSimulatedHealing()">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
             <span class="zh">立即模拟极速自愈</span><span class="en">Run Simulated Healing</span>
           </button>
@@ -1175,62 +1146,27 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
       </div>
     </div>
 
-    <!-- Healing Live Motion Demonstration -->
-    <div class="reveal d2" style="margin-top: 36px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius-lg); padding: 18px; box-shadow: var(--shadow-shot); overflow: hidden;">
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 10px 14px 10px; border-bottom: 1px solid var(--line);">
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #0078d4; box-shadow: 0 0 8px rgba(0, 120, 212, 0.7);"></span>
-          <span style="font-size: 13px; font-weight: 600; color: var(--text);"><span class="zh">实机动态演练：Fluent 2 黑曜石空间管家与 10GB+ 深度扩容直通栏</span><span class="en">Motion Capture: One-Click Instant Storage Healing &amp; Deep Expansion</span></span>
-        </div>
-        <span style="font-size: 11px; font-family: var(--font-mono); color: #22c55e; background: rgba(34, 197, 94, 0.12); padding: 2px 8px; border-radius: 99px; border: 1px solid rgba(34, 197, 94, 0.25);">ONE-CLICK · 16 GB RECLAIMED</span>
-      </div>
-      <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); display: flex; justify-content: center; background: #000;">
-        <img src="demo_space_healing.gif" alt="空间管家一键极速自愈实机录屏" style="width: 100%; max-width: 720px; height: auto; display: block;" loading="eager" />
-      </div>
-    </div>
-
-    <!-- Real v0.5.0 Desktop Screenshots Gallery (Interactive Lightbox) -->
+    <!-- Real Desktop Screenshots Gallery (Interactive Lightbox) -->
     <div class="reveal d3" style="margin-top: 36px;">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-        <span style="font-size:13px; font-weight:600; color:var(--text-2);"><span class="zh">v0.5.0 Obsidian 亚克力桌面端实机画廊（点击任意截图可全屏高清放大检视）</span><span class="en">v0.5.0 Obsidian Acrylic Desktop Gallery (Click any screenshot to zoom)</span></span>
+        <span style="font-size:13px; font-weight:600; color:var(--text-2);"><span class="zh">实机界面检视（点击任意截图可全屏高清放大核对）</span><span class="en">v0.5.0 Obsidian Desktop Gallery (Click to zoom)</span></span>
         <span style="font-size:11px; font-family:var(--mono); color:#0078d4; background:rgba(0,120,212,0.1); padding:2px 8px; border-radius:99px;">CLICK TO ZOOM</span>
       </div>
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
-        <!-- Card 1: Studio Dashboard Dark -->
-        <div onclick="openShotLightbox('assets/screenshot_studio_dashboard.png', 'CleanFlow Studio · 黑曜石亚克力主仪表盘与 10GB+ 深度扩容直通栏', '首屏直达微信/企微专清、3-Tier 硬链接去重、C 盘巨无霸向导与回收站核验')" style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow-card); cursor: zoom-in; transition: transform .22s cubic-bezier(.16,1,.3,1), border-color .22s; position: relative;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(0,120,212,0.45)';" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)';">
-          <img src="assets/screenshot_studio_dashboard.png" alt="CleanFlow Studio 一键清理与 10GB+ 扩容直通栏" style="width: 100%; border-radius: 8px; border: 1px solid var(--line);" loading="lazy" />
-          <div style="margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--text);"><span class="zh">CleanFlow Studio · 黑曜石亚克力主仪表盘</span><span class="en">CleanFlow Studio · Obsidian Acrylic Dashboard</span></div>
-          <div style="font-size: 12px; color: var(--text-3);"><span class="zh">首屏直达微信/企微专清、3-Tier 硬链接去重、C 盘巨无霸向导与回收站核验</span><span class="en">Direct access to WeChat cleaner, 3-Tier Hardlink Dedup &amp; OS slimming</span></div>
+        <div onclick="openShotLightbox('assets/screenshot_studio_dashboard.png', 'CleanFlow Studio · 黑曜石亚克力主仪表盘与 10GB+ 深度扩容直通栏', '首屏直达微信/企微专清、3-Tier 三级去重、C 盘巨无霸向导与回收站安全核验')" style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow-card); cursor: zoom-in; transition: transform .22s cubic-bezier(.16,1,.3,1), border-color .22s; position: relative;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(0,120,212,0.45)';" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)';">
+          <img src="assets/screenshot_studio_dashboard.png" alt="CleanFlow Studio 一键清理与 10GB+ 扩容直通栏" style="width: 100%; border-radius: 6px; border: 1px solid var(--line);" loading="lazy" />
+          <div style="margin-top: 10px; font-size: 13.5px; font-weight: 600; color: var(--text);"><span class="zh">CleanFlow Studio · 主仪表盘</span><span class="en">CleanFlow Studio · Main Dashboard</span></div>
+          <div style="font-size: 12px; color: var(--text-3);"><span class="zh">首屏直达微信/企微专清、3-Tier 去重与巨型资产向导</span><span class="en">Direct access to WeChat cleaner, 3-Tier dedup &amp; giant assets</span></div>
         </div>
-        <!-- Card 2: Flow Search -->
-        <div onclick="openShotLightbox('assets/screenshot_flow_search.png', 'CleanFlow Flow · 0.18ms 全盘秒搜与键盘流操作中心', '双击 Ctrl 随叫随到，支持拼音简拼、裸盘 MFT 索引直读、Alt+P 快速预览与动作直达')" style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow-card); cursor: zoom-in; transition: transform .22s cubic-bezier(.16,1,.3,1), border-color .22s; position: relative;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(0,120,212,0.45)';" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)';">
-          <img src="assets/screenshot_flow_search.png" alt="CleanFlow Flow 全盘毫秒秒搜与极速操作中心" style="width: 100%; border-radius: 8px; border: 1px solid var(--line);" loading="lazy" />
-          <div style="margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--text);"><span class="zh">CleanFlow Flow · 全盘秒搜与极速操作中心</span><span class="en">CleanFlow Flow · Instant Search &amp; Action Hub</span></div>
-          <div style="font-size: 12px; color: var(--text-3);"><span class="zh">双击 Ctrl 呼出，200 项匹配 0.18ms 裸盘直读，支持快捷键直达</span><span class="en">Double-tap Ctrl, 0.18ms raw MFT stream with keyboard navigation</span></div>
+        <div onclick="openShotLightbox('assets/screenshot_flow_search_everyday.png', 'CleanFlow Flow · 全盘毫秒秒搜与 Space 压缩包零解压预览', '双击 Ctrl 随叫随到，支持拼音简拼、1-Edit 容错纠偏与 ZIP/JAR 中央目录零解压透视')" style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow-card); cursor: zoom-in; transition: transform .22s cubic-bezier(.16,1,.3,1), border-color .22s; position: relative;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(0,120,212,0.45)';" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)';">
+          <img src="assets/screenshot_flow_search_everyday.png" alt="CleanFlow Flow 全盘毫秒秒搜与 Space 预览" style="width: 100%; border-radius: 6px; border: 1px solid var(--line);" loading="lazy" />
+          <div style="margin-top: 10px; font-size: 13.5px; font-weight: 600; color: var(--text);"><span class="zh">CleanFlow Flow · 全盘秒搜与透视</span><span class="en">CleanFlow Flow · Instant Search &amp; QuickLook</span></div>
+          <div style="font-size: 12px; color: var(--text-3);"><span class="zh">双击 Ctrl 呼出，拼音简拼、1-Edit 纠错与 ZIP 零解压透视</span><span class="en">Double-tap Ctrl with Pinyin initials &amp; zero-extract ZIP preview</span></div>
         </div>
-        <!-- Card 3: Social Media Cleaner -->
-        <div onclick="openShotLightbox('assets/screenshot_social_cleaner.png', '微信与办公深度专清中心 · 实机穿透与聊天库保护', '实机动态枚举微信 3.x/4.0、QQ、钉钉与飞书真实存储路径，BLAKE3 哈希识别重复接收附件，物理熔断保护聊天记录库')" style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow-card); cursor: zoom-in; transition: transform .22s cubic-bezier(.16,1,.3,1), border-color .22s; position: relative;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(0,120,212,0.45)';" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)';">
-          <img src="assets/screenshot_social_cleaner.png" alt="微信与办公深度专清中心" style="width: 100%; border-radius: 8px; border: 1px solid var(--line);" loading="lazy" />
-          <div style="margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--text);"><span class="zh">微信与办公深度专清 · 聊天记录受物理保护</span><span class="en">Social Cleaner · Zero-Loss Chat History Shield</span></div>
-          <div style="font-size: 12px; color: var(--text-3);"><span class="zh">支持微信 4.0/QQ/钉钉/飞书：清理过期视频与重复附件，聊天库绝对安全</span><span class="en">Protects SQLite DB while safely cleaning expired video caches &amp; duplicate receipts</span></div>
-        </div>
-        <!-- Card 4: Space Treemap Radar -->
-        <div onclick="openShotLightbox('assets/screenshot_treemap_radar.png', '全盘空间透视 · Treemap 空间矩形树图与资产治理', '色块面积精确映射磁盘物理占用，直观定位 4.1GB state.vscdb、虚拟机镜像与大模型文件，智能推荐 SQLite VACUUM 收缩')" style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow-card); cursor: zoom-in; transition: transform .22s cubic-bezier(.16,1,.3,1), border-color .22s; position: relative;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(0,120,212,0.45)';" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)';">
-          <img src="assets/screenshot_treemap_radar.png" alt="全盘空间透视与 Treemap 空间树图" style="width: 100%; border-radius: 8px; border: 1px solid var(--line);" loading="lazy" />
-          <div style="margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--text);"><span class="zh">全盘空间透视 · Treemap 矩形树图</span><span class="en">Space Perspective · Treemap Visualization</span></div>
-          <div style="font-size: 12px; color: var(--text-3);"><span class="zh">色块面积映射物理空间占用，定位巨型文件并支持 SQLite VACUUM 压缩</span><span class="en">Visualizes storage footprint proportionally with SQLite vacuum integration</span></div>
-        </div>
-        <!-- Card 5: Tools & Cloud Dehydration -->
-        <div onclick="openShotLightbox('assets/screenshot_tools_cloud.png', '深度极客工具箱 · C 盘隐藏巨无霸与云端脱水向导', '排查驱动存储池、休眠文件与虚拟内存占用；基于 Windows 原生 Cloud Filter 将 OneDrive/iCloud 离线文件安全脱水')" style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow-card); cursor: zoom-in; transition: transform .22s cubic-bezier(.16,1,.3,1), border-color .22s; position: relative;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(0,120,212,0.45)';" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)';">
-          <img src="assets/screenshot_tools_cloud.png" alt="深度极客工具箱与云端脱水治理" style="width: 100%; border-radius: 8px; border: 1px solid var(--line);" loading="lazy" />
-          <div style="margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--text);"><span class="zh">极客工具箱 · C 盘巨无霸与云端脱水向导</span><span class="en">Geek Toolbox · OS Slimming &amp; Cloud Filter</span></div>
-          <div style="font-size: 12px; color: var(--text-3);"><span class="zh">管理 Junction 符号链接，一键安全脱机云盘缓存，不损云端资产</span><span class="en">Audits DriverStore, Junction links &amp; safely dehydrates local cloud storage</span></div>
-        </div>
-        <!-- Card 6: Studio Light Theme -->
-        <div onclick="openShotLightbox('assets/screenshot_studio_light.png', 'CleanFlow Studio · 现代浅色模式 (Fluent 2 风格)', '基于 Windows 11 Fluent 2 设计语言纯白亚克力质感，自适应高对比度日间办公视觉体验')" style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow-card); cursor: zoom-in; transition: transform .22s cubic-bezier(.16,1,.3,1), border-color .22s; position: relative;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(0,120,212,0.45)';" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)';">
-          <img src="assets/screenshot_studio_light.png" alt="CleanFlow Studio 现代浅色模式" style="width: 100%; border-radius: 8px; border: 1px solid var(--line);" loading="lazy" />
-          <div style="margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--text);"><span class="zh">CleanFlow Studio · 现代浅色主题 (Fluent 2)</span><span class="en">CleanFlow Studio · Pure Light Mode</span></div>
-          <div style="font-size: 12px; color: var(--text-3);"><span class="zh">白昼办公优雅之选，高清晰度对比度渲染，支持系统色彩一键同步</span><span class="en">Elegant daytime aesthetic built with Windows 11 Fluent 2 design language</span></div>
+        <div onclick="openShotLightbox('assets/screenshot_workspace_auditor.png', '智能空间体检 · 微信/下载/工程工作区深度治理', '识别重复编号副本 (1)/(2)、下载碎片、编译缓存与孤立空目录')" style="background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow-card); cursor: zoom-in; transition: transform .22s cubic-bezier(.16,1,.3,1), border-color .22s; position: relative;" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='rgba(0,120,212,0.45)';" onmouseout="this.style.transform='none';this.style.borderColor='var(--line)';">
+          <img src="assets/screenshot_workspace_auditor.png" alt="智能空间体检与目录深度净化" style="width: 100%; border-radius: 6px; border: 1px solid var(--line);" loading="lazy" />
+          <div style="margin-top: 10px; font-size: 13.5px; font-weight: 600; color: var(--text);"><span class="zh">智能空间体检 · 工作区穿透</span><span class="en">Workspace Auditor · Deep Inspection</span></div>
+          <div style="font-size: 12px; color: var(--text-3);"><span class="zh">启发式识别 (1)/(2) 副本、下载碎片与后序级联空目录</span><span class="en">Detects numbered duplicates, fragments &amp; empty trees</span></div>
         </div>
       </div>
     </div>
@@ -1241,10 +1177,10 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
 <section class="section alt" id="features">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="eyebrow"><span class="zh">能力矩阵</span><span class="en">Features</span></span>
+      <span class="eyebrow"><span class="zh">核心壁垒</span><span class="en">Feats</span></span>
       <h2><span class="zh">九大核心工程杀手锏。</span><span class="en">Nine Engineering Feats.</span></h2>
       <p class="lead">
-        <span class="zh">兼顾国民日常 C 盘瘦身与专业开发者生产力。每一个特性背后都是深入 Windows 内核机制的精心考量。</span>
+        <span class="zh">兼顾国民日常 C 盘瘦身与工程师硬核生产力。每一个特性背后都是深入 Windows 内核机制的打磨。</span>
         <span class="en">Engineered for both everyday Windows users and power developers, deeply rooted in native OS internals.</span>
       </p>
     </div>
@@ -1252,56 +1188,56 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
     <div class="features">
       <article class="feature reveal" style="--tint:#0078d4">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        <h3><span class="zh">MFT 裸盘秒读</span><span class="en">Bare-metal MFT Stream</span></h3>
-        <p><span class="zh">绕过缓慢的 Win32 API 递归，纯 Rust 直接解析 NTFS 磁盘主文件表扇区，全盘秒级索引。</span><span class="en">Decodes raw NTFS Master File Table sectors directly without sluggish Win32 recursion.</span></p>
+        <h3><span class="zh">MFT 裸盘秒读流式引擎</span><span class="en">Bare-metal MFT Stream</span></h3>
+        <p><span class="zh">直读 NTFS 主文件表扇区簇链。实测 370 万条记录浅层浏览仅需 20~30ms，多盘定向检索毫秒级流式展现。</span><span class="en">Decodes raw NTFS MFT sectors directly. Tested at 20-30ms for root browsing across 3.7 million records.</span></p>
       </article>
 
-      <article class="feature reveal d1" style="--tint:#10b981">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
-        <h3><span class="zh">微信/企微/QQ 深度专清</span><span class="en">Social &amp; Office Deep Cleaner</span></h3>
-        <p><span class="zh">脱离盘符硬编码，自动解析注册表与配置定位微信 3.x/4.0 及企微目录；BLAKE3 识别重复接收附件，物理熔断保护聊天记录库。</span><span class="en">Auto-detects WeChat/WXWork/QQ across any drive via registry &amp; config, deduplicates files while protecting chat DBs.</span></p>
+      <article class="feature reveal d1" style="--tint:#0ea5e9">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="2" x2="8" y2="4"/><line x1="16" y1="2" x2="16" y2="4"/></svg></div>
+        <h3><span class="zh">Docker / WSL2 宿主机压缩</span><span class="en">Host VHDX Compaction</span></h3>
+        <p><span class="zh">直接在 Windows 宿主机底层调用 <code>Optimize-VHD -Mode Full</code> 与 diskpart，物理抽干虚拟磁盘空洞，瞬间归还数十 GB。</span><span class="en">Directly invokes host Optimize-VHD and diskpart to reclaim unallocated virtual disk blocks without booting Linux.</span></p>
       </article>
 
-      <article class="feature reveal d2" style="--tint:#8b5cf6">
+      <article class="feature reveal d2" style="--tint:#10b981">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
+        <h3><span class="zh">3-Tier BLAKE3 三级去重</span><span class="en">3-Tier BLAKE3 Dedup</span></h3>
+        <p><span class="zh">大小过滤 -> 快速头尾哈希 -> 全量 BLAKE3 哈希。精准识别全盘重复文件，支持 CreateHardLinkW 零拷贝硬链接合并。</span><span class="en">Size filter -> fast head/tail hash -> full BLAKE3. Accurately finds duplicates and consolidates them via NTFS hardlinks.</span></p>
+      </article>
+
+      <article class="feature reveal" style="--tint:#8b5cf6">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="11" x2="12" y2="17"/></svg></div>
-        <h3><span class="zh">Junction 跨盘软搬迁</span><span class="en">NTFS Soft Junctions</span></h3>
-        <p><span class="zh">无损迁移数十 GB 微信、Ollama 模型或依赖目录至副盘，原路径保留透明软连接，软件与 IDE 零感知照常运行。</span><span class="en">Move giant folders to D: while preserving an NTFS Reparse Point link with zero bytes on C:.</span></p>
-      </article>
-
-      <article class="feature reveal" style="--tint:#00c7ff">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h3><span class="zh">Space 键零解压极速预览</span><span class="en">Space Key QuickLook</span></h3>
-        <p><span class="zh">选中任意结果按下空格键，即可流式预览代码文本或直接读取 ZIP/JAR 中央目录索引树，无需解压即可透视内部结构。</span><span class="en">Press Space on any hit to stream source code or inspect ZIP/JAR Central Directory entries without extraction.</span></p>
+        <h3><span class="zh">Junction 跨盘透明软搬迁</span><span class="en">NTFS Soft Junctions</span></h3>
+        <p><span class="zh">数十 GB 微信、Ollama 模型或编译依赖搬至 D 盘，原路径保留透明重定向链接，宿主程序零感知照常运行，双向一键可逆。</span><span class="en">Move giant folders to D: while preserving an NTFS Reparse Point link with zero bytes on C:. 100% reversible.</span></p>
       </article>
 
       <article class="feature reveal d1" style="--tint:#f59e0b">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
-        <h3><span class="zh">WinSqlite3 挤水分</span><span class="en">WinSqlite3 Vacuum</span></h3>
-        <p><span class="zh">动态加载系统自带 winsqlite3.dll 执行 VACUUM 与 WAL 截断，无损物理压缩 70% 数据库碎片空洞。</span><span class="en">Directly binds to Windows native winsqlite3.dll. Vacuum fragmentation with zero extra DLLs.</span></p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3><span class="zh">原生 Win32 Advapi32 注册表引擎</span><span class="en">Native Win32 Advapi32 Engine</span></h3>
+        <p><span class="zh">彻底根绝 reg.exe 外部进程派生，微秒级直接系统调用，精准查杀卸载残留与失效关联项，火绒与 Windows Defender 零误报。</span><span class="en">Eliminates reg.exe subprocesses entirely, making direct Advapi32 system calls in microseconds with zero antivirus false positives.</span></p>
       </article>
 
-      <article class="feature reveal d2" style="--tint:#ec4899">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <h3><span class="zh">MFT 与卷影快照抢救</span><span class="en">MFT &amp; VSS Data Rescue</span></h3>
-        <p><span class="zh">只读解析未分配 MFT 软删除记录与卷影副本 (VSS)，支持 Safetensors/GGUF/SQLite 魔数雕刻与非源盘安全导出。</span><span class="en">Read-only MFT undelete, VSS historical version recovery, and magic-byte file carving.</span></p>
+      <article class="feature reveal d2" style="--tint:#00c7ff">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <h3><span class="zh">微信/企微/QQ 专清与红线熔断</span><span class="en">Social Hardened Cleaner</span></h3>
+        <p><span class="zh">动态嗅探各盘配置，智能治理过期视频与多重副本；底层建立代码级红线隔离，核心聊天数据库绝对只读免碰。</span><span class="en">Auto-locates WeChat/QQ data across drives. Clean caches and duplicates while hard-isolating SQLite message databases.</span></p>
       </article>
 
-      <article class="feature reveal" style="--tint:#34d399">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-        <h3><span class="zh">全屏免打扰与空闲自愈</span><span class="en">Quiet Mode &amp; Idle Healing</span></h3>
-        <p><span class="zh">游戏或 PPT 放映时自动静默；基于 GetLastInputInfo 仅在离席超过 5 分钟后触发后台低压治理与云盘脱水。</span><span class="en">Silences notifications during fullscreen apps and triggers low-priority cleanup only when idle.</span></p>
+      <article class="feature reveal" style="--tint:#ec4899">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div>
+        <h3><span class="zh">后序深度递归级联空目录清除</span><span class="en">Post-Order Cascade Cleanup</span></h3>
+        <p><span class="zh">深度优先后序遍历算法，多层嵌套的空目录（a/b/c）一次扫描级联连根拔起，根绝反复清理依然残留空壳的顽疾。</span><span class="en">Post-order depth-first traversal cascades empty nested directory trees in a single pass without leftovers.</span></p>
       </article>
 
       <article class="feature reveal d1" style="--tint:#6366f1">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg></div>
-        <h3><span class="zh">拼音简拼与 1-Edit 容错</span><span class="en">Pinyin &amp; 1-Edit Typo</span></h3>
-        <p><span class="zh">吸收 fsearch 算法，输入 4 字符容忍 1 处击键颠倒；内置多音字与复合声母影子索引，输入 jsq 秒搜计算器。</span><span class="en">1-Edit Damerau-Levenshtein typo correction with compound initials pinyin matching.</span></p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <h3><span class="zh">WinSqlite3 原生宽字符动态压缩</span><span class="en">Native WinSqlite3 Engine</span></h3>
+        <p><span class="zh">动态绑定系统 winsqlite3.dll 并调用宽字符 sqlite3_open16，无需外部 PowerShell 或运行时，原生支持任意中文路径 VACUUM 与 WAL 物理压缩。</span><span class="en">Dynamically binds to Windows winsqlite3.dll with sqlite3_open16, compacting databases with zero runtime dependencies.</span></p>
       </article>
 
-      <article class="feature reveal d2" style="--tint:#0ea5e9">
+      <article class="feature reveal d2" style="--tint:#10b981">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div>
-        <h3><span class="zh">单文件便携免安装</span><span class="en">Single Binary Portable</span></h3>
-        <p><span class="zh">单一 10.6 MB Release 二进制，内嵌 Fluent Mica Web UI、SVG 与规则引擎，零外部依赖开箱即用。</span><span class="en">Single 10.6 MB binary with embedded Fluent Mica UI and zero external runtime dependencies.</span></p>
+        <h3><span class="zh">287/287 测试全绿与单文件便携</span><span class="en">287/287 Tests &amp; Single Binary</span></h3>
+        <p><span class="zh">单一 ~15.5 MB Release 绿色可执行文件，内嵌 Fluent Mica Web 前端，287/287 单元测试 100% 全绿，完全离线运行。</span><span class="en">Single ~15.5 MB binary with embedded Fluent Mica UI, 287/287 unit tests passing 100%, and local offline execution.</span></p>
       </article>
     </div>
   </div>
@@ -1313,35 +1249,35 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
   <div class="wrap">
     <div class="sec-head center reveal">
       <span class="eyebrow"><span class="zh">隐私安全</span><span class="en">Privacy</span></span>
-      <h2><span class="zh">你的文件，<br>只属于你。</span><span class="en">Your files.<br>Stay on your device.</span></h2>
+      <h2><span class="zh">你的文件与数据，<br>只属于你本机。</span><span class="en">Your files and data.<br>Stay strictly on your PC.</span></h2>
       <p class="lead">
-        <span class="zh">磁盘目录包含个人资料、代码资产与聊天隐私。CleanFlow Pro 从架构第一天起就坚持 100% 纯本地运行。</span>
-        <span class="en">Disks hold chats, source code, and private data. CleanFlow Pro is architected from day one to operate strictly on device.</span>
+        <span class="zh">个人磁盘承载着代码资产、工作隐私与生活痕迹。CleanFlow Pro 从架构设计第一天起坚守 100% 纯本地离线原则。</span>
+        <span class="en">Disks hold chats, source code, and private records. CleanFlow Pro is architected from day one to operate strictly offline on your machine.</span>
       </p>
     </div>
     <div class="pgrid">
       <div class="pcard reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
         <h3><span class="zh">100% 本地运算</span><span class="en">On Device</span></h3>
-        <p><span class="zh">所有 MFT 读取、索引生成与自愈规则全量在本地内存与 CPU 运算。</span><span class="en">All MFT parsing and healing rules execute locally on your own CPU and memory.</span></p>
+        <p><span class="zh">所有 MFT 读取、索引生成、去重哈希计算全量在本地内存与 CPU 执行。</span><span class="en">All MFT parsing, index creation and BLAKE3 hashing execute locally on your own CPU.</span></p>
       </div>
       <div class="pcard reveal d1">
         <svg viewBox="0 0 24 24" fill="none" stroke="#0078d4" stroke-width="2"><path d="M2 2l20 20M8.5 16.4A5 5 0 0 1 12 15c1.4 0 2.6.5 3.5 1.4M5 12.9a10 10 0 0 1 4.2-2.4M19 12.9a10 10 0 0 0-2.3-1.6M2 8.8a15 15 0 0 1 4.2-2.7M22 8.8A15 15 0 0 0 10.7 5M12 20h.01"/></svg>
         <h3><span class="zh">零云端遥测</span><span class="en">Zero Telemetry</span></h3>
-        <p><span class="zh">不含任何网络分析追踪代码，零后台回传，完全离线运行。</span><span class="en">No analytics, no network tracking, zero background telemetry pings.</span></p>
+        <p><span class="zh">无任何分析追踪 SDK，零后台回传，支持断网完全离线使用。</span><span class="en">No analytics SDKs, zero background pings, fully functional without an internet connection.</span></p>
       </div>
       <div class="pcard reveal d2">
         <svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 13-6.2M16 19l5-5M21 19l-5-5"/></svg>
-        <h3><span class="zh">零临时文件残留</span><span class="en">Zero Residue</span></h3>
-        <p><span class="zh">单文件便携绿色，不向注册表写入流氓启动项，关闭即退出。</span><span class="en">Single portable executable. Leaves no garbage keys in Windows registry.</span></p>
+        <h3><span class="zh">零流氓驻留</span><span class="en">Zero Residue</span></h3>
+        <p><span class="zh">单文件绿色便携，不写流氓自启动注册表项，关闭即退出。</span><span class="en">Single portable executable. Leaves no hidden registry clutter, exits cleanly.</span></p>
       </div>
       <div class="pcard reveal d3">
         <svg viewBox="0 0 24 24" fill="none" stroke="#00c7ff" stroke-width="2"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
-        <h3><span class="zh">商业安全与透明可验</span><span class="en">Verifiable &amp; Secure</span></h3>
-        <p><span class="zh">严格遵循无遥测规范，支持火绒/系统防火墙离线审计，安全清理可逆还原。</span><span class="en">Strict zero-telemetry architecture, fully verifiable via process monitors with instant Recycle Bin rollback.</span></p>
+        <h3><span class="zh">透明安全可复核</span><span class="en">Auditable &amp; Safe</span></h3>
+        <p><span class="zh">支持火绒及系统防火墙全程抓包审计；常规清理支持回收站防误删撤回。</span><span class="en">Auditable by any security suite. Standard cleaning goes to Recycle Bin for safe restore.</span></p>
       </div>
     </div>
-    <p class="fine reveal"><span class="zh">这个页面同样不含任何第三方广告或统计追踪代码。</span><span class="en">This landing page contains zero tracking or external analytics scripts.</span></p>
+    <p class="fine reveal"><span class="zh">本官方页面同样零广告、零第三方数据收集脚本。</span><span class="en">This website contains zero advertising or third-party tracking scripts.</span></p>
   </div>
 </section>
 
@@ -1360,156 +1296,23 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
       <div class="kcard reveal">
         <h3><span class="zh">启动与检索</span><span class="en">Search &amp; Launch</span></h3>
         <div class="krow"><span class="zh">全局 Spotlight 启动器</span><span class="en">Spotlight Launcher</span><span class="k"><kbd>Alt</kbd><kbd>Space</kbd></span></div>
-        <div class="krow"><span class="zh">双击极速检索</span><span class="en">Double-tap Search</span><span class="k"><kbd>Ctrl</kbd><kbd>Ctrl</kbd></span></div>
-        <div class="krow"><span class="zh">零解压极速预览 (QuickLook)</span><span class="en">QuickLook Preview</span><span class="k"><kbd>Space</kbd></span></div>
+        <div class="krow"><span class="zh">双击极速唤出</span><span class="en">Double-tap Search</span><span class="k"><kbd>Ctrl</kbd><kbd>Ctrl</kbd></span></div>
+        <div class="krow"><span class="zh">Space 零解压极速预览</span><span class="en">QuickLook Preview</span><span class="k"><kbd>Space</kbd></span></div>
         <div class="krow"><span class="zh">穿透文件对话框</span><span class="en">Quick Switch</span><span class="k"><kbd>Ctrl</kbd><kbd>G</kbd></span></div>
       </div>
       <div class="kcard reveal d1">
-        <h3><span class="zh">动作与治理</span><span class="en">Actions &amp; Governance</span></h3>
+        <h3><span class="zh">治理与动作</span><span class="en">Actions &amp; Governance</span></h3>
         <div class="krow"><span class="zh">打开选中文件 / 目录</span><span class="en">Open Item</span><span class="k"><kbd>Enter</kbd></span></div>
         <div class="krow"><span class="zh">在资源管理器中定位</span><span class="en">Reveal in Explorer</span><span class="k"><kbd>Ctrl</kbd><kbd>Enter</kbd></span></div>
-        <div class="krow"><span class="zh">执行 Junction 软搬家</span><span class="en">Trigger Junction</span><span class="k"><kbd>Alt</kbd><kbd>M</kbd></span></div>
-        <div class="krow"><span class="zh">执行 WinSqlite3 压缩</span><span class="en">Vacuum Database</span><span class="k"><kbd>Alt</kbd><kbd>V</kbd></span></div>
+        <div class="krow"><span class="zh">执行 Junction 软搬迁</span><span class="en">Trigger Junction</span><span class="k"><kbd>Alt</kbd><kbd>M</kbd></span></div>
+        <div class="krow"><span class="zh">执行 WinSqlite3 整理</span><span class="en">Vacuum Database</span><span class="k"><kbd>Alt</kbd><kbd>V</kbd></span></div>
       </div>
       <div class="kcard reveal d2">
-        <h3><span class="zh">系统与窗口</span><span class="en">System &amp; Window</span></h3>
-        <div class="krow"><span class="zh">最小化到托盘</span><span class="en">Minimize to Tray</span><span class="k"><kbd>Esc</kbd></span></div>
+        <h3><span class="zh">系统与高级</span><span class="en">System &amp; Advanced</span></h3>
+        <div class="krow"><span class="zh">最小化隐藏到托盘</span><span class="en">Minimize to Tray</span><span class="k"><kbd>Esc</kbd></span></div>
         <div class="krow"><span class="zh">切换深浅色主题</span><span class="en">Toggle Theme</span><span class="k"><kbd>Alt</kbd><kbd>T</kbd></span></div>
         <div class="krow"><span class="zh">复制文件完整路径</span><span class="en">Copy Full Path</span><span class="k"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>C</kbd></span></div>
-        <div class="krow"><span class="zh">以管理员身份运行</span><span class="en">Run as Administrator</span><span class="k"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>Enter</kbd></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 6.5: Pricing -->
-<section class="section" id="pricing">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow"><span class="zh">商业授权与定价</span><span class="en">Pricing &amp; Editions</span></span>
-      <h2><span class="zh">透明定价，<br>为真正的极客生产力买单。</span><span class="en">Transparent Pricing.<br>Built for Ultimate Productivity.</span></h2>
-      <p class="lead">
-        <span class="zh">100% 本地离线运行，零遥测、零广告。社区版功能永久免费开放；升级 Pro 专业版，畅享底层磁盘黑科技与全盘资产治理中枢。</span>
-        <span class="en">100% Local offline with zero telemetry and zero ads. Community tier is free forever; upgrade to Pro to unlock bare-metal disk power and full asset governance.</span>
-      </p>
-    </div>
-
-    <div class="pricing-grid">
-      <!-- Tier 1: Community Free -->
-      <div class="price-card reveal">
-        <div class="price-badge"><span class="zh">永久免费</span><span class="en">Free Forever</span></div>
-        <h3 class="price-title"><span class="zh">社区免费版</span><span class="en">Community Edition</span></h3>
-        <p class="price-desc"><span class="zh">专为日常基础文件定位与轻量磁盘清理设计，绿色纯净零打扰。</span><span class="en">Designed for daily instant file search and lightweight storage hygiene.</span></p>
-        <div class="price-amount">
-          <span class="currency">￥</span>0
-          <span class="period"><span class="zh">/ 终身免费</span><span class="en">/ Forever</span></span>
-        </div>
-        <ul class="price-features">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">NTFS 裸卷 MFT 毫秒级直读秒搜</span><span class="en">Bare-metal NTFS MFT instant search</span></span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">拼音简拼、全拼与 1-Edit 智能容错纠错</span><span class="en">Pinyin acronyms &amp; 1-Edit typo tolerance</span></span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">基础全盘空间分布透视与常规缓存扫描</span><span class="en">Basic storage distribution &amp; cache scan</span></span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">100% 本地离线 · 零云端遥测 · 零弹窗推广</span><span class="en">100% Local offline, zero telemetry, zero ads</span></span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">单文件绿色便携 · 常驻内存 &lt; 25 MB</span><span class="en">Single portable binary, memory &lt; 25 MB</span></span>
-          </li>
-        </ul>
-        <a class="btn btn-ghost" href="#download" style="width:100%; justify-content:center;">
-          <span class="zh">免费下载体验</span><span class="en">Download Free</span>
-        </a>
-      </div>
-
-      <!-- Tier 2: Pro Lifetime (Featured) -->
-      <div class="price-card featured reveal d1">
-        <div class="price-badge"><span class="zh">最受推崇 · 一次买断</span><span class="en">Most Popular · Lifetime</span></div>
-        <h3 class="price-title"><span class="zh">专业极客版 (Pro)</span><span class="en">Professional Pro</span></h3>
-        <p class="price-desc"><span class="zh">解锁全部底层系统黑科技，专为程序员、极客与重度数字资产管理者打造。</span><span class="en">Unlocks all bare-metal engineering capabilities for developers and power users.</span></p>
-        <div class="price-amount">
-          <span class="currency">￥</span>69
-          <span style="font-size:16px; font-weight:normal; color:var(--text-3); text-decoration:line-through; margin-left:6px;">￥129</span>
-          <span class="period"><span class="zh">/ 一次买断 · 终身有效</span><span class="en">/ One-time purchase · Lifetime</span></span>
-        </div>
-        <ul class="price-features">
-          <li class="pro-highlight">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">包含社区版全部核心检索与基础功能</span><span class="en">Includes all Community search &amp; baseline features</span></span>
-          </li>
-          <li class="pro-highlight">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">双击 Ctrl 呼出全局 Spotlight 毫秒悬浮中枢</span><span class="en">Double-tap Ctrl global Spotlight launcher hub</span></span>
-          </li>
-          <li class="pro-highlight">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">独创 NTFS 零拷贝硬链接去重 (无损净省数十 GB)</span><span class="en">Zero-copy NTFS hardlink deduplication</span></span>
-          </li>
-          <li class="pro-highlight">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">微信/企微/QQ 深度专清与数据库物理熔断保护</span><span class="en">Social cleaner with zero-loss chat DB shield</span></span>
-          </li>
-          <li class="pro-highlight">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">开发者工作区治理与 WSL2 / Docker 镜像物理紧缩</span><span class="en">Workspace auditor &amp; WSL2 / Docker compaction</span></span>
-          </li>
-          <li class="pro-highlight">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">C 盘隐藏巨无霸 4 维调优 (驱动池/休眠/更新缓存)</span><span class="en">OS slimming (DriverStore, Hibernation, Windows Update)</span></span>
-          </li>
-          <li class="pro-highlight">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">支持授权绑定 2 台 PC · Ed25519 离线硬件验签</span><span class="en">2 PCs Activation · Ed25519 offline verification</span></span>
-          </li>
-        </ul>
-        <a class="btn btn-primary" href="#download" style="width:100%; justify-content:center;">
-          <span class="zh">免费试用 / 立即获取 Pro</span><span class="en">Free Trial / Get Pro</span>
-        </a>
-      </div>
-
-      <!-- Tier 3: Team / Enterprise -->
-      <div class="price-card reveal d2">
-        <div class="price-badge"><span class="zh">团队与企业</span><span class="en">Team &amp; Enterprise</span></div>
-        <h3 class="price-title"><span class="zh">企业批量授权</span><span class="en">Enterprise Volume</span></h3>
-        <p class="price-desc"><span class="zh">为工作室、研发团队与中大型企业提供统一席位管理与集中交付。</span><span class="en">Centralized seat allocation and unified licensing for studios and companies.</span></p>
-        <div class="price-amount" style="font-size:30px;">
-          <span class="zh">按需定制</span><span class="en">Custom</span>
-          <span class="period"><span class="zh">/ 阶梯批量折扣</span><span class="en">/ Volume Discount</span></span>
-        </div>
-        <ul class="price-features">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">包含专业版 (Pro) 全部高阶技术特权</span><span class="en">Includes all Pro edition advanced capabilities</span></span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">多机批量静默部署与 Windows 域控组策略支持</span><span class="en">Silent deployment &amp; Windows domain GPO support</span></span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">统一离线序列号分发与内部席位管理看板</span><span class="en">Centralized license key management console</span></span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">增值税专用发票支持与企业对公结算</span><span class="en">Corporate payment &amp; formal VAT invoicing</span></span>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><span class="zh">专属 VIP 开发者直通响应通道与定制规则</span><span class="en">Direct developer escalation &amp; custom rules</span></span>
-          </li>
-        </ul>
-        <a class="btn btn-ghost" href="https://github.com/manhua-man/cleanflow-pro-web/issues" target="_blank" rel="noopener" style="width:100%; justify-content:center;">
-          <span class="zh">联系企业采购咨询</span><span class="en">Contact for Enterprise</span>
-        </a>
+        <div class="krow"><span class="zh">以管理员身份运行</span><span class="en">Run as Admin</span><span class="k"><kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>Enter</kbd></span></div>
       </div>
     </div>
   </div>
@@ -1519,46 +1322,47 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
 <section class="section" id="download">
   <div class="wrap">
     <div class="dl reveal">
-      <img src="assets/icon.svg" class="app-icon" alt="CleanFlow Pro" width="104" height="104">
-      <h2><span class="zh">现在就开始<br>从容治理磁盘。</span><span class="en">Start governing<br>brilliantly.</span></h2>
-      <p class="lead" style="margin:0 auto"><span class="zh">免费下载，绿色便携。核心功能完全免费，专业版畅享深度资产治理。</span><span class="en">Free to download, zero install. Free tier for daily cleaning, Pro for advanced governance.</span></p>
+      <img src="assets/icon.svg" class="app-icon" alt="CleanFlow Pro" width="96" height="96">
+      <h2><span class="zh">从容掌控<br>你的 Windows 磁盘。</span><span class="en">Start governing<br>your Windows disks.</span></h2>
+      <p class="lead" style="margin:0 auto"><span class="zh">CleanFlow Pro v0.5.0 正式提供。100% 纯 Rust 单文件绿色便携，开箱即用。</span><span class="en">CleanFlow Pro v0.5.0 is ready. Single portable binary, zero external runtime setup.</span></p>
+
       <div class="dl-buttons">
-        <a class="btn btn-primary" href="https://github.com/manhua-man/cleanflow-pro-web/releases/download/v0.5.0/CleanFlow-Pro-v0.5.0-win64.zip" target="_blank" rel="noopener">
+        <a class="btn btn-primary" href="https://github.com/manhua-man/cleanflow-pro/releases" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           <div class="txt">
-            <span class="zh">Windows 绿色便携包 (.zip)</span>
-            <span class="en">Portable Package (.zip)</span>
-            <small>v0.5.0 · 4.32 MB · 免安装直链下载</small>
+            <span class="zh">获取 GitHub 官方便携压缩包</span>
+            <span class="en">Download Portable Zip</span>
+            <small>v0.5.0 · CleanFlow-Pro-v0.5.0-win64.zip</small>
           </div>
         </a>
-        <a class="btn btn-ghost" href="https://github.com/manhua-man/cleanflow-pro-web/releases/download/v0.5.0/cleanflow.exe" target="_blank" rel="noopener">
+        <a class="btn btn-ghost" href="https://github.com/manhua-man/cleanflow-pro" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
           <div class="txt">
-            <span class="zh">独立 Release 二进制 (.exe)</span>
-            <span class="en">Standalone Binary (.exe)</span>
-            <small>11.2 MB · 单文件直链下载</small>
+            <span class="zh">访问 GitHub 开源仓库</span>
+            <span class="en">Visit GitHub Repository</span>
+            <small>manhua-man/cleanflow-pro</small>
           </div>
         </a>
       </div>
       <p class="dl-meta">
-        <span class="zh">版本 0.5.0 · Windows 10 / 11（64 位）· 原生本地离线 · 免费版 + 专业版 · <a href="https://github.com/manhua-man/cleanflow-pro-web/releases">全部历史版本</a></span>
-        <span class="en">Version 0.5.0 · Windows 10 / 11 (64-bit) · 100% Local Offline · Free &amp; Pro Edition · <a href="https://github.com/manhua-man/cleanflow-pro-web/releases">All releases</a></span>
+        <span class="zh">版本 0.5.0 · Windows 10 / 11（x64）· 纯单二进制 ~15.5 MB · 完全离线运行 · <a href="https://github.com/manhua-man/cleanflow-pro/releases">查看发行历史</a></span>
+        <span class="en">Version 0.5.0 · Windows 10 / 11 (x64) · Standalone ~15.5 MB · 100% Offline · <a href="https://github.com/manhua-man/cleanflow-pro/releases">Release History</a></span>
       </p>
     </div>
 
-    <div class="sec-head center reveal" style="margin-top:clamp(72px,10vw,120px)">
-      <h2 style="font-size:clamp(28px,3.6vw,40px)"><span class="zh">三步装好，一分钟上手。</span><span class="en">Three steps, one minute.</span></h2>
+    <div class="sec-head center reveal" style="margin-top:clamp(64px,9vw,100px)">
+      <h2 style="font-size:clamp(26px,3.4vw,38px)"><span class="zh">三步到位，一分钟上手。</span><span class="en">Three steps, one minute.</span></h2>
     </div>
     <div class="steps">
       <div class="step reveal">
         <span class="n">1</span>
         <h3><span class="zh">下载便携包并解压</span><span class="en">Download &amp; Extract</span></h3>
-        <p><span class="zh">下载 CleanFlow-Pro-v0.5.0-win64.zip，解压到任意目录（如 D:\Tools\CleanFlow）。</span><span class="en">Download CleanFlow-Pro ZIP and extract anywhere without installer setup.</span></p>
+        <p><span class="zh">从 Releases 页面下载 <code>CleanFlow-Pro-v0.5.0-win64.zip</code>，解压至任意目录即可。</span><span class="en">Download the zip from releases and extract to any preferred directory.</span></p>
       </div>
       <div class="step reveal d1">
         <span class="n">2</span>
         <h3><span class="zh">双击启动应用</span><span class="en">Run CleanFlow</span></h3>
-        <p><span class="zh">双击 cleanflow.exe 即可运行；若需开机自启与开机服务，运行内置的 Install.cmd 即可。</span><span class="en">Launch cleanflow.exe directly, or run Install.cmd to register autostart.</span></p>
+        <p><span class="zh">双击 <code>cleanflow.exe</code> 即可秒级进入仪表盘；若需托盘自愈与全局热键，运行内置 <code>Install.cmd</code> 即可。</span><span class="en">Double-click cleanflow.exe to launch; run Install.cmd for autostart service.</span></p>
         <div class="code"><code id="build-cmd">cleanflow.exe</code><button type="button" data-copy="build-cmd"><span class="zh">复制</span><span class="en">Copy</span></button></div>
       </div>
       <div class="step reveal d2">
@@ -1575,20 +1379,32 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
   <div class="wrap wrap-narrow">
     <div class="sec-head center reveal">
       <span class="eyebrow"><span class="zh">常见问题</span><span class="en">FAQ</span></span>
-      <h2><span class="zh">还有疑问？</span><span class="en">Questions?</span></h2>
+      <h2><span class="zh">解答你的每一个疑惑。</span><span class="en">Answers to your questions.</span></h2>
     </div>
     <div class="faq reveal">
       <details>
-        <summary><span class="zh">CleanFlow Pro 是否需要管理员权限？</span><span class="en">Does CleanFlow Pro require Administrator privileges?</span></summary>
-        <div class="a"><span class="zh">常规检索、微信/企微专清和双击极速搜索无需管理员权限。但由于 NTFS MFT 裸盘直读与卷影快照 (VSS) 遍历涉及 Windows 存储卷物理句柄访问，右键选择“以管理员身份运行”将解锁完整的 MFT 毫秒扫描、ReFS 块克隆及深度系统垃圾清理功能。</span><span class="en">Basic search and standard cache cleaning do not require admin rights. However, bare-metal NTFS MFT reading and Volume Shadow Copy (VSS) access interact directly with physical volume handles, so running as Administrator unlocks maximum scanning speed and advanced governance capabilities.</span></div>
+        <summary><span class="zh">为什么 CleanFlow Pro 要彻底淘汰 tasklist 和 reg.exe 等外部命令？</span><span class="en">Why did CleanFlow Pro eliminate tasklist and reg.exe subprocesses?</span></summary>
+        <div class="a"><span class="zh">传统小工具为了开发省事，经常在后台调用 <code>tasklist.exe</code> 遍历进程或 <code>reg.exe</code> 查询注册表。这不仅会频繁引发火绒、360 或 Windows Defender 等安全软件的主动防御拦截与弹窗报警，每次创建外部控制台进程还会带来 50~100 毫秒的高昂性能开销和控制台黑窗口闪烁。CleanFlow Pro 全量切换至 Windows 底层原生 Win32 API（<code>CreateToolhelp32Snapshot</code>、<code>RegOpenKeyExW</code>、<code>ShellExecuteW</code>），单次系统调用耗时缩减至 0.01~0.2 毫秒（提速数百倍），零子进程派生，彻底根绝杀软误报。</span><span class="en">Many utilities lazily spawn tasklist.exe or reg.exe in the background. This introduces 50-100ms process overhead, flashes black console windows, and triggers antivirus warnings. CleanFlow Pro replaced all external CLI calls with native Win32 APIs (CreateToolhelp32Snapshot, RegOpenKeyExW, ShellExecuteW), reducing latency to 0.01-0.2ms with zero antivirus false positives.</span></div>
       </details>
       <details>
-        <summary><span class="zh">Junction 软搬家会导致应用程序报错或找不到文件吗？</span><span class="en">Will Junction soft migration cause apps to crash or lose files?</span></summary>
-        <div class="a"><span class="zh">绝对不会。NTFS Junction 是 Windows 操作系统原生的文件系统特性 (Reparse Point)。当将 C 盘目录搬迁至 D 盘并在原位置建立 Junction 后，操作系统的 I/O 管理器会在内核层透明重定向所有文件句柄，被搬迁的软件甚至 IDE 无法感知底层物理位置的变更。</span><span class="en">Never. NTFS Junctions are a native Windows file system primitive (Reparse Points). When a folder is migrated and linked via a Junction, the Windows I/O manager transparently resolves all path operations at the kernel level. Applications continue normal operations unaware of physical relocation.</span></div>
+        <summary><span class="zh">Docker / WSL2 的 VHDX 物理压缩是如何做到释放几十 GB 的？</span><span class="en">How does Docker/WSL2 VHDX compaction reclaim tens of gigabytes?</span></summary>
+        <div class="a"><span class="zh">WSL2 和 Docker Desktop 在 Windows 上采用动态扩展虚拟磁盘 (<code>ext4.vhdx</code>)。当你在容器内下载大模型或编译后删除文件，Linux 内部空间释放了，但宿主机上的 <code>.vhdx</code> 文件并不会自动缩小，导致 C 盘被虚占几十 GB。CleanFlow Pro 直接在 Windows 宿主机底层执行原生 <code>Optimize-VHD -Mode Full</code> 与 diskpart 批处理，彻底抽干未分配扇区空洞，将连续物理空间无损归还 C 盘。</span><span class="en">WSL2 and Docker use dynamically expanding VHDX files. Deleting files inside containers does not automatically shrink the host file. CleanFlow Pro invokes host-level Optimize-VHD and diskpart scripts to reclaim unallocated blocks, restoring continuous free space to C:.</span></div>
       </details>
       <details>
-        <summary><span class="zh">CleanFlow Pro 是否会联网上传我的文件或检索历史？</span><span class="en">Does CleanFlow Pro connect to the cloud or collect my search history?</span></summary>
+        <summary><span class="zh">NTFS Junction 软搬家会导致应用程序找不到文件或崩溃吗？</span><span class="en">Will Junction soft migration cause apps to crash or lose files?</span></summary>
+        <div class="a"><span class="zh">绝对不会。NTFS Junction 是 Windows 操作系统底层的原生文件系统特性 (Reparse Point)。当将 C 盘目录搬迁至 D 盘并在原位置建立 Junction 后，操作系统的 I/O 管理器会在内核层透明重定向所有文件句柄，被搬迁的软件甚至 IDE 无法感知底层物理位置的变更，且 CleanFlow Pro 支持双向一键安全回迁。</span><span class="en">Never. NTFS Junctions are native Windows kernel Reparse Points. The Windows I/O manager transparently resolves path operations at the driver level. Applications continue normal operations completely unaware of physical relocation.</span></div>
+      </details>
+      <details>
+        <summary><span class="zh">全盘秒搜是否需要常驻后台消耗大量内存？</span><span class="en">Does instant search consume heavy background memory?</span></summary>
+        <div class="a"><span class="zh">不需要。CleanFlow Pro 基于 Rust 高效内存布局与 MFT 裸盘直读，370 万条记录在内存中仅占用极低的物理常驻内存（远低于同类 Electron 或 Java 工具）。通过 Windows 原生目录变更通知自动更新索引，随叫随到，轻巧灵动。</span><span class="en">No. Leveraging Rust lean memory layouts and direct MFT streaming, indexing millions of records requires a minimal memory footprint—far lower than Electron or Java tools. Native directory change notifications keep the index up to date.</span></div>
+      </details>
+      <details>
+        <summary><span class="zh">CleanFlow Pro 是否会联网上传我的文件或检索历史？</span><span class="en">Does CleanFlow Pro connect to the cloud or collect search history?</span></summary>
         <div class="a"><span class="zh">100% 绝对不会。CleanFlow Pro 坚守 100% 本地离线原则，内部没有任何遥测代码、统计上报或云端通信。所有文件索引、检索数据库与自愈规则全量保存在用户本机，支持任意安全软件进行网络行为抓包与离线审计。</span><span class="en">100% No. CleanFlow Pro operates strictly offline with zero telemetry, zero background analytics, and zero network reporting. All file indices and governance rules reside exclusively on your local machine.</span></div>
+      </details>
+      <details>
+        <summary><span class="zh">微信/企微专清会不小心删除我的核心聊天记录吗？</span><span class="en">Could WeChat cleaner accidentally delete my important chat messages?</span></summary>
+        <div class="a"><span class="zh">绝对不会。CleanFlow Pro 在扫描引擎层面建立了严格的物理红线熔断机制：针对 <code>message.db</code>、<code>Msg\*.db</code> 以及核心配置数据库实施代码级只读豁免，绝不纳入删除候选池；仅对过期音视频临时缓存、缩略图与通过 3-Tier BLAKE3 识别的重复接收副本进行安全治理。</span><span class="en">Never. CleanFlow Pro enforces hardcoded read-only isolation for core SQLite databases such as message.db. Only temporary video caches, thumbnails, and BLAKE3-verified duplicate attachments are eligible for cleanup.</span></div>
       </details>
     </div>
   </div>
@@ -1605,8 +1421,8 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
         <p class="foot-author"><span class="zh">开发者</span><span class="en">Made by</span> <b>CleanFlow Contributors</b></p>
       </div>
       <nav class="foot-links" aria-label="Footer">
-        <a href="https://github.com/manhua-man/cleanflow-pro-web" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://github.com/manhua-man/cleanflow-pro-web/releases" target="_blank" rel="noopener"><span class="zh">版本发布</span><span class="en">Releases</span></a>
+        <a href="https://github.com/manhua-man/cleanflow-pro" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/manhua-man/cleanflow-pro/releases" target="_blank" rel="noopener"><span class="zh">版本发布</span><span class="en">Releases</span></a>
       </nav>
     </div>
     <p class="copyright">© 2026 CleanFlow Contributors · 100% Zero-Emoji Architecture · <span class="zh">本页面不含任何统计代码</span><span class="en">This page contains no tracking</span></p>
@@ -1614,8 +1430,8 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
 </footer>
 
 <!-- Interactive Screenshot Lightbox Modal -->
-<div id="shot-lightbox" onclick="closeShotLightbox()" style="position:fixed; inset:0; z-index:9999; background:rgba(4,7,14,0.85); backdrop-filter:blur(22px) saturate(160%); -webkit-backdrop-filter:blur(22px) saturate(160%); display:none; align-items:center; justify-content:center; padding:24px; cursor:zoom-out;">
-  <div onclick="event.stopPropagation()" style="max-width:1100px; width:100%; background:var(--surface); border:1px solid var(--line-strong); border-radius:18px; padding:18px; box-shadow:0 32px 80px rgba(0,0,0,0.75); cursor:default;">
+<div id="shot-lightbox" onclick="closeShotLightbox()" style="position:fixed; inset:0; z-index:9999; background:rgba(4,7,14,0.88); backdrop-filter:blur(22px) saturate(160%); -webkit-backdrop-filter:blur(22px) saturate(160%); display:none; align-items:center; justify-content:center; padding:24px; cursor:zoom-out;">
+  <div onclick="event.stopPropagation()" style="max-width:1100px; width:100%; background:var(--surface); border:1px solid var(--line-strong); border-radius:16px; padding:18px; box-shadow:0 32px 80px rgba(0,0,0,0.8); cursor:default;">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; gap:12px;">
       <div>
         <div id="shot-lightbox-title" style="font-size:16px; font-weight:700; color:var(--text);"></div>
@@ -1623,7 +1439,7 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
       </div>
       <button type="button" class="btn btn-sm btn-ghost" onclick="closeShotLightbox()">关闭 (Esc)</button>
     </div>
-    <img id="shot-lightbox-img" src="" alt="" style="width:100%; height:auto; border-radius:10px; border:1px solid var(--line);" />
+    <img id="shot-lightbox-img" src="" alt="" style="width:100%; height:auto; border-radius:8px; border:1px solid var(--line);" />
   </div>
 </div>
 
@@ -1720,7 +1536,7 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
   });
 
   /* ------------------------------------------------------------------ */
-  /* Spotlight Interactive Playground & Autoplay Tour                   */
+  /* Spotlight Interactive Playground & Autoplay Cinema Engine          */
   /* ------------------------------------------------------------------ */
   var desk = document.getElementById("hero-desk");
   var inputEl = document.getElementById("spotlight-input");
@@ -1733,33 +1549,34 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
   var cursor = document.getElementById("demo-cursor");
 
   var DATA_PRESETS = {
+    "docker": [
+      { title: "ext4.vhdx (Docker WSL2 虚拟磁盘 · 虚占 38.6GB)", sub: "C:\\Users\\Admin\\AppData\\Local\\Docker\\wsl\\data\\ext4.vhdx", size: "42.8 GB", icon: "VM", color: "#0284c7", act: "vhdx_shrink", actText: "宿主机物理压缩" },
+      { title: "models\\blobs (Ollama 本地大模型权重缓存)", sub: "C:\\Users\\Admin\\.ollama\\models\\blobs", size: "18.4 GB", icon: "AI", color: "#8b5cf6", act: "junction", actText: "软搬迁至 D 盘" }
+    ],
+    "win32_fast": [
+      { title: "Process & Registry Lock (底层 Win32 原生引擎)", sub: "Kernel32 Toolhelp32 + Advapi32 · 0.2ms 响应 · 零外部控制台子进程", size: "0.2 ms", icon: "API", color: "#10b981", act: "win32_fast", actText: "微秒级探测" },
+      { title: "winsqlite3.dll (系统原生 SQLite 引擎动态绑定)", sub: "调用 sqlite3_open16 无损原生支持中文路径 VACUUM", size: "0.04 ms", icon: "DLL", color: "#0ea5e9", act: "win32_fast", actText: "宽字符无痕压缩" }
+    ],
     "wechat": [
       { title: "xwechat_files\\msg\\video (微信过期视频缓存)", sub: "D:\\WeChat Files\\wxid_user\\msg\\video", size: "6.45 GB", icon: "WX", color: "#10b981", act: "social_clean", actText: "安全专清" },
       { title: "FileStorage\\File (重复接收附件 (1)/(2) 副本)", sub: "D:\\WeChat Files\\wxid_user\\FileStorage\\File", size: "3.18 GB", icon: "DUP", color: "#0ea5e9", act: "dedup", actText: "BLAKE3 去重" },
-      { title: "db_storage\\message.db (核心聊天记录库)", sub: "D:\\WeChat Files\\wxid_user\\db_storage\\message.db", size: "1.82 GB", icon: "DB", color: "#8b5cf6", act: "protected", actText: "红线保护中" }
+      { title: "db_storage\\message.db (核心聊天记录库 · 物理红线)", sub: "D:\\WeChat Files\\wxid_user\\db_storage\\message.db", size: "1.82 GB", icon: "DB", color: "#8b5cf6", act: "protected", actText: "红线只读保护" }
     ],
-    "hardlink": [
-      { title: "model-q4_k_m.gguf (跨目录重复模型权重 · 3 份副本)", sub: "D:\\AI_Models\\llama3\\model-q4_k_m.gguf", size: "9.40 GB", icon: "LNK", color: "#8b5cf6", act: "hardlink_dedup", actText: "硬链接零拷贝去重" },
-      { title: "OneDrive\\Design_Assets_2025.zip (长期未用云端本地缓存)", sub: "D:\\OneDrive\\Archive\\Design_Assets_2025.zip", size: "4.15 GB", icon: "CLD", color: "#0ea5e9", act: "cloud_evict", actText: "Cloud Filter 脱水" },
-      { title: "Windows 保留存储 (ReserveManager 系统预留区)", sub: "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ReserveManager", size: "7.12 GB", icon: "DISM", color: "#10b981", act: "slim_os", actText: "释放预留空间" }
+    "dedup": [
+      { title: "model-q4_k_m.gguf (全盘跨卷发现 3 处大模型副本)", sub: "D:\\AI_Models\\llama3\\model-q4_k_m.gguf", size: "9.40 GB", icon: "LNK", color: "#8b5cf6", act: "hardlink_dedup", actText: "NTFS 硬链接合并" },
+      { title: "cleanflow-dist.zip (多盘重复构建压缩包 · 4 份副本)", sub: "C:\\Downloads\\cleanflow-dist.zip", size: "3.40 GB", icon: "DUP", color: "#0ea5e9", act: "dedup", actText: "保留原件去重" }
     ],
-    "hiberfil": [
-      { title: "hiberfil.sys (Windows 休眠映像巨无霸)", sub: "C:\\hiberfil.sys", size: "12.80 GB", icon: "SYS", color: "#f59e0b", act: "slim_os", actText: "安全释放" },
-      { title: "SoftwareDistribution\\Download (系统更新包缓存)", sub: "C:\\Windows\\SoftwareDistribution\\Download", size: "4.60 GB", icon: "UPD", color: "#0078d4", act: "social_clean", actText: "一键清理" },
-      { title: "DriverStore\\FileRepository (历史冗余旧驱动)", sub: "C:\\Windows\\System32\\DriverStore\\FileRepository", size: "3.42 GB", icon: "DRV", color: "#8b5cf6", act: "social_clean", actText: "卸载旧包" }
+    "reg_orphan": [
+      { title: "Postman (已卸载残存孤立目录)", sub: "C:\\Users\\Admin\\AppData\\Local\\Postman", size: "2.14 GB", icon: "REG", color: "#f59e0b", act: "reg_clean", actText: "一键清除残留" },
+      { title: "Unity Hub Cache (已卸载版本孤立缓存)", sub: "C:\\Program Files\\Unity Hub\\cache", size: "1.28 GB", icon: "REG", color: "#f59e0b", act: "reg_clean", actText: "一键清除残留" }
     ],
-    "node_modules": [
-      { title: "node_modules (前端项目依赖树)", sub: "C:\\Projects\\desktop-studio\\node_modules", size: "4.82 GB", icon: "JS", color: "#f59e0b", act: "junction", actText: "Junction 搬家" },
-      { title: "target\\debug (Rust 编译构建缓存)", sub: "C:\\Projects\\cleanflow-engine\\target\\debug", size: "3.15 GB", icon: "RS", color: "#0078d4", act: "clone", actText: "块克隆" },
-      { title: "release-archive.zip (便携发布归档包)", sub: "C:\\Users\\Admin\\Downloads\\release-archive.zip", size: "428 MB", icon: "ZIP", color: "#10b981", act: "preview", actText: "Space 预览" }
+    "junction": [
+      { title: "node_modules (跨盘项目大型依赖树)", sub: "C:\\Projects\\desktop-studio\\node_modules", size: "5.82 GB", icon: "JS", color: "#f59e0b", act: "junction", actText: "Junction 搬家" },
+      { title: "Android\\Sdk (安卓开发 SDK 工具链)", sub: "C:\\Users\\Admin\\AppData\\Local\\Android\\Sdk", size: "16.4 GB", icon: "SDK", color: "#0078d4", act: "junction", actText: "软搬迁至 D 盘" }
     ],
-    "docker": [
-      { title: "models\\blobs (Ollama 本地大模型权重)", sub: "C:\\Users\\Admin\\.ollama\\models\\blobs", size: "19.4 GB", icon: "AI", color: "#8b5cf6", act: "junction", actText: "软搬迁至 D 盘" },
-      { title: "ext4.vhdx (Docker WSL2 虚拟磁盘)", sub: "C:\\Users\\Admin\\AppData\\Local\\Docker\\wsl\\data\\ext4.vhdx", size: "28.4 GB", icon: "VM", color: "#0284c7", act: "junction", actText: "软搬迁至 D 盘" }
-    ],
-    "workspace": [
-      { title: "Downloads (安装包与重复编号附件体检)", sub: "C:\\Users\\Admin\\Downloads", size: "5.24 GB", icon: "DIR", color: "#0078d4", act: "audit", actText: "深度体检" },
-      { title: "state.vscdb (IDE 全局状态数据库)", sub: "C:\\Users\\Admin\\AppData\\Roaming\\Code\\User\\globalStorage\\state.vscdb", size: "1.40 GB", icon: "DB", color: "#8b5cf6", act: "vacuum", actText: "挤水分" }
+    "empty_dirs": [
+      { title: "target\\nested\\empty\\depth_3 (后序级联空目录)", sub: "C:\\Users\\Admin\\AppData\\Local\\Temp\\nested\\a\\b\\c", size: "0 B", icon: "DIR", color: "#ec4899", act: "cascade_clean", actText: "后序级联清除" },
+      { title: "142 个深层孤立空目录 (多层无用目录树)", sub: "全盘后序扫描结果", size: "142 项", icon: "DIR", color: "#ec4899", act: "cascade_clean", actText: "连根拔起" }
     ]
   };
 
@@ -1767,7 +1584,7 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
     var list = DATA_PRESETS[q] || [
       { title: q, sub: "C:\\Search\\" + q, size: "1.2 MB", icon: "FILE", color: "#0078d4", act: "open", actText: "打开" }
     ];
-    statsEl.textContent = (Math.random() * 0.15 + 0.14).toFixed(2) + " ms · 1,482,910 文件";
+    statsEl.textContent = "3,700,000+ MFT 记录 · 31ms 响应";
     resultsEl.innerHTML = "";
     list.forEach(function(item, idx) {
       var div = document.createElement("div");
@@ -1788,6 +1605,9 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
     });
   }
 
+  // Initial render
+  renderResults("docker");
+
   chips.forEach(function(chip) {
     chip.addEventListener("click", function() {
       chips.forEach(function(c) { c.classList.remove("active"); });
@@ -1801,69 +1621,59 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
   inputEl.addEventListener("input", function() {
     var val = inputEl.value.trim().toLowerCase();
     var match = Object.keys(DATA_PRESETS).find(function(k) { return k.includes(val) || val.includes(k); });
-    renderResults(match || "wechat");
+    renderResults(match || "docker");
   });
 
   window.showToast = function(title, desc) {
     toastTitleEl.textContent = title;
     toastDescEl.textContent = desc;
     toastEl.classList.add("on");
-    setTimeout(function() { toastEl.classList.remove("on"); }, 3200);
+    setTimeout(function() { toastEl.classList.remove("on"); }, 3400);
   };
 
   window.demoAction = function(action, btn) {
-    if (action === "social_clean") {
+    if (action === "vhdx_shrink") {
+      btn.textContent = "已物理压缩 (-38.6GB)";
+      btn.style.background = "#0284c7";
+      btn.style.color = "#fff";
+      showToast("Docker VHDX 宿主机物理压缩成功", "通过 Optimize-VHD 物理抽干空洞，瞬间归还 C 盘 38.6 GB 物理连续空间");
+    } else if (action === "win32_fast") {
+      btn.textContent = "微秒完成 (0.2ms)";
+      btn.style.background = "#10b981";
+      btn.style.color = "#fff";
+      showToast("原生 Win32 API 零子进程探测完成", "CreateToolhelp32Snapshot + Advapi32 系统调用仅耗时 0.21ms，零控制台闪烁，零杀软拦截");
+    } else if (action === "social_clean") {
       btn.textContent = "已移入回收站";
       btn.style.background = "#10b981";
       btn.style.color = "#fff";
-      showToast("社办专清已完成", "释放 6.45 GB 过期视频缓存 · 核心聊天记录库 100% 完好");
+      showToast("社办专清已完成", "安全释放 6.45 GB 过期视频缓存 · 核心聊天记录库 100% 完好");
     } else if (action === "dedup") {
       btn.textContent = "副本已清理";
       btn.style.background = "#0ea5e9";
       btn.style.color = "#fff";
-      showToast("BLAKE3 去重完成", "自动保留最早原件，安全移除重复接收的 (1)/(2) 副本 3.18 GB");
+      showToast("3-Tier BLAKE3 去重完成", "自动保留最早原件，安全移除重复接收的 (1)/(2) 副本 3.18 GB");
     } else if (action === "hardlink_dedup") {
       btn.textContent = "已硬链接 (释放 9.4GB)";
       btn.style.background = "#8b5cf6";
       btn.style.color = "#fff";
-      showToast("NTFS 硬链接零拷贝去重成功", "CreateHardLinkW 共享同一物理 Inode，释放 9.40 GB 且原路径全部照常读写");
-    } else if (action === "cloud_evict") {
-      btn.textContent = "已转为纯云端占位";
-      btn.style.background = "#0ea5e9";
-      btn.style.color = "#fff";
-      showToast("Cloud Filter (cldapi) 脱水成功", "已安全腾退本地扇区 4.15 GB，云端数据与资源管理器占位符 100% 完好");
+      showToast("NTFS 硬链接零拷贝合并成功", "CreateHardLinkW 共享同一物理 Inode，释放 9.40 GB 物理存储且多路径照常读写");
     } else if (action === "protected") {
-      showToast("物理熔断红线保护中", "db_storage 与 Msg\\*.db 核心聊天记录受硬编码保护，绝不触碰");
-    } else if (action === "slim_os") {
-      btn.textContent = "已释放空间";
+      showToast("物理红线熔断只读保护中", "db_storage 与 Msg\\*.db 核心聊天记录受底层代码硬编码隔离，绝对只读免碰");
+    } else if (action === "reg_clean") {
+      btn.textContent = "残留已清理";
       btn.style.background = "#f59e0b";
       btn.style.color = "#fff";
-      showToast("C 盘巨无霸瘦身完成", "已安全释放系统休眠映像/保留存储，瞬间归还 C 盘连续物理空间");
-    } else if (action === "preview") {
-      btn.textContent = "零解压透视中";
-      btn.style.background = "#10b981";
-      btn.style.color = "#fff";
-      showToast("Space 零解压极速预览", "已直接解析 ZIP 中央目录索引，无需解压即可检视内部文件树");
-    } else if (action === "audit") {
-      btn.textContent = "体检已启动";
-      btn.style.background = "#0078d4";
-      btn.style.color = "#fff";
-      showToast("智能空间体检完成", "识别出 18 个重复编号安装包与 4 个孤立空文件夹，可安全回收");
+      showToast("Win32 注册表孤立残留已清理", "Advapi32 校验软件已卸载，安全清理遗留的 2.14 GB 安装目录");
     } else if (action === "junction") {
-      btn.textContent = "已搬迁至 D 盘";
+      btn.textContent = "已透明搬迁至 D 盘";
       btn.style.background = "#10b981";
       btn.style.color = "#fff";
-      showToast("Junction 软搬家完成", "释放 C 盘空间 · 原始路径保留 0 字节透明目录联接");
-    } else if (action === "vacuum") {
-      btn.textContent = "已压缩 -70%";
-      btn.style.background = "#8b5cf6";
+      showToast("NTFS Junction 软搬家完成", "原始目录由 Windows 内核透明重定向，C 盘占用归零，IDE 零感知正常运行");
+    } else if (action === "cascade_clean") {
+      btn.textContent = "级联清除完毕";
+      btn.style.background = "#ec4899";
       btn.style.color = "#fff";
-      showToast("WinSqlite3 挤水分成功", "数据库从 1.40 GB 无损物理收缩至 420 MB");
-    } else if (action === "clone") {
-      btn.textContent = "0秒克隆成功";
-      btn.style.background = "#0078d4";
-      btn.style.color = "#fff";
-      showToast("ReFS 块克隆完成", "毫秒级完成写时复制克隆 · 物理存储占用 0 字节");
+      showToast("后序深度级联空目录清除完毕", "深度优先后序遍历，多层嵌套的 142 个孤立空目录一次性全部连根拔起");
     } else {
       showToast("指令执行成功", "已在原生前台调起对应目标");
     }
@@ -1889,32 +1699,40 @@ footer { padding: 56px 0 calc(48px + env(safe-area-inset-bottom)); border-top: 1
 
     setTimeout(function() {
       laser.classList.remove("active");
-      segBloat.style.width = "8%";
-      segCache.style.width = "6%";
-      segFree.style.width = "51%";
-      freedBadge.textContent = "+32.8 GB 已释放";
-      statsText.textContent = "总计 476.0 GB · 已用 233.2 GB · 可用 242.8 GB";
-      showToast("全盘空间自愈完成", "深度收缩临时文件与脱水缓存，已成功还给 C 盘 32.8 GB");
+      segBloat.style.width = "7%";
+      segCache.style.width = "5%";
+      segFree.style.width = "53%";
+      freedBadge.textContent = "+34.2 GB 已释放";
+      statsText.textContent = "总计 476.0 GB · 已用 226.8 GB · 可用 249.2 GB";
+      showToast("全盘空间极速自愈完成", "已清理过期构建缓存与社办临时数据，瞬间释放 34.2 GB 存储");
       btn.disabled = false;
       btn.style.opacity = "1";
     }, 1600);
   };
 
+  window.simDockerShrink = function(btn) {
+    btn.disabled = true;
+    btn.textContent = "正在调用宿主机 Optimize-VHD 抽干空洞...";
+    setTimeout(function() {
+      btn.textContent = "物理压缩完成 (已释放 32.4 GB)";
+      btn.style.background = "#0284c7";
+      showToast("Docker VHDX 宿主机压缩成功", "ext4.vhdx 从 42.8 GB 物理缩紧至 10.4 GB，为 C 盘瞬间回血 32.4 GB！");
+    }, 1400);
+  };
+
   window.simJunctionDemo = function(btn) {
     btn.disabled = true;
-    btn.textContent = "正在建立 NTFS 目录联接...";
+    btn.textContent = "正在建立 NTFS 透明目录联接...";
     setTimeout(function() {
       btn.textContent = "软搬家完成 (释放 18.6 GB)";
       btn.style.background = "#10b981";
-      showToast("Junction 搬迁成功", "C 盘 WeChat 目录已重定向至 D 盘，原始路径完好无损！");
+      showToast("Junction 搬迁成功", "WeChat 目录物理转移至 D 盘并在原位置建立透明联接，应用零感知照常运行！");
     }, 1200);
   };
 
-  /* ------------------------------------------------------------------ */
-  /* Autoplay Cinema Engine (Interactive Desktop Tour)                  */
-  /* ------------------------------------------------------------------ */
+  /* Autoplay Cinema Engine */
   var tourIndex = 0;
-  var tourKeys = ["wechat", "hardlink", "hiberfil", "node_modules", "docker", "workspace"];
+  var tourKeys = ["docker", "win32_fast", "wechat", "dedup", "reg_orphan", "junction", "empty_dirs"];
   var isInteracting = false;
   var tourTimer = null;
   var userInactivityTimer = null;
