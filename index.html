@@ -651,13 +651,13 @@ html.preview .reveal, html.no-anim .reveal { opacity: 1 !important; transform: n
 .tele-table td {
   padding: 14px 20px;
   border-bottom: 1px solid var(--line);
-  color: var(--text);
+  color: var(--text-2);
   vertical-align: middle;
   line-height: 1.5;
 }
 
 .tele-item-title {
-  font-weight: 550;
+  font-weight: normal;
   font-size: 13.5px;
   color: var(--text);
   letter-spacing: -0.01em;
@@ -752,6 +752,250 @@ html.preview .reveal, html.no-anim .reveal { opacity: 1 !important; transform: n
   font-size: 12px;
   color: var(--text-3);
   flex-wrap: wrap;
+}
+
+/* Search Live Motion Demo (Interactive Sandbox) */
+.search-sandbox-card {
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  padding: clamp(18px, 3vw, 24px);
+  box-shadow: var(--shadow-shot);
+  margin-top: 36px;
+  overflow: hidden;
+}
+
+.sandbox-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sandbox-window {
+  margin-top: 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.sandbox-win-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+}
+
+.sandbox-input-area {
+  padding: 18px 20px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.sandbox-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  padding: 10px 16px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.sandbox-input-wrap input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  flex: 1;
+  min-width: 0;
+}
+
+.sandbox-status-pill {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 650;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  white-space: nowrap !important;
+}
+
+.sandbox-scenarios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.sandbox-scen-btn {
+  font-size: 12px;
+  font-weight: 550;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--chip);
+  border: 1px solid var(--line);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap !important;
+}
+
+.sandbox-scen-btn:hover {
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+
+.sandbox-scen-btn.active {
+  background: #0078d4;
+  color: #fff;
+  border-color: #0078d4;
+  box-shadow: 0 2px 8px rgba(0, 120, 212, 0.35);
+}
+
+.sandbox-list {
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--surface);
+}
+
+.sandbox-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.sandbox-row:hover, .sandbox-row.selected {
+  border-color: #0078d4;
+  background: var(--chip);
+  transform: translateX(2px);
+}
+
+.sandbox-row-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.sandbox-row-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  flex: none;
+}
+
+.sandbox-row-texts {
+  min-width: 0;
+}
+
+.sandbox-row-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sandbox-row-path {
+  font-size: 11.5px;
+  font-family: var(--mono);
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+}
+
+.sandbox-row-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+}
+
+.sandbox-row-size {
+  font-size: 12px;
+  font-family: var(--mono);
+  font-weight: 600;
+  color: #0078d4;
+}
+
+.sandbox-action-btn {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap !important;
+}
+
+.sandbox-action-btn:hover {
+  background: #0078d4;
+  color: #fff;
+  border-color: #0078d4;
+}
+
+.sandbox-quicklook-preview {
+  margin: 0 20px 16px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  border: 1px solid rgba(0, 120, 212, 0.35);
+  box-shadow: 0 8px 24px -6px rgba(0, 120, 212, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  animation: qlFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes qlFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sandbox-footer-bar {
+  padding: 11px 20px;
+  background: var(--surface-2);
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-3);
 }
 
 .tele-footer-tags {
@@ -1377,17 +1621,84 @@ footer { padding: 52px 0 calc(44px + env(safe-area-inset-bottom)); border-top: 1
       </article>
     </div>
 
-    <!-- Search Live Motion Demonstration -->
-    <div class="reveal d2" style="margin-top: 36px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: var(--radius-lg); padding: 18px; box-shadow: var(--shadow-shot); overflow: hidden;">
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 10px 14px 10px; border-bottom: 1px solid var(--line);">
+    <!-- Search Live Motion Demonstration (Interactive Web Sandbox) -->
+    <div class="search-sandbox-card reveal d2">
+      <div class="sandbox-head">
         <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px rgba(34, 197, 94, 0.7);"></span>
-          <span style="font-size: 13px; font-weight: 600; color: var(--text);"><span class="zh">实机检索交互演示：全盘毫秒秒搜、拼音简拼与 Space 零解压透视</span><span class="en">Live Interaction Demo: Instant Search, Pinyin &amp; Space QuickLook</span></span>
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
+          <span style="font-size: 13.5px; font-weight: 600; color: var(--text);"><span class="zh">实机检索与 Space 零解压透视交互演练台</span><span class="en">Live Search &amp; Space QuickLook Sandbox</span></span>
         </div>
-        <span style="font-size: 11px; font-family: var(--mono); color: #0078d4; background: rgba(0, 120, 212, 0.12); padding: 2px 8px; border-radius: 99px; border: 1px solid rgba(0, 120, 212, 0.25);">INTERACTIVE FLOW</span>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size: 11px; font-family: var(--mono); color: #10b981; background: rgba(16, 185, 129, 0.12); padding: 2px 8px; border-radius: 99px; border: 1px solid rgba(16, 185, 129, 0.25);">3,700,000+ MFT STREAM</span>
+          <span style="font-size: 11px; font-family: var(--mono); color: #0078d4; background: rgba(0, 120, 212, 0.12); padding: 2px 8px; border-radius: 99px; border: 1px solid rgba(0, 120, 212, 0.25);">LIVE DEMO</span>
+        </div>
       </div>
-      <div style="margin-top: 14px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); display: flex; justify-content: center; background: #000;">
-        <img src="demo_spotlight_search.gif" alt="CleanFlow Flow 全盘检索演示" style="width: 100%; max-width: 720px; height: auto; display: block;" loading="eager" />
+
+      <div class="sandbox-window">
+        <!-- Sandbox Window Topbar -->
+        <div class="sandbox-win-topbar">
+          <div style="display:flex; align-items:center; gap:8px; font-size:12px; font-weight:600; color:var(--text);">
+            <img src="assets/icon.svg" width="16" height="16" alt="" style="display:inline-block;">
+            <span>CleanFlow Flow · 全盘毫秒秒搜与透视</span>
+          </div>
+          <div style="font-size:11px; font-family:var(--mono); color:#10b981; display:flex; align-items:center; gap:6px;">
+            <span style="width:6px; height:6px; border-radius:50%; background:#10b981; display:inline-block;"></span>
+            <span>31.07ms · MFT NATIVE STREAM (v0.5.0)</span>
+          </div>
+        </div>
+
+        <!-- Sandbox Input Area -->
+        <div class="sandbox-input-area">
+          <div class="sandbox-input-wrap">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-3); flex:none;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="sb-input" value="q=C: cmd" readonly placeholder="输入盘符定向或关键词...">
+            <span class="sandbox-status-pill" id="sb-status">126.21 ms · 1,157 项命中</span>
+          </div>
+
+          <!-- Scenario Pills -->
+          <div class="sandbox-scenarios">
+            <button class="sandbox-scen-btn active" type="button" data-q="q=C: cmd" data-status="126.21 ms · 1,157 项命中 (全盘 370 万 MFT 记录)">
+              <span class="zh">定向深搜 (q=C: cmd)</span><span class="en">Targeted Deep (q=C: cmd)</span>
+            </button>
+            <button class="sandbox-scen-btn" type="button" data-q="q=D:" data-status="23.91 ms · 32 根项直达 (零递归)">
+              <span class="zh">副盘根项 (q=D:)</span><span class="en">Drive Root (q=D:)</span>
+            </button>
+            <button class="sandbox-scen-btn" type="button" data-q="wechat" data-status="0.18 ms · 发现 6.45 GB 可安全回收">
+              <span class="zh">微信红线专清 (wechat)</span><span class="en">WeChat Clean (wechat)</span>
+            </button>
+            <button class="sandbox-scen-btn" type="button" data-q="cagro" data-status="1-Edit 容错纠偏 → cargo.exe">
+              <span class="zh">容错拼写纠偏 (cagro)</span><span class="en">Typo Tolerance (cagro)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sandbox Results List -->
+        <div class="sandbox-list" id="sb-list">
+          <!-- Injected via JS -->
+        </div>
+
+        <!-- QuickLook Floating Box -->
+        <div class="sandbox-quicklook-preview" id="sb-quicklook" style="display:none;">
+          <div style="display:flex; align-items:center; gap:12px; min-width:0;">
+            <div style="width:36px; height:36px; border-radius:8px; background:rgba(0,120,212,0.15); color:#0078d4; display:grid; place-items:center; font-family:var(--mono); font-size:12px; font-weight:700; flex:none;">ZIP</div>
+            <div style="min-width:0;">
+              <div style="font-size:13.5px; font-weight:600; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" id="ql-title">dist/CleanFlow-Pro-v0.5.0-win64.zip</div>
+              <div style="font-size:11.5px; font-family:var(--mono); color:var(--text-3); margin-top:2px;" id="ql-desc">4.82 MB · 零解压内存透视已就绪 · SHA256 完整性已校验</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; flex:none;">
+            <span style="font-size:11px; font-family:var(--mono); color:#10b981; background:rgba(16,185,129,0.12); padding:3px 8px; border-radius:4px; border:1px solid rgba(16,185,129,0.25);">ZERO-DECOMPRESS OK</span>
+          </div>
+        </div>
+
+        <!-- Sandbox Window Footer -->
+        <div class="sandbox-footer-bar">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <kbd style="font-size:10px; padding:2px 6px;">Space</kbd>
+            <span><span class="zh">点击任意条目体验「Space 零解压秒级透视」与清理执行反馈</span><span class="en">Click any item to preview or trigger action</span></span>
+          </div>
+          <span style="font-family:var(--mono); font-size:11.5px; color:#0078d4;">MFT HARDWARE ENGINE</span>
+        </div>
       </div>
     </div>
   </div>
@@ -2057,6 +2368,214 @@ footer { padding: 52px 0 calc(44px + env(safe-area-inset-bottom)); border-top: 1
       showToast("指令执行成功", "已在原生前台调起对应目标");
     }
   };
+
+  /* Search Live Motion Demo (Interactive Sandbox Engine) */
+  var sbInput = document.getElementById("sb-input");
+  var sbStatus = document.getElementById("sb-status");
+  var sbList = document.getElementById("sb-list");
+  var sbQuicklook = document.getElementById("sb-quicklook");
+  var qlTitle = document.getElementById("ql-title");
+  var qlDesc = document.getElementById("ql-desc");
+  var sbButtons = document.querySelectorAll(".sandbox-scen-btn");
+
+  var SB_DATA = {
+    "q=C: cmd": [
+      {
+        icon: "EXE",
+        bg: "#0078d4",
+        title: "cmd.exe (Windows 命令提示符系统宿主)",
+        path: "C:\\Windows\\System32\\cmd.exe",
+        size: "301 KB",
+        action: "快速透视",
+        qlTitle: "cmd.exe · PE64 二进制",
+        qlDesc: "301 KB · MFT 簇链偏移 0x0041F0 · 签名有效 (Microsoft Windows)"
+      },
+      {
+        icon: "CMD",
+        bg: "#0284c7",
+        title: "CleanFlow_Build.cmd (工程构建与静态化打包脚本)",
+        path: "C:\\Users\\Admin\\AppData\\Local\\CleanFlow\\cleanflow_build.cmd",
+        size: "14.2 KB",
+        action: "代码预览",
+        qlTitle: "cleanflow_build.cmd · UTF-8 批处理",
+        qlDesc: "14.2 KB · 包含 287 行测试命令 · 零解压内存秒读"
+      },
+      {
+        icon: "LOG",
+        bg: "#64748b",
+        title: "cmd_telemetry.log (终端命令执行审计日志)",
+        path: "C:\\ProgramData\\CleanFlow\\logs\\cmd_telemetry.log",
+        size: "1.82 MB",
+        action: "安全清理",
+        qlTitle: "cmd_telemetry.log · 纯文本",
+        qlDesc: "1.82 MB · 已过期历史记录 · 可安全清理"
+      }
+    ],
+    "q=D:": [
+      {
+        icon: "DIR",
+        bg: "#10b981",
+        title: "D:\\code (研发工程主工作区根目录)",
+        path: "D:\\code",
+        size: "24.8 GB",
+        action: "极速定位",
+        qlTitle: "D:\\code · NTFS 根节点",
+        qlDesc: "MFT 浅层瞬时直达 (23.91ms) · 包含 42 个活动仓库"
+      },
+      {
+        icon: "DIR",
+        bg: "#10b981",
+        title: "D:\\CleanFlow_Moved (NTFS 软搬家物理承载仓库)",
+        path: "D:\\CleanFlow_Moved",
+        size: "48.2 GB",
+        action: "Junction 检查",
+        qlTitle: "D:\\CleanFlow_Moved · Junction 目标库",
+        qlDesc: "已承接微信/Docker 迁移资产 · 映射状态健康"
+      },
+      {
+        icon: "VHD",
+        bg: "#8b5cf6",
+        title: "D:\\WSL_Backup\\ubuntu.vhdx (Linux 虚拟巨盘归档)",
+        path: "D:\\WSL_Backup\\ubuntu.vhdx",
+        size: "18.4 GB",
+        action: "VHDX 压缩",
+        qlTitle: "ubuntu.vhdx · 虚拟磁盘",
+        qlDesc: "动态分配模式 · 建议执行宿主机 Optimize-VHD 物理压缩"
+      }
+    ],
+    "wechat": [
+      {
+        icon: "WX",
+        bg: "#10b981",
+        title: "xwechat_files\\msg\\video (微信过期短视频与朋友圈缓存)",
+        path: "D:\\WeChat Files\\wxid_user\\msg\\video",
+        size: "6.45 GB",
+        action: "移入回收站",
+        qlTitle: "微信过期视频缓存池",
+        qlDesc: "6.45 GB · 包含 1,420 个 30 天未读视频 · 可安全释放"
+      },
+      {
+        icon: "DUP",
+        bg: "#0ea5e9",
+        title: "FileStorage\\File (群聊重复接收的 (1)/(2) 文件副本)",
+        path: "D:\\WeChat Files\\wxid_user\\FileStorage\\File",
+        size: "3.18 GB",
+        action: "BLAKE3 去重",
+        qlTitle: "群聊重复文件副本池",
+        qlDesc: "3.18 GB · BLAKE3 内容哈希完全吻合 · 自动保留首件原件"
+      },
+      {
+        icon: "DB",
+        bg: "#8b5cf6",
+        title: "db_storage\\message.db (核心聊天记录库 · 底层熔断保护)",
+        path: "D:\\WeChat Files\\wxid_user\\db_storage\\message.db",
+        size: "1.82 GB",
+        action: "只读免碰",
+        qlTitle: "message.db · SQLite 数据库",
+        qlDesc: "核心聊天资产 · 受到 CleanFlow Pro 物理红线硬编码隔离保护"
+      }
+    ],
+    "cagro": [
+      {
+        icon: "EXE",
+        bg: "#0078d4",
+        title: "cargo.exe (1-Edit 容错命中：Rust 核心工具链包管理器)",
+        path: "C:\\Users\\Admin\\.cargo\\bin\\cargo.exe",
+        size: "18.6 MB",
+        action: "极速定位",
+        qlTitle: "cargo.exe · 拼写容错纠偏 (cagro → cargo)",
+        qlDesc: "18.6 MB · 容忍 1 处击键倒装 · MFT 影子索引瞬间命中"
+      },
+      {
+        icon: "TOML",
+        bg: "#f59e0b",
+        title: "Cargo.toml (CleanFlow Pro 工程核心元数据清单)",
+        path: "D:\\code\\cleanflow-pro\\Cargo.toml",
+        size: "4.8 KB",
+        action: "代码透视",
+        qlTitle: "Cargo.toml · 项目配置文件",
+        qlDesc: "4.8 KB · Rust 2024 Edition · 零解压秒读"
+      }
+    ]
+  };
+
+  function renderSandbox(scenarioKey) {
+    var items = SB_DATA[scenarioKey] || SB_DATA["q=C: cmd"];
+    if (!sbList) return;
+    sbList.innerHTML = "";
+    items.forEach(function(it, idx) {
+      var row = document.createElement("div");
+      row.className = "sandbox-row" + (idx === 0 ? " selected" : "");
+      row.innerHTML =
+        '<div class="sandbox-row-left">' +
+        '  <div class="sandbox-row-icon" style="background:' + it.bg + '">' + it.icon + '</div>' +
+        '  <div class="sandbox-row-texts">' +
+        '    <div class="sandbox-row-title">' + it.title + '</div>' +
+        '    <div class="sandbox-row-path">' + it.path + '</div>' +
+        '  </div>' +
+        '</div>' +
+        '<div class="sandbox-row-right">' +
+        '  <span class="sandbox-row-size">' + it.size + '</span>' +
+        '  <button class="sandbox-action-btn" type="button">' + it.action + '</button>' +
+        '</div>';
+
+      row.addEventListener("click", function() {
+        document.querySelectorAll(".sandbox-row").forEach(function(r) { r.classList.remove("selected"); });
+        row.classList.add("selected");
+        showQuickLook(it.qlTitle, it.qlDesc);
+      });
+
+      var btn = row.querySelector(".sandbox-action-btn");
+      btn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        if (it.action === "移入回收站") {
+          btn.textContent = "已移入回收站";
+          btn.style.background = "#10b981";
+          btn.style.color = "#fff";
+          showToast("社办专清已完成", "安全释放 6.45 GB 过期视频缓存 · 核心聊天记录库 100% 完好");
+        } else if (it.action === "BLAKE3 去重") {
+          btn.textContent = "副本已清除";
+          btn.style.background = "#0ea5e9";
+          btn.style.color = "#fff";
+          showToast("3-Tier 去重完成", "自动保留最早原件，安全移除重复接收的 (1)/(2) 副本 3.18 GB");
+        } else if (it.action === "只读免碰") {
+          showToast("物理红线只读保护中", "核心数据受到 CleanFlow Pro 底层代码严格隔离，绝对免碰防误删");
+        } else {
+          showQuickLook(it.qlTitle, it.qlDesc);
+          showToast("Space 零解压秒级透视就绪", it.title + " · 内存流式解构完成");
+        }
+      });
+
+      sbList.appendChild(row);
+    });
+
+    if (items.length > 0) {
+      showQuickLook(items[0].qlTitle, items[0].qlDesc);
+    }
+  }
+
+  function showQuickLook(title, desc) {
+    if (!sbQuicklook || !qlTitle || !qlDesc) return;
+    sbQuicklook.style.display = "flex";
+    qlTitle.textContent = title;
+    qlDesc.textContent = desc;
+  }
+
+  sbButtons.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      sbButtons.forEach(function(b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      var q = btn.getAttribute("data-q");
+      var status = btn.getAttribute("data-status");
+      if (sbInput) sbInput.value = q;
+      if (sbStatus) sbStatus.textContent = status;
+      renderSandbox(q);
+    });
+  });
+
+  if (sbInput && sbList) {
+    renderSandbox("q=C: cmd");
+  }
 
   window.toggleSwitch = function(btn) {
     var checked = btn.getAttribute("aria-checked") === "true";
